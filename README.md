@@ -9,13 +9,13 @@
 
 A modern React/Next.js component library for building admin dashboards and web applications with AdminLTE 4 styling and Bootstrap 5.3 — built for the Next.js App Router and React Server Components by [Colorlib](https://colorlib.com).
 
-**Status**: v0.1.0 (Early Release) · **Live demo:** [adminlte.io/themes/v4-react](https://adminlte.io/themes/v4-react/) _(coming soon)_
+**Status**: v0.1.0 (Early Release) · **Live demo:** [adminlte.io/themes/next-react](https://adminlte.io/themes/next-react/)
 
 <p align="center">
-  <a href="https://adminlte.io/themes/v4-react/">
+  <a href="https://adminlte.io/themes/next-react/">
     <img alt="AdminLTE React dashboard — light theme" src="docs/screenshots/dashboard-light.png" width="49%">
   </a>
-  <a href="https://adminlte.io/themes/v4-react/">
+  <a href="https://adminlte.io/themes/next-react/">
     <img alt="AdminLTE React dashboard — dark theme" src="docs/screenshots/dashboard-dark.png" width="49%">
   </a>
 </p>
