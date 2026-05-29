@@ -1,0 +1,30 @@
+{
+  "name": "adminlte-react-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.0",
+    "adminlte-react": "workspace:*",
+    "apexcharts": "^3.37.1",
+    "jsvectormap": "^1.5.3",
+    "sortablejs": "^1.15.0",
+    "tabulator-tables": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@types/node": "^20.10.0",
+    "@types/sortablejs": "^1.15.7",
+    "typescript": "^5.3.3"
+  }
+}

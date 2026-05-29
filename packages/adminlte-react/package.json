@@ -1,0 +1,77 @@
+{
+  "name": "adminlte-react",
+  "version": "0.1.0",
+  "description": "AdminLTE 4 React/Next.js component library",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./css": "./dist/css/adminlte.css"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": [
+    "./dist/css/adminlte.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ColorlibHQ/adminlte-react"
+  },
+  "bugs": {
+    "url": "https://github.com/ColorlibHQ/adminlte-react/issues"
+  },
+  "keywords": [
+    "admin",
+    "dashboard",
+    "template",
+    "react",
+    "next",
+    "bootstrap",
+    "components"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "next": ">=14.0.0"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@types/quill": "^1.3.10",
+    "@types/sortablejs": "^1.15.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "tsup": "^8.0.1",
+    "admin-lte": "^4.0.0",
+    "flatpickr": "^4.6.13",
+    "tom-select": "^2.2.2",
+    "tabulator-tables": "^6.0.0",
+    "quill": "^1.3.7",
+    "apexcharts": "^3.37.1",
+    "jsvectormap": "^1.5.3",
+    "sortablejs": "^1.15.0"
+  },
+  "scripts": {
+    "build": "tsup && npm run copy-css && npm run add-use-client",
+    "copy-css": "mkdir -p dist/css && cp node_modules/admin-lte/dist/css/adminlte.css dist/css/",
+    "add-use-client": "node add-use-client.js",
+    "type-check": "tsc --noEmit",
+    "lint": "echo 'linting...'",
+    "dev": "tsup --watch"
+  }
+}
