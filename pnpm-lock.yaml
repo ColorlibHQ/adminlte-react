@@ -7,55 +7,6 @@ settings:
 importers:
 
   .:
-    devDependencies:
-      typescript:
-        specifier: ^5.3.3
-        version: 5.9.3
-
-  apps/demo:
-    dependencies:
-      adminlte-react:
-        specifier: workspace:*
-        version: link:../../packages/adminlte-react
-      apexcharts:
-        specifier: ^3.37.1
-        version: 3.54.1
-      jsvectormap:
-        specifier: ^1.5.3
-        version: 1.7.0
-      next:
-        specifier: ^14.0.0
-        version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.3.1(react@18.3.1)
-      sortablejs:
-        specifier: ^1.15.0
-        version: 1.15.7
-      tabulator-tables:
-        specifier: ^6.4.0
-        version: 6.4.0
-    devDependencies:
-      '@types/node':
-        specifier: ^20.10.0
-        version: 20.19.41
-      '@types/react':
-        specifier: ^18.2.43
-        version: 18.3.29
-      '@types/react-dom':
-        specifier: ^18.2.17
-        version: 18.3.7(@types/react@18.3.29)
-      '@types/sortablejs':
-        specifier: ^1.15.7
-        version: 1.15.9
-      typescript:
-        specifier: ^5.3.3
-        version: 5.9.3
-
-  packages/adminlte-react:
     dependencies:
       next:
         specifier: '>=14.0.0'
@@ -106,6 +57,49 @@ importers:
       tsup:
         specifier: ^8.0.1
         version: 8.5.1(postcss@8.4.31)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.9.3
+
+  demo:
+    dependencies:
+      adminlte-react:
+        specifier: workspace:*
+        version: link:..
+      apexcharts:
+        specifier: ^3.37.1
+        version: 3.54.1
+      jsvectormap:
+        specifier: ^1.5.3
+        version: 1.7.0
+      next:
+        specifier: ^14.0.0
+        version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
+      sortablejs:
+        specifier: ^1.15.0
+        version: 1.15.7
+      tabulator-tables:
+        specifier: ^6.4.0
+        version: 6.4.0
+    devDependencies:
+      '@types/node':
+        specifier: ^20.10.0
+        version: 20.19.41
+      '@types/react':
+        specifier: ^18.2.43
+        version: 18.3.29
+      '@types/react-dom':
+        specifier: ^18.2.17
+        version: 18.3.7(@types/react@18.3.29)
+      '@types/sortablejs':
+        specifier: ^1.15.7
+        version: 1.15.9
       typescript:
         specifier: ^5.3.3
         version: 5.9.3

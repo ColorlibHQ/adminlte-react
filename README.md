@@ -5,7 +5,7 @@ A modern React/Next.js component library for building admin dashboards and web a
 **Status**: v0.1.0 (Early Release)
 
 > **Documentation:** Full guides and an API reference for every component, hook, and
-> context live in the demo app under `/docs`. Run `pnpm dev` and open
+> context live in the demo app under `/docs`. Run `pnpm demo` and open
 > [`/docs/introduction`](http://localhost:3000/docs/introduction). A condensed reference
 > follows below, and the release history is in the [CHANGELOG](./CHANGELOG.md).
 
