@@ -24,7 +24,13 @@ pnpm demo         # run the demo app (next dev) — alias for the demo workspace
 pnpm demo:build   # production build of the demo
 ```
 
-Demo-only (`cd demo`): standard `next dev` / `next build` / `next start` / `pnpm type-check`.
+Demo-only (`cd demo`): standard `next dev` / `next build` / `next start` / `pnpm type-check`, plus `pnpm export`.
+
+### Subpath static export (adminlte.io hosting)
+`cd demo && pnpm export` runs `EXPORT=true next build` → a static `out/` configured for **`https://adminlte.io/themes/next-react/`** (sibling of the v4 HTML demo at `/themes/v4/`). The subpath is **gated behind the `EXPORT` env** so local `pnpm demo` (dev) stays at the domain root. Mechanics (all in the demo, the published library is untouched):
+- `next.config.mjs` sets `output:'export'`, `trailingSlash:true`, `assetPrefix:'/themes/next-react'` (prefixes `_next/`), and exposes `NEXT_PUBLIC_BASE_PATH`.
+- `demo/lib/base.ts` `withBase()` prefixes absolute paths; applied at the **data layer** for things whose value must match `usePathname` for active-state — `lib/menu.ts` (sidebar), `components/docs/sections.ts` (docs nav) — and for client-rendered data (`lib/chart-data.ts` avatars) + the shell (`demo-layout.tsx` logo/images/topbar links).
+- `components/subpath-links.tsx` (`<SubpathLinks/>`, mounted in `app/layout.tsx`) is an idempotent client shim that prefixes the long tail of server-rendered `<a href="/…">` and `<img src="/assets/…">`. **Gotcha:** the shim can't reliably fix React-*controlled* `img src` inside interactive client widgets (re-render reverts the DOM mutation) — those must be prefixed at the data source instead (that's why `chart-data.ts` is prefixed directly). Verified: `out/` served at the subpath renders home + docs with **0 failed requests**.
 
 The demo imports the compiled `dist/`, not `src/`. After editing library source, rebuild it (`pnpm build`, or keep `pnpm dev` running in one terminal) before the demo reflects the change — run `pnpm dev` (library watch) and `pnpm demo` side by side during development.
 

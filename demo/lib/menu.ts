@@ -1,6 +1,7 @@
 import type { MenuNode } from 'adminlte-react'
+import { withBase } from './base'
 
-export const menuItems: MenuNode[] = [
+const rawMenu: MenuNode[] = [
   {
     type: 'group',
     text: 'Dashboard',
@@ -209,3 +210,18 @@ export const menuItems: MenuNode[] = [
     iconColor: 'info',
   },
 ]
+
+// Prefix item hrefs with the deploy base path (no-op at root). '#' placeholders
+// are left untouched. Done at the data layer so the sidebar's active-state match
+// (which compares against usePathname) stays correct under a subpath.
+function prefixMenu(nodes: MenuNode[]): MenuNode[] {
+  return nodes.map(n =>
+    n.type === 'item'
+      ? { ...n, href: withBase(n.href) }
+      : n.type === 'group'
+        ? { ...n, children: prefixMenu(n.children) }
+        : n
+  )
+}
+
+export const menuItems: MenuNode[] = prefixMenu(rawMenu)

@@ -1,3 +1,5 @@
+import { withBase } from '../../lib/base'
+
 export interface DocsLink {
   label: string
   href: string
@@ -13,7 +15,7 @@ export interface DocsSection {
  * 'use client') so it can be imported by both Server Components (the /docs
  * overview) and the client-side DocsNav without crossing the RSC boundary.
  */
-export const docsSections: DocsSection[] = [
+const rawSections: DocsSection[] = [
   {
     heading: 'Getting Started',
     links: [
@@ -42,3 +44,10 @@ export const docsSections: DocsSection[] = [
     ],
   },
 ]
+
+// Prefix hrefs with the deploy base path (no-op at root) so docs nav works and
+// its active-state matches usePathname under a subpath.
+export const docsSections: DocsSection[] = rawSections.map(section => ({
+  ...section,
+  links: section.links.map(link => ({ ...link, href: withBase(link.href) })),
+}))

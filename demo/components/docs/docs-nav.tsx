@@ -3,8 +3,11 @@
 import { usePathname } from 'next/navigation'
 import { docsSections } from './sections'
 
+const stripSlash = (s: string) => (s.length > 1 ? s.replace(/\/$/, '') : s)
+
 export function DocsNav() {
   const pathname = usePathname()
+  const current = stripSlash(pathname)
 
   return (
     <nav className="docs-nav" aria-label="Documentation sections">
@@ -13,7 +16,7 @@ export function DocsNav() {
           <p className="docs-nav-heading">{section.heading}</p>
           <ul className="nav flex-column mb-2">
             {section.links.map(link => {
-              const active = pathname === link.href
+              const active = current === stripSlash(link.href)
               return (
                 <li key={link.href} className="nav-item">
                   <a
