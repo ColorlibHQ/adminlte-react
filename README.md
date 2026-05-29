@@ -1,8 +1,25 @@
 # AdminLTE React
 
-A modern React/Next.js component library for building admin dashboards and web applications with AdminLTE 4 styling and Bootstrap 5.3.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#license)
+[![React 18+](https://img.shields.io/badge/React-18+-149eca.svg?logo=react&logoColor=white)](https://react.dev)
+[![Next.js 14+](https://img.shields.io/badge/Next.js-14+-000000.svg?logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![Bootstrap 5.3](https://img.shields.io/badge/Bootstrap-5.3-7952b3.svg?logo=bootstrap&logoColor=white)](https://getbootstrap.com/docs/5.3/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![RSC ready](https://img.shields.io/badge/RSC-ready-000000.svg)](#performance)
 
-**Status**: v0.1.0 (Early Release)
+A modern React/Next.js component library for building admin dashboards and web applications with AdminLTE 4 styling and Bootstrap 5.3 — built for the Next.js App Router and React Server Components by [Colorlib](https://colorlib.com).
+
+**Status**: v0.1.0 (Early Release) · **Live demo:** [preview.colorlib.com/theme/adminlte-react](https://preview.colorlib.com/theme/adminlte-react/) _(coming soon)_
+
+<!-- TODO: replace the placeholder images below with real captures committed under docs/screenshots/ (dashboard-light.png + dashboard-dark.png). See docs/screenshots/README.md. -->
+<p align="center">
+  <a href="https://preview.colorlib.com/theme/adminlte-react/">
+    <img alt="AdminLTE React dashboard — light theme" src="https://placehold.co/800x500/f1f4f9/2b3a4a?text=AdminLTE+React%0A%E2%80%94+Dashboard+(Light)" width="49%">
+  </a>
+  <a href="https://preview.colorlib.com/theme/adminlte-react/">
+    <img alt="AdminLTE React dashboard — dark theme" src="https://placehold.co/800x500/1b2531/cfd8e3?text=AdminLTE+React%0A%E2%80%94+Dashboard+(Dark)" width="49%">
+  </a>
+</p>
 
 > **Documentation:** Full guides and an API reference for every component, hook, and
 > context live in the demo app under `/docs`. Run `pnpm demo` and open
@@ -326,6 +343,78 @@ Modern evergreen browsers — latest Chrome, Firefox, Safari, and Edge.
 Contributions are welcome! Open an issue or pull request on
 [GitHub](https://github.com/ColorlibHQ/adminlte-react). Build the library with
 `pnpm build` and run `pnpm type-check` before submitting.
+
+## Upgrade to a Premium Dashboard
+
+Need advanced features, more pages, and dedicated support? Explore Colorlib's collection of professional admin templates on [DashboardPack](https://dashboardpack.com/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react).
+
+<!-- TODO: replace the placeholder thumbnails with unique screenshots committed under docs/screenshots/dashboardpack/ (apex.png, zenith.png, haze.png, tailpanel.png, admindek.png, svelteforge.png). -->
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
+        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=Apex+Dashboard" alt="Apex Dashboard — Next.js admin template with shadcn/ui" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>Apex Dashboard</strong></a>
+      <br>
+      <sub>Next.js 16 + React 19 + Tailwind CSS v4 + shadcn/ui. 5 dashboard variants, 20+ app pages, 125+ routes, full CRUD.</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/zenith-shadcn/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
+        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=Zenith+Dashboard" alt="Zenith — minimal Next.js admin dashboard with shadcn/ui" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/zenith-shadcn/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>Zenith Dashboard</strong></a>
+      <br>
+      <sub>Next.js 16 + React 19 + Tailwind CSS v4 + shadcn/ui. Achromatic design, 50+ pages, 6 dashboards, live theme customizer.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
+        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=Haze" alt="Haze — Nuxt 4 admin dashboard with 92+ pages" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>Haze</strong></a>
+      <br>
+      <sub>Nuxt 4 + Nuxt UI v4 + Tailwind CSS v4. 92+ pages, 7 layouts, 5 dashboards, RTL, i18n, mock API layer.</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/tailpanel/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
+        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=TailPanel" alt="TailPanel — React and Tailwind CSS admin panel" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/tailpanel/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>TailPanel</strong></a>
+      <br>
+      <sub>React + TypeScript + Tailwind CSS + Vite. 9 dashboard designs, dark and light themes.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
+        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=Admindek" alt="Admindek — feature-rich Bootstrap 5 dashboard" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>Admindek</strong></a>
+      <br>
+      <sub>Bootstrap 5 + vanilla JS. 100+ components, dark/light modes, RTL support, 10 color presets.</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://dashboardpack.com/theme-details/svelteforge-premium/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
+        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=SvelteForge" alt="SvelteForge Premium — SvelteKit admin dashboard" width="100%">
+      </a>
+      <br>
+      <a href="https://dashboardpack.com/theme-details/svelteforge-premium/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>SvelteForge Premium</strong></a>
+      <br>
+      <sub>SvelteKit + Tailwind CSS v4. 30+ wired-up modules, multi-tenant from row zero, dark/light/system mode.</sub>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <a href="https://dashboardpack.com/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>View All Premium Templates →</strong></a>
+</p>
 
 ## License
 

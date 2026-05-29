@@ -27,7 +27,9 @@ export const docsSections: DocsSection[] = [
     links: [
       { label: 'Layout & Shell', href: '/docs/layout' },
       { label: 'Theming & Dark Mode', href: '/docs/theming' },
+      { label: 'Command Palette (⌘K)', href: '/docs/command-palette' },
       { label: 'Plugins & Dynamic Imports', href: '/docs/plugins' },
+      { label: 'Accessibility', href: '/docs/accessibility' },
     ],
   },
   {
