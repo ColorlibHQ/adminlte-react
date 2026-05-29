@@ -347,12 +347,11 @@ Contributions are welcome! Open an issue or pull request on
 
 Need advanced features, more pages, and dedicated support? Explore Colorlib's collection of professional admin templates on [DashboardPack](https://dashboardpack.com/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react).
 
-<!-- TODO: replace the placeholder thumbnails with unique screenshots committed under docs/screenshots/dashboardpack/ (apex.png, zenith.png, haze.png, tailpanel.png, admindek.png, svelteforge.png). -->
 <table>
   <tr>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
-        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=Apex+Dashboard" alt="Apex Dashboard — Next.js admin template with shadcn/ui" width="100%">
+        <img src="docs/screenshots/dashboardpack/apex.png" alt="Apex Dashboard — Next.js admin template with shadcn/ui" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/apex-dashboard-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>Apex Dashboard</strong></a>
@@ -361,7 +360,7 @@ Need advanced features, more pages, and dedicated support? Explore Colorlib's co
     </td>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/zenith-shadcn/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
-        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=Zenith+Dashboard" alt="Zenith — minimal Next.js admin dashboard with shadcn/ui" width="100%">
+        <img src="docs/screenshots/dashboardpack/zenith.png" alt="Zenith — minimal Next.js admin dashboard with shadcn/ui" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/zenith-shadcn/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>Zenith Dashboard</strong></a>
@@ -372,7 +371,7 @@ Need advanced features, more pages, and dedicated support? Explore Colorlib's co
   <tr>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
-        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=Haze" alt="Haze — Nuxt 4 admin dashboard with 92+ pages" width="100%">
+        <img src="docs/screenshots/dashboardpack/haze.png" alt="Haze — Nuxt 4 admin dashboard with 92+ pages" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/haze-dashboard-nuxt/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>Haze</strong></a>
@@ -381,7 +380,7 @@ Need advanced features, more pages, and dedicated support? Explore Colorlib's co
     </td>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/tailpanel/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
-        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=TailPanel" alt="TailPanel — React and Tailwind CSS admin panel" width="100%">
+        <img src="docs/screenshots/dashboardpack/tailpanel.png" alt="TailPanel — React and Tailwind CSS admin panel" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/tailpanel/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>TailPanel</strong></a>
@@ -392,7 +391,7 @@ Need advanced features, more pages, and dedicated support? Explore Colorlib's co
   <tr>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
-        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=Admindek" alt="Admindek — feature-rich Bootstrap 5 dashboard" width="100%">
+        <img src="docs/screenshots/dashboardpack/admindek.png" alt="Admindek — feature-rich Bootstrap 5 dashboard" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>Admindek</strong></a>
@@ -401,7 +400,7 @@ Need advanced features, more pages, and dedicated support? Explore Colorlib's co
     </td>
     <td align="center" width="50%">
       <a href="https://dashboardpack.com/theme-details/svelteforge-premium/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react">
-        <img src="https://placehold.co/600x360/eef2f7/2b3a4a?text=SvelteForge" alt="SvelteForge Premium — SvelteKit admin dashboard" width="100%">
+        <img src="docs/screenshots/dashboardpack/svelteforge.png" alt="SvelteForge Premium — SvelteKit admin dashboard" width="100%">
       </a>
       <br>
       <a href="https://dashboardpack.com/theme-details/svelteforge-premium/?utm_source=github&utm_medium=readme&utm_campaign=adminlte-react"><strong>SvelteForge Premium</strong></a>

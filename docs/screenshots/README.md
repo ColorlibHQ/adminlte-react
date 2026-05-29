@@ -1,33 +1,28 @@
 # README screenshots
 
-The root `README.md` currently uses `placehold.co` placeholder images. Replace them with
-real captures committed here, then swap the `src` URLs in `README.md` to point at these
-files (e.g. `docs/screenshots/dashboard-light.png`).
+Images used by the root `README.md`. All are committed and live — this documents where
+they came from so they can be regenerated.
 
-## Hero (the live demo)
+## Hero (`dashboard-light.png`, `dashboard-dark.png`)
 
-Capture the demo dashboard in both themes, ~1600×1000 (2× for retina):
+The demo dashboard (`/`) in both themes, 1440×900 @2×, captured with Playwright + Chrome.
 
-| File | What to capture |
-| --- | --- |
-| `dashboard-light.png` | `/` (main dashboard), light mode |
-| `dashboard-dark.png`  | `/` (main dashboard), dark mode (toggle in the topbar) |
-
-How: `pnpm build && pnpm demo`, open <http://localhost:3000/>, screenshot. (Or wire a
-Playwright capture script.)
+Regenerate: `pnpm build && cd demo && PORT=3100 pnpm start`, then screenshot
+<http://localhost:3100/> (set `localStorage['lte-theme'] = 'dark'` before load for the dark
+shot).
 
 ## Premium thumbnails (`dashboardpack/`)
 
-Unique product shots for the "Upgrade to a Premium Dashboard" section, ~1200×720:
+Real, per-product dashboard shots for the "Upgrade to a Premium Dashboard" section,
+normalised to ~1520px wide. Sourced from each product's own repo / screenshot pipeline:
 
-| File | Product |
-| --- | --- |
-| `dashboardpack/apex.png`        | Apex Dashboard (Next.js) |
-| `dashboardpack/zenith.png`      | Zenith Dashboard (shadcn/ui) |
-| `dashboardpack/haze.png`        | Haze (Nuxt) |
-| `dashboardpack/tailpanel.png`   | TailPanel (React + Tailwind) |
-| `dashboardpack/admindek.png`    | Admindek (Bootstrap 5) |
-| `dashboardpack/svelteforge.png` | SvelteForge Premium (SvelteKit) |
+| File | Product | Source |
+| --- | --- | --- |
+| `dashboardpack/apex.png`        | Apex Dashboard (Next.js)    | `tailwind-templates/screenshots/dashboardpack-premium/apex-dashboard.png` |
+| `dashboardpack/zenith.png`      | Zenith (shadcn/ui)          | `tailwind-templates/screenshots/dashboardpack-premium/zenith-dashboard.png` |
+| `dashboardpack/haze.png`        | Haze (Nuxt)                 | `publishing-tools/haze-next/screenshots/light/dashboard.png` |
+| `dashboardpack/tailpanel.png`   | TailPanel (React + Tailwind)| `TailPanel/TailPanel-tailwindcss-admin-template.png` |
+| `dashboardpack/admindek.png`    | Admindek (Bootstrap 5)      | `dashboardpack-admindek-angular/screenshots/light/dashboard-ecommerce.png` |
+| `dashboardpack/svelteforge.png` | SvelteForge (SvelteKit)     | `publishing-tools/svelteforge-premium/screenshots/light/dashboard-light.png` |
 
-Keep these distinct from other Colorlib repos' screenshots (the README asks for unique
-shots per template).
+Each is a distinct light-mode dashboard, unique to its product.
