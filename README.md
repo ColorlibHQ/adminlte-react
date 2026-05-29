@@ -11,13 +11,12 @@ A modern React/Next.js component library for building admin dashboards and web a
 
 **Status**: v0.1.0 (Early Release) · **Live demo:** [preview.colorlib.com/theme/adminlte-react](https://preview.colorlib.com/theme/adminlte-react/) _(coming soon)_
 
-<!-- TODO: replace the placeholder images below with real captures committed under docs/screenshots/ (dashboard-light.png + dashboard-dark.png). See docs/screenshots/README.md. -->
 <p align="center">
   <a href="https://preview.colorlib.com/theme/adminlte-react/">
-    <img alt="AdminLTE React dashboard — light theme" src="https://placehold.co/800x500/f1f4f9/2b3a4a?text=AdminLTE+React%0A%E2%80%94+Dashboard+(Light)" width="49%">
+    <img alt="AdminLTE React dashboard — light theme" src="docs/screenshots/dashboard-light.png" width="49%">
   </a>
   <a href="https://preview.colorlib.com/theme/adminlte-react/">
-    <img alt="AdminLTE React dashboard — dark theme" src="https://placehold.co/800x500/1b2531/cfd8e3?text=AdminLTE+React%0A%E2%80%94+Dashboard+(Dark)" width="49%">
+    <img alt="AdminLTE React dashboard — dark theme" src="docs/screenshots/dashboard-dark.png" width="49%">
   </a>
 </p>
 
