@@ -21,6 +21,9 @@ export default tseslint.config(
       'react-hooks/exhaustive-deps': 'warn',
       'react-hooks/set-state-in-effect': 'warn',
       'react-hooks/refs': 'warn',
+      // false-positive on dependency-injected components (e.g. the sidebar's
+      // `useLinkComponent()`, a stable component pulled from context)
+      'react-hooks/static-components': 'warn',
       'no-empty': ['warn', { allowEmptyCatch: true }],
     },
   }

@@ -7,7 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-_No unreleased changes yet._
+### Added
+
+#### UI element components
+
+- `Badge` — contrast-aware `text-bg-*` label; `pill` and `positioned` (overlay) variants.
+- `Breadcrumb` — data-driven trail; last item renders as the active page; optional `divider`.
+- `Pagination` — controlled, windowed with ellipses; renders `<button>`s when given
+  `onPageChange`, otherwise `<a>`; `size`, `siblingCount`, and `align` options.
+- `Spinner` — `border`/`grow` variants with an accessible status label.
+- `Avatar` / `AvatarGroup` — image or initials fallback, presence dot, overlapping stacks.
+- `ListGroup` / `ListGroupItem` — item renders as `<a>`, `<button>`, or `<div>` based on its
+  props (`href`/`onClick`/`action`); `active`, `disabled`, contextual `theme`.
+- `Table` — generic, column-driven table (`columns` + `data`, custom cell `render`, `rowKey`)
+  with `striped`/`hover`/`bordered`/`small`/`responsive` options.
+- `Dropdown` — items, dividers, headers, icons; `split`, `direction`, `align`, outline variant
+  (driven by the Bootstrap JS bundle).
+- `Carousel` — slides with captions, indicators, controls, fade, autoplay (Bootstrap JS bundle).
+- `Offcanvas` / `OffcanvasTrigger` — slide-in panel with header/footer and a paired trigger
+  (Bootstrap JS bundle).
+- `Stepper` — controlled progress/wizard stepper (horizontal or vertical, optional clickable steps).
+
+#### Navigation
+
+- `LinkProvider` / `useLinkComponent` and a `linkComponent` prop on `DashboardLayout` — inject a
+  router link (e.g. an adapter around `next/link`) so sidebar navigation is client-side. Defaults
+  to a plain `<a>`, keeping the library framework-agnostic.
+
+### Tested
+
+- Vitest unit tests for pure logic and presentational components.
 
 ## [0.1.0] - 2026-05-29
 
