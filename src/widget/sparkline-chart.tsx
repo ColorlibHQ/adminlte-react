@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import type { ApexOptions } from 'apexcharts'
 
 export interface SparklineChartProps {
   id: string
@@ -20,7 +21,7 @@ export function SparklineChart({ id, data }: SparklineChartProps) {
       const ApexCharts = (await import('apexcharts')).default
       if (cancelled || !containerRef.current) return
 
-      const options = {
+      const options: ApexOptions = {
         series: [{ data }],
         chart: {
           type: 'area',

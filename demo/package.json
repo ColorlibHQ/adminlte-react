@@ -12,20 +12,20 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "next": "^14.0.0",
     "adminlte-react": "workspace:*",
-    "apexcharts": "^3.37.1",
-    "jsvectormap": "^1.5.3",
-    "sortablejs": "^1.15.0",
+    "apexcharts": "^5.13.0",
+    "jsvectormap": "^1.7.0",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "sortablejs": "^1.15.7",
     "tabulator-tables": "^6.4.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@types/node": "^20.10.0",
-    "@types/sortablejs": "^1.15.7",
-    "typescript": "^5.3.3"
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@types/sortablejs": "^1.15.9",
+    "typescript": "^6.0.3"
   }
 }

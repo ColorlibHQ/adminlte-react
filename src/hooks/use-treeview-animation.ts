@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 export interface UseTreeviewAnimationResult {
-  ref: React.RefObject<HTMLUListElement>
+  ref: React.RefObject<HTMLUListElement | null>
   style: React.CSSProperties
 }
 

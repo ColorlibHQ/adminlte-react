@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next'
 
+export const dynamic = 'force-static'
+
 const SITE = 'https://adminlte.io/themes/next-react'
 
 // Primary public routes (trailing slash to match next.config trailingSlash: true)
