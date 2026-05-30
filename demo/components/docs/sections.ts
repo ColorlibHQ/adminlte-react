@@ -38,6 +38,7 @@ const rawSections: DocsSection[] = [
     heading: 'API Reference',
     links: [
       { label: 'Widgets', href: '/docs/components/widgets' },
+      { label: 'UI Elements', href: '/docs/components/elements' },
       { label: 'Forms', href: '/docs/components/forms' },
       { label: 'Tools', href: '/docs/components/tools' },
       { label: 'Hooks & Context', href: '/docs/hooks' },

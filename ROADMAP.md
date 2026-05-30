@@ -40,8 +40,11 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
 - [ ] C1. Side-by-side visual diff of each page vs `adminlte.io/themes/v4`; match any drift
 
 ## D. Library completeness (stop hand-writing Bootstrap in pages)
-- [ ] D1. Typed components: `Pagination`, `Breadcrumb`, `Badge`, `Dropdown`, `ListGroup`,
-      `Spinner`, `Avatar`/`AvatarGroup`, `Table`, `Carousel`, `Offcanvas`, `Stepper`
+- [x] D1. Typed components: `Badge`, `Breadcrumb`, `Pagination`, `Spinner`, `Avatar`/`AvatarGroup`,
+      `ListGroup`/`ListGroupItem`, `Table` (generic, column-driven), `Dropdown`, `Carousel`,
+      `Offcanvas`/`OffcanvasTrigger`, `Stepper`. All exported + typed; Dropdown/Carousel/Offcanvas
+      use the Bootstrap JS bundle (data attributes). Live showcase at `/docs/components/elements`
+      (verified: all render, dropdown/offcanvas/pagination interactive, no console errors).
 
 ## A5. Showcase plugin-backed components live (not just docs code)
 - [x] Editor (Quill 2) on `mailbox/compose`; InputFlatpickr + InputTomSelect on
