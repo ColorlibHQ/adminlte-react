@@ -26,6 +26,8 @@ const files: FileRow[] = [
 
 export default function Page() {
   const [view, setView] = useState<'grid' | 'list'>('grid')
+  const [query, setQuery] = useState('')
+  const shown = files.filter(f => f.name.toLowerCase().includes(query.trim().toLowerCase()))
 
   return (
     <AppContent
@@ -203,6 +205,8 @@ export default function Page() {
                   className="form-control"
                   placeholder="Search files…"
                   aria-label="Search files"
+                  value={query}
+                  onChange={e => setQuery(e.target.value)}
                 />
               </div>
               <div className="btn-group btn-group-sm" role="group" aria-label="View">
@@ -236,7 +240,7 @@ export default function Page() {
                 id="grid-view"
                 className={`row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3${view === 'grid' ? '' : ' d-none'}`}
               >
-                {files.map((file) => (
+                {shown.map((file) => (
                   <div className="col" key={file.name}>
                     <a
                       href="#"
@@ -287,7 +291,7 @@ export default function Page() {
                       </tr>
                     </thead>
                     <tbody>
-                      {files.map((file) => (
+                      {shown.map((file) => (
                         <tr key={file.name}>
                           <td>
                             <i className={`bi ${file.icon} ${file.iconColor} me-2`} aria-hidden="true"></i>
