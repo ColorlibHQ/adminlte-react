@@ -1,4 +1,4 @@
-import { AppContent, Card, Callout } from 'adminlte-react'
+import { AppContent, Card, Callout, InputFlatpickr, InputTomSelect } from 'adminlte-react'
 
 export const metadata = { title: "Form Elements" }
 
@@ -364,6 +364,46 @@ export default function FormElementsPage() {
                 Can&apos;t check this
               </label>
             </div>
+          </Card>
+        </div>
+      </div>
+
+      {/* Plugin-backed inputs (library components — lazy-loaded) */}
+      <div className="row g-4">
+        <div className="col-md-6">
+          <Card title="Date & time pickers" theme="primary" variant="outline">
+            <InputFlatpickr label="Date" dateType="date" placeholder="Select a date" />
+            <InputFlatpickr
+              label="Date & time"
+              dateType="datetime"
+              placeholder="Select date & time"
+              options={{ enableTime: true, dateFormat: 'Y-m-d H:i' }}
+            />
+          </Card>
+        </div>
+        <div className="col-md-6">
+          <Card title="Advanced select (Tom Select)" theme="success" variant="outline">
+            <InputTomSelect
+              label="Skills — multi-select, type to create"
+              multiple
+              tomSelectOptions={{ create: true }}
+              options={[
+                { value: 'react', label: 'React' },
+                { value: 'next', label: 'Next.js' },
+                { value: 'ts', label: 'TypeScript' },
+                { value: 'css', label: 'CSS' },
+                { value: 'node', label: 'Node.js' },
+              ]}
+            />
+            <InputTomSelect
+              label="Country — searchable"
+              options={[
+                { value: 'us', label: 'United States' },
+                { value: 'lv', label: 'Latvia' },
+                { value: 'de', label: 'Germany' },
+                { value: 'jp', label: 'Japan' },
+              ]}
+            />
           </Card>
         </div>
       </div>
