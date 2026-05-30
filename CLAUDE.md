@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Root (`src/`, `package.json` named `adminlte-react`, `tsup.config.ts`, `dist/`) — the publishable library
 - `demo/` — demo + dev playground; consumes the library through the workspace link
 
-There is no test framework configured, and the library's `lint` script is a stub (`echo 'linting...'`). `pnpm type-check` (`tsc --noEmit`) is the real correctness gate.
+There is no test framework configured. `pnpm lint` runs ESLint (`eslint.config.mjs`: typescript-eslint + react-hooks) over `src/`; `pnpm type-check` (`tsc --noEmit`) is the strict type gate. Both pass clean — keep them that way.
 
 ## Commands
 
@@ -19,7 +19,7 @@ From the repo root (these operate on the **library**):
 pnpm build        # tsup → copy-css → add-use-client (see "The build pipeline" below)
 pnpm dev          # tsup --watch (rebuild the library on change)
 pnpm type-check   # tsc --noEmit — the primary check before considering library work done
-pnpm lint         # no-op stub
+pnpm lint         # ESLint over src/ (typescript-eslint + react-hooks)
 pnpm demo         # run the demo app (next dev) — alias for the demo workspace
 pnpm demo:build   # production build of the demo
 ```
@@ -31,6 +31,10 @@ Demo-only (`cd demo`): standard `next dev` / `next build` / `next start` / `pnpm
 - `next.config.mjs` sets `output:'export'`, `trailingSlash:true`, `assetPrefix:'/themes/next-react'` (prefixes `_next/`), and exposes `NEXT_PUBLIC_BASE_PATH`.
 - `demo/lib/base.ts` `withBase()` prefixes absolute paths; applied at the **data layer** for things whose value must match `usePathname` for active-state — `lib/menu.ts` (sidebar), `components/docs/sections.ts` (docs nav) — and for client-rendered data (`lib/chart-data.ts` avatars) + the shell (`demo-layout.tsx` logo/images/topbar links).
 - `components/subpath-links.tsx` (`<SubpathLinks/>`, mounted in `app/layout.tsx`) is an idempotent client shim that prefixes the long tail of server-rendered `<a href="/…">` and `<img src="/assets/…">`. **Gotcha:** the shim can't reliably fix React-*controlled* `img src` inside interactive client widgets (re-render reverts the DOM mutation) — those must be prefixed at the data source instead (that's why `chart-data.ts` is prefixed directly). Verified: `out/` served at the subpath renders home + docs with **0 failed requests**.
+- **Deploy** (Hetzner, `ssh hetzner` → `/var/www/adminlte.io/public/themes/next-react/`, owner `web_adminlte_io:www-data`): `COPYFILE_DISABLE=1 tar -C out -czf - . | ssh hetzner 'rm -rf $DEST && mkdir -p $DEST && tar -C $DEST -xzf -'` then chown/chmod, then purge Cloudflare (token + zone id are in the server's `wp-config.php` — extract with `awk -F"'" '/CLOUDFLARE_API_TOKEN/{print $4}'`). **Don't curl a URL before the files are deployed** — Cloudflare caches the 404 (`.css`/`.png`, 4h TTL). A custom nginx `location /themes/next-react/` (in `sites-enabled/adminlte.io.conf`) serves the themed `404.html` for unmatched subpaths instead of WordPress.
+
+### Per-page metadata & titles (demo)
+Every route sets a `<title>` via a `%s · AdminLTE React` template. **The template only reaches a layout's descendants, not across an ancestor's resolved string title** — so it's defined in each *group* layout (`(dashboard)`/`(auth)`/`(fullpage)` `layout.tsx`), not just the root. Server pages `export const metadata = { title: '…' }`; **client pages can't export metadata**, so they get a sibling `layout.tsx` with it. Don't bake `· AdminLTE React` into a page title — the template appends it (double-suffix otherwise).
 
 The demo imports the compiled `dist/`, not `src/`. After editing library source, rebuild it (`pnpm build`, or keep `pnpm dev` running in one terminal) before the demo reflects the change — run `pnpm dev` (library watch) and `pnpm demo` side by side during development.
 

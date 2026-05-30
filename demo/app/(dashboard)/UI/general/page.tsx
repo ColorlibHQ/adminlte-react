@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react'
 import { AppContent } from 'adminlte-react'
+import { ReactWidgetsDemo } from '@/components/react-widgets-demo'
 
 export const metadata = { title: "General UI" }
 
@@ -12,8 +13,15 @@ export default function Page() {
         { label: 'General UI Elements' },
       ]}
     >
+      <h4 className="mb-1">AdminLTE React components</h4>
+      <p className="text-secondary">Typed, state-driven components from the <code>adminlte-react</code> library — no jQuery, no Bootstrap JS required.</p>
+      <ReactWidgetsDemo />
+
+      <hr className="my-4" />
+
+      <h4 className="mb-3">Bootstrap components</h4>
       <div className="row g-4">
-                    
+
                     <div className="col-12">
                       <div className="callout callout-info">
                         For detailed documentation of Components visit

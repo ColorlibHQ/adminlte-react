@@ -250,6 +250,8 @@ export default function Dashboard() {
 - **`ApexChart`** / **`SparklineChart`** - ApexCharts wrappers (dynamic import)
 - **`WorldMap`** - jsVectorMap world map (dynamic import)
 - **`CommandPalette`** - ⌘K searchable navigator (+ `flattenMenuToCommands` helper)
+- **`Accordion`** / **`Tabs`** - Collapsible panels & tab/pill switcher (state-driven, no Bootstrap JS)
+- **`Toast`** / **`Tooltip`** - Controlled toast notification & hover/focus tooltip
 
 ### Forms
 
