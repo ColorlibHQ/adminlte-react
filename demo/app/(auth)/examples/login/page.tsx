@@ -1,4 +1,5 @@
 import { AuthLayout } from 'adminlte-react'
+import { DemoForm } from '@/components/demo-form'
 
 export const metadata = { title: "Login" }
 
@@ -7,18 +8,20 @@ export default function Page() {
     <AuthLayout authType="login" logo={<><b>Admin</b>LTE</>} logoHref="/">
       <p className="login-box-msg">Sign in to start your session</p>
 
-      <form action="#" method="post">
-        <div className="input-group mb-3">
-          <input type="email" className="form-control" placeholder="Email" />
+      <DemoForm successMessage="Signed in — welcome back! (demo)">
+        <div className="input-group mb-3 has-validation">
+          <input type="email" required className="form-control" placeholder="Email" aria-label="Email" />
           <div className="input-group-text">
             <span className="bi bi-envelope"></span>
           </div>
+          <div className="invalid-feedback">Please enter a valid email address.</div>
         </div>
-        <div className="input-group mb-3">
-          <input type="password" className="form-control" placeholder="Password" />
+        <div className="input-group mb-3 has-validation">
+          <input type="password" required minLength={6} className="form-control" placeholder="Password" aria-label="Password" />
           <div className="input-group-text">
             <span className="bi bi-lock-fill"></span>
           </div>
+          <div className="invalid-feedback">Password must be at least 6 characters.</div>
         </div>
         {/* begin::Row */}
         <div className="row">
@@ -42,7 +45,7 @@ export default function Page() {
           {/* /.col */}
         </div>
         {/* end::Row */}
-      </form>
+      </DemoForm>
 
       <div className="social-auth-links text-center mb-3 d-grid gap-2">
         <p>- OR -</p>
