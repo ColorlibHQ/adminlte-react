@@ -36,13 +36,15 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
       `Spinner`, `Avatar`/`AvatarGroup`, `Table`, `Carousel`, `Offcanvas`, `Stepper`
 
 ## A5. Showcase plugin-backed components live (not just docs code)
-- [ ] Editor (Quill 2) on `mailbox/compose`; InputFlatpickr + InputTomSelect on
-      `forms/elements`; `<Datatable>` (Tabulator) variant on `tables/data`. These are
-      currently only in `/docs` code blocks — wiring them live also runtime-tests them.
+- [x] Editor (Quill 2) on `mailbox/compose`; InputFlatpickr + InputTomSelect on
+      `forms/elements`. Tabulator was already live on `tables/data` (UsersTable). Plugin
+      CSS (Quill/Flatpickr/Tom Select) added to the layout. (The thin `<Datatable>`
+      wrapper itself remains docs-only — Tabulator is exercised directly.)
 
 ## E. Post-upgrade runtime smoke-test
-- [ ] E1. Verify Quill 2 editor — blocked on A5 (no live editor yet)
+- [x] E1. Quill 2 editor renders/works on `mailbox/compose` ✓
 - [x] E2. ApexCharts 5 + jsVectorMap render correctly on the dashboard ✓
+- [x] E3. Tabulator + Flatpickr + Tom Select verified rendering under the new stack ✓
 
 ## F. Quality / infra
 - [ ] F1. Tests — Playwright route smoke (every route 200, no console errors) + unit tests
