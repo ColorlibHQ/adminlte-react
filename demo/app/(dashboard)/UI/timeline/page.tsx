@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import { withBase } from '@/lib/base'
 import { AppContent } from 'adminlte-react'
 
 export const metadata = { title: "Timeline" }
@@ -90,10 +92,10 @@ export default function Page() {
                   <a href="#">Mina Lee</a> uploaded new photos
                 </h3>
                 <div className="timeline-body">
-                  <img src="/assets/img/user1-128x128.jpg" alt="..." />
-                  <img src="/assets/img/user1-128x128.jpg" alt="..." />
-                  <img src="/assets/img/user1-128x128.jpg" alt="..." />
-                  <img src="/assets/img/user1-128x128.jpg" alt="..." />
+                  <Image src={withBase("/assets/img/user1-128x128.jpg")} alt="..." width={128} height={128} loading="lazy" />
+                  <Image src={withBase("/assets/img/user1-128x128.jpg")} alt="..." width={128} height={128} loading="lazy" />
+                  <Image src={withBase("/assets/img/user1-128x128.jpg")} alt="..." width={128} height={128} loading="lazy" />
+                  <Image src={withBase("/assets/img/user1-128x128.jpg")} alt="..." width={128} height={128} loading="lazy" />
                 </div>
               </div>
             </div>

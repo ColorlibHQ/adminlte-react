@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+import { withBase } from '@/lib/base'
 import { AppContent, ApexChart } from 'adminlte-react'
 
 const visitorsChartSeries = [
@@ -150,11 +152,11 @@ export default function Page() {
                 <tbody>
                   <tr>
                     <td>
-                      <img
-                        src="/assets/img/default-150x150.png"
+                      <Image
+                        src={withBase("/assets/img/default-150x150.png")}
                         alt="Product 1"
                         className="rounded-circle img-size-32 me-2"
-                      />
+                      width={150} height={150} loading="lazy" />
                       Some Product
                     </td>
                     <td>$13 USD</td>
@@ -173,11 +175,11 @@ export default function Page() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        src="/assets/img/default-150x150.png"
+                      <Image
+                        src={withBase("/assets/img/default-150x150.png")}
                         alt="Product 1"
                         className="rounded-circle img-size-32 me-2"
-                      />
+                      width={150} height={150} loading="lazy" />
                       Another Product
                     </td>
                     <td>$29 USD</td>
@@ -196,11 +198,11 @@ export default function Page() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        src="/assets/img/default-150x150.png"
+                      <Image
+                        src={withBase("/assets/img/default-150x150.png")}
                         alt="Product 1"
                         className="rounded-circle img-size-32 me-2"
-                      />
+                      width={150} height={150} loading="lazy" />
                       Amazing Product
                     </td>
                     <td>$1,230 USD</td>
@@ -219,11 +221,11 @@ export default function Page() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        src="/assets/img/default-150x150.png"
+                      <Image
+                        src={withBase("/assets/img/default-150x150.png")}
                         alt="Product 1"
                         className="rounded-circle img-size-32 me-2"
-                      />
+                      width={150} height={150} loading="lazy" />
                       Perfect Item
                       <span className="badge text-bg-danger">NEW</span>
                     </td>

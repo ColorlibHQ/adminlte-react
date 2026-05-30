@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+import { withBase } from '@/lib/base'
 import { useEffect } from 'react'
 
 export default function Page() {
@@ -21,7 +23,7 @@ export default function Page() {
 
       <div className="lockscreen-item">
         <div className="lockscreen-image">
-          <img src="/assets/img/user1-128x128.jpg" alt="User Image" />
+          <Image src={withBase("/assets/img/user1-128x128.jpg")} alt="User Image" width={128} height={128} loading="lazy" />
         </div>
 
         <form className="lockscreen-credentials">

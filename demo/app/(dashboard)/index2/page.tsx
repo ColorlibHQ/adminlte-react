@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import { withBase } from '@/lib/base'
 import { AppContent, ApexChart, SparklineChart } from 'adminlte-react'
 
 const salesChartConfig = {
@@ -308,11 +310,11 @@ export default function Page() {
                         <span className="direct-chat-name float-start"> Alexander Pierce </span>
                         <span className="direct-chat-timestamp float-end"> 23 Jan 2:00 pm </span>
                       </div>
-                      <img
+                      <Image
                         className="direct-chat-img"
-                        src="/assets/img/user1-128x128.jpg"
+                        src={withBase("/assets/img/user1-128x128.jpg")}
                         alt="message user image"
-                      />
+                      width={128} height={128} loading="lazy" />
                       <div className="direct-chat-text">
                         Is this template really for free? That&apos;s unbelievable!
                       </div>
@@ -323,11 +325,11 @@ export default function Page() {
                         <span className="direct-chat-name float-end"> Sarah Bullock </span>
                         <span className="direct-chat-timestamp float-start"> 23 Jan 2:05 pm </span>
                       </div>
-                      <img
+                      <Image
                         className="direct-chat-img"
-                        src="/assets/img/user3-128x128.jpg"
+                        src={withBase("/assets/img/user3-128x128.jpg")}
                         alt="message user image"
-                      />
+                      width={128} height={128} loading="lazy" />
                       <div className="direct-chat-text">You better believe it!</div>
                     </div>
 
@@ -336,11 +338,11 @@ export default function Page() {
                         <span className="direct-chat-name float-start"> Alexander Pierce </span>
                         <span className="direct-chat-timestamp float-end"> 23 Jan 5:37 pm </span>
                       </div>
-                      <img
+                      <Image
                         className="direct-chat-img"
-                        src="/assets/img/user1-128x128.jpg"
+                        src={withBase("/assets/img/user1-128x128.jpg")}
                         alt="message user image"
-                      />
+                      width={128} height={128} loading="lazy" />
                       <div className="direct-chat-text">
                         Working with AdminLTE on a great new app! Wanna join?
                       </div>
@@ -351,11 +353,11 @@ export default function Page() {
                         <span className="direct-chat-name float-end"> Sarah Bullock </span>
                         <span className="direct-chat-timestamp float-start"> 23 Jan 6:10 pm </span>
                       </div>
-                      <img
+                      <Image
                         className="direct-chat-img"
-                        src="/assets/img/user3-128x128.jpg"
+                        src={withBase("/assets/img/user3-128x128.jpg")}
                         alt="message user image"
-                      />
+                      width={128} height={128} loading="lazy" />
                       <div className="direct-chat-text">I would love to.</div>
                     </div>
                   </div>
@@ -365,11 +367,11 @@ export default function Page() {
                     <ul className="contacts-list">
                       <li>
                         <a href="#">
-                          <img
+                          <Image
                             className="contacts-list-img"
-                            src="/assets/img/user1-128x128.jpg"
+                            src={withBase("/assets/img/user1-128x128.jpg")}
                             alt="User Avatar"
-                          />
+                          width={128} height={128} loading="lazy" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Count Dracula
@@ -381,11 +383,11 @@ export default function Page() {
                       </li>
                       <li>
                         <a href="#">
-                          <img
+                          <Image
                             className="contacts-list-img"
-                            src="/assets/img/user7-128x128.jpg"
+                            src={withBase("/assets/img/user7-128x128.jpg")}
                             alt="User Avatar"
-                          />
+                          width={128} height={128} loading="lazy" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Sarah Doe
@@ -397,11 +399,11 @@ export default function Page() {
                       </li>
                       <li>
                         <a href="#">
-                          <img
+                          <Image
                             className="contacts-list-img"
-                            src="/assets/img/user3-128x128.jpg"
+                            src={withBase("/assets/img/user3-128x128.jpg")}
                             alt="User Avatar"
-                          />
+                          width={128} height={128} loading="lazy" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Nadia Jolie
@@ -413,11 +415,11 @@ export default function Page() {
                       </li>
                       <li>
                         <a href="#">
-                          <img
+                          <Image
                             className="contacts-list-img"
-                            src="/assets/img/user5-128x128.jpg"
+                            src={withBase("/assets/img/user5-128x128.jpg")}
                             alt="User Avatar"
-                          />
+                          width={128} height={128} loading="lazy" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Nora S. Vans
@@ -429,11 +431,11 @@ export default function Page() {
                       </li>
                       <li>
                         <a href="#">
-                          <img
+                          <Image
                             className="contacts-list-img"
-                            src="/assets/img/user6-128x128.jpg"
+                            src={withBase("/assets/img/user6-128x128.jpg")}
                             alt="User Avatar"
-                          />
+                          width={128} height={128} loading="lazy" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               John K.
@@ -445,11 +447,11 @@ export default function Page() {
                       </li>
                       <li>
                         <a href="#">
-                          <img
+                          <Image
                             className="contacts-list-img"
-                            src="/assets/img/user8-128x128.jpg"
+                            src={withBase("/assets/img/user8-128x128.jpg")}
                             alt="User Avatar"
-                          />
+                          width={128} height={128} loading="lazy" />
                           <div className="contacts-list-info">
                             <span className="contacts-list-name">
                               Kenneth M.
@@ -509,10 +511,13 @@ export default function Page() {
                   <div className="row text-center m-1">
                     {latestMembers.map((member, idx) => (
                       <div className="col-3 p-2" key={idx}>
-                        <img
+                        <Image
                           className="img-fluid rounded-circle"
-                          src={`/assets/img/${member.img}`}
+                          src={withBase(`/assets/img/${member.img}`)}
                           alt="User Image"
+                          width={128}
+                          height={128}
+                          loading="lazy"
                         />
                         <a
                           className="btn fw-bold fs-7 text-secondary text-truncate w-100 p-0"
@@ -730,11 +735,11 @@ export default function Page() {
               <div className="px-2">
                 <div className="d-flex border-top py-2 px-1">
                   <div className="col-2">
-                    <img
-                      src="/assets/img/default-150x150.png"
+                    <Image
+                      src={withBase("/assets/img/default-150x150.png")}
                       alt="Product Image"
                       className="img-size-50"
-                    />
+                    width={150} height={150} loading="lazy" />
                   </div>
                   <div className="col-10">
                     <a href="#" className="fw-bold">
@@ -747,11 +752,11 @@ export default function Page() {
                 {/* /.item */}
                 <div className="d-flex border-top py-2 px-1">
                   <div className="col-2">
-                    <img
-                      src="/assets/img/default-150x150.png"
+                    <Image
+                      src={withBase("/assets/img/default-150x150.png")}
                       alt="Product Image"
                       className="img-size-50"
-                    />
+                    width={150} height={150} loading="lazy" />
                   </div>
                   <div className="col-10">
                     <a href="#" className="fw-bold">
@@ -766,11 +771,11 @@ export default function Page() {
                 {/* /.item */}
                 <div className="d-flex border-top py-2 px-1">
                   <div className="col-2">
-                    <img
-                      src="/assets/img/default-150x150.png"
+                    <Image
+                      src={withBase("/assets/img/default-150x150.png")}
                       alt="Product Image"
                       className="img-size-50"
-                    />
+                    width={150} height={150} loading="lazy" />
                   </div>
                   <div className="col-10">
                     <a href="#" className="fw-bold">
@@ -785,11 +790,11 @@ export default function Page() {
                 {/* /.item */}
                 <div className="d-flex border-top py-2 px-1">
                   <div className="col-2">
-                    <img
-                      src="/assets/img/default-150x150.png"
+                    <Image
+                      src={withBase("/assets/img/default-150x150.png")}
                       alt="Product Image"
                       className="img-size-50"
-                    />
+                    width={150} height={150} loading="lazy" />
                   </div>
                   <div className="col-10">
                     <a href="#" className="fw-bold">

@@ -32,7 +32,9 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
       keeps the library framework-agnostic. Demo `NavLink` uses `next/link` at the domain root
       (verified: 0 full reloads) and a plain `<a>` under the subpath export (no Next `basePath`
       there). Breadcrumbs stay `<a>` (AppContent is an RSC; can't consume context).
-- [ ] B2. `next/image` for static assets (lazy-load/sizing; `unoptimized` for export)
+- [x] B2. `next/image` for demo static assets (23 imgs across index2/index3/timeline/lockscreen):
+      `unoptimized` for export, lazy-load, intrinsic `width`/`height` (CLS), `src` via `withBase`
+      so the prefixed src is baked at build (no SubpathLinks revert). Verified live: all 200, no CLS.
 
 ## C. 1:1 content fidelity (visual)
 - [ ] C1. Side-by-side visual diff of each page vs `adminlte.io/themes/v4`; match any drift
