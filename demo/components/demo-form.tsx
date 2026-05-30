@@ -13,17 +13,24 @@ export function DemoForm({
   successMessage = 'Submitted successfully.',
   successTitle = 'Success',
   className,
+  id,
+  resetOnSubmit = true,
 }: {
   children: React.ReactNode
   successMessage?: string
   successTitle?: string
   className?: string
+  /** Lets a submit button outside the form trigger it via `form={id}`. */
+  id?: string
+  /** Clear fields after a successful submit. Off for settings/profile forms that keep their values. */
+  resetOnSubmit?: boolean
 }) {
   const [show, setShow] = useState(false)
 
   return (
     <>
       <form
+        id={id}
         className={`needs-validation${className ? ` ${className}` : ''}`}
         noValidate
         onSubmit={e => {
@@ -34,7 +41,7 @@ export function DemoForm({
             return
           }
           form.classList.remove('was-validated')
-          form.reset()
+          if (resetOnSubmit) form.reset()
           setShow(true)
         }}
       >

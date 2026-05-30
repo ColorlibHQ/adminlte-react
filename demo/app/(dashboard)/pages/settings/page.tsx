@@ -1,5 +1,6 @@
 import { AppContent } from 'adminlte-react'
 import { PersistSettings } from '@/components/persist-settings'
+import { DemoForm } from '@/components/demo-form'
 
 export const metadata = { title: "Settings" }
 
@@ -73,17 +74,19 @@ export default function Page() {
                   <h3 className="card-title">Account</h3>
                 </div>
                 <div className="card-body">
-                  <form className="row g-3">
+                  <DemoForm className="row g-3" resetOnSubmit={false} successMessage="Account settings saved. (demo)">
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="settings-name">
                         Full name
                       </label>
                       <input
                         type="text"
+                        required
                         className="form-control"
                         id="settings-name"
                         defaultValue="Jane Doe"
                       />
+                      <div className="invalid-feedback">Full name is required.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="settings-email">
@@ -91,10 +94,12 @@ export default function Page() {
                       </label>
                       <input
                         type="email"
+                        required
                         className="form-control"
                         id="settings-email"
                         defaultValue="jane@example.com"
                       />
+                      <div className="invalid-feedback">Enter a valid email address.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="settings-tz">
@@ -127,7 +132,7 @@ export default function Page() {
                         Save changes
                       </button>
                     </div>
-                  </form>
+                  </DemoForm>
                 </div>
               </div>
             </div>
@@ -139,6 +144,7 @@ export default function Page() {
                   <h3 className="card-title">Notifications</h3>
                 </div>
                 <div className="card-body">
+                  <DemoForm resetOnSubmit={false} successMessage="Notification preferences saved. (demo)">
                   <p className="text-secondary">Choose what to be notified about.</p>
                   <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
                     <div>
@@ -214,7 +220,8 @@ export default function Page() {
                       </label>
                     </div>
                   </div>
-                  <button className="btn btn-primary mt-3">Save preferences</button>
+                  <button type="submit" className="btn btn-primary mt-3">Save preferences</button>
+                  </DemoForm>
                 </div>
               </div>
             </div>
@@ -226,31 +233,34 @@ export default function Page() {
                   <h3 className="card-title">Password</h3>
                 </div>
                 <div className="card-body">
-                  <form className="row g-3">
+                  <DemoForm className="row g-3" successMessage="Password updated. (demo)">
                     <div className="col-md-12">
                       <label className="form-label" htmlFor="pwd-current">
                         Current password
                       </label>
-                      <input type="password" className="form-control" id="pwd-current" />
+                      <input type="password" required className="form-control" id="pwd-current" />
+                      <div className="invalid-feedback">Enter your current password.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="pwd-new">
                         New password
                       </label>
-                      <input type="password" className="form-control" id="pwd-new" />
+                      <input type="password" required minLength={8} className="form-control" id="pwd-new" />
+                      <div className="invalid-feedback">Use at least 8 characters.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="pwd-confirm">
                         Confirm new password
                       </label>
-                      <input type="password" className="form-control" id="pwd-confirm" />
+                      <input type="password" required minLength={8} className="form-control" id="pwd-confirm" />
+                      <div className="invalid-feedback">Re-enter the new password.</div>
                     </div>
                     <div className="col-12">
                       <button type="submit" className="btn btn-primary">
                         Update password
                       </button>
                     </div>
-                  </form>
+                  </DemoForm>
                 </div>
               </div>
               <div className="card mt-3">

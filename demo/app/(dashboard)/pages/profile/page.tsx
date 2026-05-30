@@ -1,4 +1,5 @@
 import { AppContent } from 'adminlte-react'
+import { DemoForm } from '@/components/demo-form'
 
 export const metadata = { title: "Profile" }
 
@@ -249,18 +250,20 @@ export default function Page() {
                   role="tabpanel"
                   aria-labelledby="settings-tab"
                 >
-                  <form className="row g-3">
+                  <DemoForm className="row g-3" resetOnSubmit={false} successMessage="Profile updated. (demo)">
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="profile-first">
                         First name
                       </label>
-                      <input type="text" className="form-control" id="profile-first" defaultValue="Jane" />
+                      <input type="text" required className="form-control" id="profile-first" defaultValue="Jane" />
+                      <div className="invalid-feedback">First name is required.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="profile-last">
                         Last name
                       </label>
-                      <input type="text" className="form-control" id="profile-last" defaultValue="Doe" />
+                      <input type="text" required className="form-control" id="profile-last" defaultValue="Doe" />
+                      <div className="invalid-feedback">Last name is required.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="profile-email">
@@ -268,10 +271,12 @@ export default function Page() {
                       </label>
                       <input
                         type="email"
+                        required
                         className="form-control"
                         id="profile-email"
                         defaultValue="jane@example.com"
                       />
+                      <div className="invalid-feedback">Enter a valid email address.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="profile-role">
@@ -303,7 +308,7 @@ export default function Page() {
                         Cancel
                       </button>
                     </div>
-                  </form>
+                  </DemoForm>
                 </div>
               </div>
             </div>

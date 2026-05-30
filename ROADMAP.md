@@ -20,7 +20,8 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
 - [x] A1. Client-side **search + column sort + pagination** for hand-built tables
       (`pages/projects` → `ProjectsTable`; `tables/data` → Tabulator UsersTable)
 - [x] A2. Working **filters & search** (projects status filter; mailbox-inbox / file-manager / faq search)
-- [ ] A3. **Form validation + submit + success toast** (login, register, lockscreen ✓; compose, profile, contact)
+- [x] A3. **Form validation + submit + success toast** (login, register, login-v2, register-v2,
+      lockscreen, compose, profile, settings: account/notifications/security) via `DemoForm`
 - [ ] A4. Inert `href="#"` actions → real handlers or `type="button"` (dropdowns, row actions)
 
 ## B. Perfect Next/React integration
