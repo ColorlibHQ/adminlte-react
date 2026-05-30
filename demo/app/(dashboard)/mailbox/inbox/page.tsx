@@ -1,4 +1,5 @@
 import { AppContent } from 'adminlte-react'
+import { ListSearch } from '@/components/list-search'
 
 export const metadata = { title: "Inbox" }
 
@@ -123,6 +124,7 @@ export default function Page() {
                     <i className="bi bi-search" aria-hidden="true"></i>
                   </span>
                   <input
+                    id="inbox-search"
                     type="search"
                     className="form-control"
                     placeholder="Search mail…"
@@ -159,7 +161,8 @@ export default function Page() {
                 </div>
                 <span className="ms-auto text-secondary small"> 1&ndash;8 of 8 </span>
               </div>
-              <ul className="list-group list-group-flush mb-0">
+              <ListSearch inputId="inbox-search" listId="inbox-list" />
+              <ul id="inbox-list" className="list-group list-group-flush mb-0">
                 <li className="list-group-item d-flex align-items-center gap-2 fw-semibold bg-body-secondary">
                   <div className="form-check mb-0">
                     <input className="form-check-input" type="checkbox" id="msg-0" />
