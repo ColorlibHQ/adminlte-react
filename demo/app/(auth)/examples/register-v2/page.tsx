@@ -1,4 +1,5 @@
 import { AuthLayout } from 'adminlte-react'
+import { DemoForm } from '@/components/demo-form'
 
 export const metadata = { title: "Register v2" }
 
@@ -7,10 +8,10 @@ export default function Page() {
     <AuthLayout authType="register" logo={<><b>Admin</b>LTE</>}>
       <p className="register-box-msg">Register a new membership</p>
 
-      <form action="#" method="post">
+      <DemoForm successMessage="Account created — welcome aboard! (demo)">
         <div className="input-group mb-1">
           <div className="form-floating">
-            <input id="registerFullName" type="text" className="form-control" placeholder="" />
+            <input id="registerFullName" type="text" required className="form-control" placeholder="" />
             <label htmlFor="registerFullName">Full Name</label>
           </div>
           <div className="input-group-text">
@@ -19,7 +20,7 @@ export default function Page() {
         </div>
         <div className="input-group mb-1">
           <div className="form-floating">
-            <input id="registerEmail" type="email" className="form-control" placeholder="" />
+            <input id="registerEmail" type="email" required className="form-control" placeholder="" />
             <label htmlFor="registerEmail">Email</label>
           </div>
           <div className="input-group-text">
@@ -28,7 +29,7 @@ export default function Page() {
         </div>
         <div className="input-group mb-1">
           <div className="form-floating">
-            <input id="registerPassword" type="password" className="form-control" placeholder="" />
+            <input id="registerPassword" type="password" required className="form-control" placeholder="" />
             <label htmlFor="registerPassword">Password</label>
           </div>
           <div className="input-group-text">
@@ -54,7 +55,7 @@ export default function Page() {
           {/* /.col */}
         </div>
         {/* /.Row */}
-      </form>
+      </DemoForm>
 
       <div className="social-auth-links text-center mb-3 d-grid gap-2">
         <p>- OR -</p>

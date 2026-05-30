@@ -1,4 +1,5 @@
 import { AuthLayout } from 'adminlte-react'
+import { DemoForm } from '@/components/demo-form'
 
 export const metadata = { title: "Register" }
 
@@ -7,21 +8,21 @@ export default function Page() {
     <AuthLayout authType="register" logo={<><b>Admin</b>LTE</>} logoHref="/">
       <p className="register-box-msg">Register a new membership</p>
 
-      <form action="#" method="post">
+      <DemoForm successMessage="Account created — welcome aboard! (demo)">
         <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder="Full Name" />
+          <input type="text" required className="form-control" placeholder="Full Name" />
           <div className="input-group-text">
             <span className="bi bi-person"></span>
           </div>
         </div>
         <div className="input-group mb-3">
-          <input type="email" className="form-control" placeholder="Email" />
+          <input type="email" required className="form-control" placeholder="Email" />
           <div className="input-group-text">
             <span className="bi bi-envelope"></span>
           </div>
         </div>
         <div className="input-group mb-3">
-          <input type="password" className="form-control" placeholder="Password" />
+          <input type="password" required className="form-control" placeholder="Password" />
           <div className="input-group-text">
             <span className="bi bi-lock-fill"></span>
           </div>
@@ -45,7 +46,7 @@ export default function Page() {
           {/* /.col */}
         </div>
         {/* end::Row */}
-      </form>
+      </DemoForm>
 
       <div className="social-auth-links text-center mb-3 d-grid gap-2">
         <p>- OR -</p>
