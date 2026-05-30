@@ -35,9 +35,14 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
 - [ ] D1. Typed components: `Pagination`, `Breadcrumb`, `Badge`, `Dropdown`, `ListGroup`,
       `Spinner`, `Avatar`/`AvatarGroup`, `Table`, `Carousel`, `Offcanvas`, `Stepper`
 
+## A5. Showcase plugin-backed components live (not just docs code)
+- [ ] Editor (Quill 2) on `mailbox/compose`; InputFlatpickr + InputTomSelect on
+      `forms/elements`; `<Datatable>` (Tabulator) variant on `tables/data`. These are
+      currently only in `/docs` code blocks — wiring them live also runtime-tests them.
+
 ## E. Post-upgrade runtime smoke-test
-- [ ] E1. Verify Quill 2 editor (`mailbox/compose`, `forms/elements`) renders/works
-- [ ] E2. Verify ApexCharts 5 charts (dashboard) render/work
+- [ ] E1. Verify Quill 2 editor — blocked on A5 (no live editor yet)
+- [x] E2. ApexCharts 5 + jsVectorMap render correctly on the dashboard ✓
 
 ## F. Quality / infra
 - [ ] F1. Tests — Playwright route smoke (every route 200, no console errors) + unit tests
