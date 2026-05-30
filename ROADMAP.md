@@ -22,7 +22,9 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
 - [x] A2. Working **filters & search** (projects status filter; mailbox-inbox / file-manager / faq search)
 - [x] A3. **Form validation + submit + success toast** (login, register, login-v2, register-v2,
       lockscreen, compose, profile, settings: account/notifications/security) via `DemoForm`
-- [ ] A4. Inert `href="#"` actions → real handlers or `type="button"` (dropdowns, row actions)
+- [x] A4. Inert `href="#"` links no longer jump to top (`InertLinks` island; preventDefault on
+      exactly `a[href="#"]`, leaving Bootstrap `href="#tab"` toggles + real links untouched).
+      Library controls (fullscreen/sidebar/⌘K) and demo row actions are already `type="button"`.
 
 ## B. Perfect Next/React integration
 - [ ] B1. **`next/link` client-side navigation** in the library nav (Sidebar, AppContent

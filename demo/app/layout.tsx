@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import 'adminlte-react/css'
 import './globals.css'
 import { SubpathLinks } from '@/components/subpath-links'
+import { InertLinks } from '@/components/inert-links'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://adminlte.io/themes/next-react'),
@@ -78,6 +79,7 @@ export default function RootLayout({
       <body>
         {children}
         <SubpathLinks />
+        <InertLinks />
         {/* Popper JS */}
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
         {/* Bootstrap JS */}
