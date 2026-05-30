@@ -2,6 +2,7 @@ import { DashboardLayout, NavMessages, NavNotifications } from 'adminlte-react'
 import type { DashboardLayoutProps } from 'adminlte-react'
 import { menuItems } from '@/lib/menu'
 import { withBase } from '@/lib/base'
+import { NavLink } from '@/components/nav-link'
 
 const sampleMessages = [
   { from: 'Brad Diesel', image: withBase('/assets/img/user1-128x128.jpg'), text: 'Call me whenever you can...', time: '4 Hours Ago', star: 'danger' as const },
@@ -43,6 +44,7 @@ export function DemoLayout({ children, ...props }: DemoLayoutProps) {
   return (
     <DashboardLayout
       menuItems={menuItems}
+      linkComponent={NavLink}
       logo={withBase('/assets/img/AdminLTELogo.png')}
       logoHref={withBase('/')}
       colorModeToggle

@@ -8,6 +8,8 @@ export type * from './types/direct-chat'
 export { SidebarProvider, useSidebarContext } from './context/sidebar-context'
 export { ColorModeProvider, useColorModeContext } from './context/color-mode-context'
 export { CommandPaletteProvider, useCommandPalette } from './context/command-palette-context'
+export { LinkProvider, useLinkComponent } from './context/link-context'
+export type { LinkComponent, LinkProps } from './context/link-context'
 
 // Layout exports
 export { DashboardLayout } from './layout/dashboard-layout'

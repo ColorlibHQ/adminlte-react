@@ -3,6 +3,7 @@ import { cn } from '../lib/class-name'
 import { SidebarProvider } from '../context/sidebar-context'
 import { ColorModeProvider } from '../context/color-mode-context'
 import { CommandPaletteProvider } from '../context/command-palette-context'
+import { LinkProvider } from '../context/link-context'
 import { BodyClassSync } from '../context/body-class-sync'
 import { LteBehaviors } from '../context/lte-behaviors'
 import { Accessibility } from '../context/accessibility'
@@ -37,6 +38,7 @@ export function DashboardLayout({
   topbarStart,
   topbarEnd,
   footer,
+  linkComponent,
   children,
 }: DashboardLayoutProps) {
   // Compute static body classes server-side
@@ -55,6 +57,7 @@ export function DashboardLayout({
   const commandItems = flattenMenuToCommands(menuItems)
 
   return (
+    <LinkProvider component={linkComponent}>
     <ColorModeProvider initialMode={initialColorMode}>
       <SidebarProvider
         sidebarMini={sidebarMini}
@@ -93,5 +96,6 @@ export function DashboardLayout({
         </CommandPaletteProvider>
       </SidebarProvider>
     </ColorModeProvider>
+    </LinkProvider>
   )
 }

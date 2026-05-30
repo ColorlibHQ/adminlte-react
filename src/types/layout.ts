@@ -1,6 +1,7 @@
 import type React from 'react'
 import type { BreakpointSize, ColorMode } from './theme'
 import type { MenuNode } from './menu'
+import type { LinkComponent } from '../context/link-context'
 
 /**
  * The signed-in user shown in the topbar user menu.
@@ -36,6 +37,11 @@ export interface DashboardLayoutProps {
   topbarStart?: React.ReactNode
   topbarEnd?: React.ReactNode
   footer?: React.ReactNode
+  /**
+   * Router link to use for sidebar navigation (e.g. an adapter around `next/link`).
+   * Enables client-side navigation; defaults to a plain `<a>` (full-page navigation).
+   */
+  linkComponent?: LinkComponent
   children: React.ReactNode
 }
 

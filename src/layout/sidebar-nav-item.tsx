@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTreeviewAnimation } from '../hooks/use-treeview-animation'
+import { useLinkComponent } from '../context/link-context'
 import type { MenuGroup, MenuNode } from '../types/menu'
 import { cn } from '../lib/class-name'
 
@@ -54,6 +55,8 @@ function SidebarNavGroup({
 }
 
 export function SidebarNavItem({ item, currentPath, depth = 0 }: SidebarNavItemProps) {
+  const Link = useLinkComponent()
+
   if (item.type === 'header') {
     return <li className="nav-header">{item.text}</li>
   }
@@ -62,7 +65,7 @@ export function SidebarNavItem({ item, currentPath, depth = 0 }: SidebarNavItemP
     const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/')
     return (
       <li className={cn('nav-item', isActive && 'active')}>
-        <a href={item.href} className={cn('nav-link', isActive && 'active')} target={item.target}>
+        <Link href={item.href} className={cn('nav-link', isActive && 'active')} target={item.target}>
           {item.icon && (
             <i className={cn('nav-icon bi', item.icon, item.iconColor && `text-${item.iconColor}`)}></i>
           )}
@@ -72,7 +75,7 @@ export function SidebarNavItem({ item, currentPath, depth = 0 }: SidebarNavItemP
               {item.badge}
             </span>
           )}
-        </a>
+        </Link>
       </li>
     )
   }

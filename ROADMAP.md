@@ -27,8 +27,11 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
       Library controls (fullscreen/sidebar/⌘K) and demo row actions are already `type="button"`.
 
 ## B. Perfect Next/React integration
-- [ ] B1. **`next/link` client-side navigation** in the library nav (Sidebar, AppContent
-      breadcrumbs) — keep raw-`<a>` fallback when `next` is absent
+- [x] B1. **`next/link` client-side navigation** in the sidebar nav via an injectable Link
+      (`LinkProvider`/`useLinkComponent` + `DashboardLayout linkComponent`); raw-`<a>` fallback
+      keeps the library framework-agnostic. Demo `NavLink` uses `next/link` at the domain root
+      (verified: 0 full reloads) and a plain `<a>` under the subpath export (no Next `basePath`
+      there). Breadcrumbs stay `<a>` (AppContent is an RSC; can't consume context).
 - [ ] B2. `next/image` for static assets (lazy-load/sizing; `unoptimized` for export)
 
 ## C. 1:1 content fidelity (visual)
