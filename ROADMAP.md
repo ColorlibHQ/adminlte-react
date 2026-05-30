@@ -17,10 +17,10 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
 - [x] All deps on latest (React 19, Next 16, TS 6, ApexCharts 5, Quill 2)
 
 ## A. Perfect functionality (wire the static controls)
-- [ ] A1. Client-side **search + column sort + pagination** for hand-built tables
-      (`pages/projects`, `tables/simple`, `pages/pricing`, `index2/3`)
-- [ ] A2. Working **filters & search** (projects status filter; mailbox / file-manager / faq search)
-- [ ] A3. **Form validation + submit + success toast** (login, register, lockscreen, compose, profile, contact)
+- [x] A1. Client-side **search + column sort + pagination** for hand-built tables
+      (`pages/projects` → `ProjectsTable`; `tables/data` → Tabulator UsersTable)
+- [x] A2. Working **filters & search** (projects status filter; mailbox-inbox / file-manager / faq search)
+- [ ] A3. **Form validation + submit + success toast** (login, register, lockscreen ✓; compose, profile, contact)
 - [ ] A4. Inert `href="#"` actions → real handlers or `type="button"` (dropdowns, row actions)
 
 ## B. Perfect Next/React integration
