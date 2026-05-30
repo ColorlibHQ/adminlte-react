@@ -1,4 +1,4 @@
-import { AppContent, Card } from 'adminlte-react'
+import { AppContent, Card, Editor } from 'adminlte-react'
 
 export const metadata = { title: "Compose" }
 
@@ -61,31 +61,7 @@ export default function ComposeMessagePage() {
             <input type="text" className="form-control" id="mail-subject" />
           </div>
           <div className="col-12">
-            <label className="form-label" htmlFor="mail-body">
-              Message
-            </label>
-            <textarea
-              id="mail-body"
-              className="form-control"
-              rows={12}
-              placeholder="Write your message…"
-              style={{ minHeight: '16rem' }}
-            ></textarea>
-            <small className="text-secondary">
-              Hook up a rich-text editor such as{' '}
-              <a href="https://quilljs.com/" target="_blank" rel="noopener">
-                Quill
-              </a>{' '}
-              or{' '}
-              <a
-                href="https://github.com/Ionaru/easy-markdown-editor"
-                target="_blank"
-                rel="noopener"
-              >
-                EasyMDE
-              </a>{' '}
-              to upgrade this textarea.
-            </small>
+            <Editor name="body" label="Message" placeholder="Write your message…" />
           </div>
           <div className="col-12">
             <label className="form-label" htmlFor="mail-attach">

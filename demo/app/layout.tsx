@@ -47,17 +47,32 @@ export default function RootLayout({
         {/* ApexCharts CSS */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+          href="https://cdn.jsdelivr.net/npm/apexcharts@5.13.0/dist/apexcharts.css"
         />
         {/* jsVectorMap CSS */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+          href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.css"
         />
         {/* Tabulator CSS (Bootstrap 5 theme) */}
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/css/tabulator_bootstrap5.min.css"
+        />
+        {/* Quill (rich-text editor) — Snow theme */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+        />
+        {/* Flatpickr (date picker) */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css"
+        />
+        {/* Tom Select (advanced select) — Bootstrap 5 theme */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.bootstrap5.min.css"
         />
       </head>
       <body>
