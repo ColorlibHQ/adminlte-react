@@ -22,14 +22,26 @@ A modern React/Next.js component library for building admin dashboards and web a
 
 **Available for your stack** — the same AdminLTE 4 dashboard, in the framework you know best:
 
-<p align="center">
-  <a href="https://github.com/ColorlibHQ/adminlte-react"><img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"></a>
-  <a href="https://github.com/ColorlibHQ/adminlte-react"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"></a>
-  <a href="https://github.com/ColorlibHQ/adminlte-vue"><img alt="Vue" src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D"></a>
-  <a href="https://github.com/ColorlibHQ/adminlte-vue"><img alt="Nuxt" src="https://img.shields.io/badge/Nuxt-00DC82?style=for-the-badge&logo=nuxtdotjs&logoColor=white"></a>
-  <a href="https://github.com/ColorlibHQ/adminlte-laravel"><img alt="Laravel" src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white"></a>
-  <a href="https://github.com/ColorlibHQ/adminlte-django"><img alt="Django" src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white"></a>
-</p>
+<div align="center">
+<table>
+  <tr>
+    <td align="center" width="100"><a href="https://github.com/ColorlibHQ/adminlte-react"><img height="40" alt="React logo" src="https://img.shields.io/badge/-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"></a></td>
+    <td align="center" width="100"><a href="https://github.com/ColorlibHQ/adminlte-react"><img height="40" alt="Next.js logo" src="https://img.shields.io/badge/-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"></a></td>
+    <td align="center" width="100"><a href="https://github.com/ColorlibHQ/adminlte-vue"><img height="40" alt="Vue logo" src="https://img.shields.io/badge/-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D"></a></td>
+    <td align="center" width="100"><a href="https://github.com/ColorlibHQ/adminlte-vue"><img height="40" alt="Nuxt logo" src="https://img.shields.io/badge/-00DC82?style=for-the-badge&logo=nuxt&logoColor=white"></a></td>
+    <td align="center" width="100"><a href="https://github.com/ColorlibHQ/adminlte-laravel"><img height="40" alt="Laravel logo" src="https://img.shields.io/badge/-FF2D20?style=for-the-badge&logo=laravel&logoColor=white"></a></td>
+    <td align="center" width="100"><a href="https://github.com/ColorlibHQ/adminlte-django"><img height="40" alt="Django logo" src="https://img.shields.io/badge/-092E20?style=for-the-badge&logo=django&logoColor=white"></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/ColorlibHQ/adminlte-react"><b>React</b></a></td>
+    <td align="center"><a href="https://github.com/ColorlibHQ/adminlte-react"><b>Next.js</b></a></td>
+    <td align="center"><a href="https://github.com/ColorlibHQ/adminlte-vue"><b>Vue</b></a></td>
+    <td align="center"><a href="https://github.com/ColorlibHQ/adminlte-vue"><b>Nuxt</b></a></td>
+    <td align="center"><a href="https://github.com/ColorlibHQ/adminlte-laravel"><b>Laravel</b></a></td>
+    <td align="center"><a href="https://github.com/ColorlibHQ/adminlte-django"><b>Django</b></a></td>
+  </tr>
+</table>
+</div>
 
 > **Documentation:** Full guides and an API reference for every component, hook, and
 > context live in the demo app under `/docs`. Run `pnpm demo` and open
