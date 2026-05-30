@@ -3,7 +3,7 @@ import { DocsPage } from '@/components/docs/docs-page'
 import { docsSections } from '@/components/docs/sections'
 
 export const metadata: Metadata = {
-  title: 'Documentation — AdminLTE React',
+  title: 'Documentation',
   description: 'Guides and API reference for the adminlte-react component library.',
 }
 

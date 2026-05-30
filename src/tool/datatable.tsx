@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useId, useRef } from 'react'
 
 export interface DatatableColumn {
   title: string
@@ -20,7 +20,7 @@ export interface DatatableProps {
 }
 
 export function Datatable({
-  id = `datatable-${Math.random().toString(36).substr(2, 9)}`,
+  id,
   columns,
   data,
   apiUrl,
@@ -28,6 +28,8 @@ export function Datatable({
   className,
 }: DatatableProps) {
   const tableRef = useRef<HTMLDivElement>(null)
+  const reactId = useId()
+  const tableId = id ?? `datatable-${reactId.replace(/:/g, '')}`
 
   useEffect(() => {
     const element = tableRef.current
@@ -55,6 +57,6 @@ export function Datatable({
   }, [columns, data, apiUrl, tabulatorOptions])
 
   return (
-    <div id={id} ref={tableRef} className={`datatable ${className || ''}`}></div>
+    <div id={tableId} ref={tableRef} className={`datatable ${className || ''}`}></div>
   )
 }

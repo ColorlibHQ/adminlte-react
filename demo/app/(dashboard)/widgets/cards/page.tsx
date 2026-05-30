@@ -29,6 +29,8 @@ function CardRow({ variant }: { variant: 'default' | 'outline' | 'solid' }) {
   )
 }
 
+export const metadata = { title: "Cards" }
+
 export default function CardsPage() {
   return (
     <AppContent

@@ -13,7 +13,7 @@ import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'
 
 export const metadata: Metadata = {
-  title: 'Forms — AdminLTE React',
+  title: 'Forms',
   description: 'API reference for buttons, inputs, select, textarea, switch, color, file, date picker, and advanced select.',
 }
 

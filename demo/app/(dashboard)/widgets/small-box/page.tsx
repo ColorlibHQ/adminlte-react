@@ -1,5 +1,7 @@
 import { SmallBox, AppContent } from 'adminlte-react'
 
+export const metadata = { title: "Small Box" }
+
 export default function SmallBoxPage() {
   return (
     <AppContent

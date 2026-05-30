@@ -1,6 +1,8 @@
 import type { CSSProperties } from 'react'
 import { AppContent } from 'adminlte-react'
 
+export const metadata = { title: "General UI" }
+
 export default function Page() {
   return (
     <AppContent

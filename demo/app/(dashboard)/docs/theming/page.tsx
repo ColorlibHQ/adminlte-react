@@ -4,7 +4,7 @@ import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'
 
 export const metadata: Metadata = {
-  title: 'Theming & Dark Mode — AdminLTE React',
+  title: 'Theming & Dark Mode',
   description: 'Light/dark/auto color modes, Bootstrap theme variables, and sidebar theming.',
 }
 
@@ -118,6 +118,34 @@ function ThemeButtons() {
           { name: 'lte-theme', type: 'localStorage', description: "The selected color mode ('light' | 'dark' | 'auto')." },
           { name: 'lte.sidebar.state', type: 'localStorage', description: 'Sidebar collapsed state — only when enableSidebarPersistence is set.' },
         ]}
+      />
+
+      <h2>Right-to-left (RTL)</h2>
+      <p>
+        Pass <code>dir="rtl"</code> to mirror the entire layout. AdminLTE 4 / Bootstrap 5.3 use CSS
+        logical properties, but AdminLTE’s component styles are compiled LTR — so for a pixel-perfect
+        flip, also load the dedicated <code>adminlte.rtl.css</code> build on RTL routes (after the
+        LTR CSS so it wins the cascade).
+      </p>
+      <CodeBlock code={`<DashboardLayout menuItems={menuItems} dir="rtl">
+  {children}
+</DashboardLayout>`} />
+      <CodeBlock
+        language="tsx"
+        code={`'use client'
+import { useEffect } from 'react'
+
+// Load AdminLTE's RTL build only on RTL routes
+export function RtlStyles() {
+  useEffect(() => {
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = '/css/adminlte.rtl.css'
+    document.head.append(link)
+    return () => link.remove()
+  }, [])
+  return null
+}`}
       />
     </DocsPage>
   )

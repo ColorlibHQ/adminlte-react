@@ -4,8 +4,21 @@ import './globals.css'
 import { SubpathLinks } from '@/components/subpath-links'
 
 export const metadata: Metadata = {
-  title: 'AdminLTE React Demo',
-  description: 'AdminLTE 4 React/Next.js component library',
+  metadataBase: new URL('https://adminlte.io/themes/next-react'),
+  title: {
+    default: 'AdminLTE React — Bootstrap 5 admin dashboard',
+    template: '%s · AdminLTE React',
+  },
+  description:
+    'AdminLTE 4 + Bootstrap 5.3 admin dashboard components for React & Next.js (App Router / RSC) — 60+ demo pages, dark mode, and a ⌘K command palette.',
+  applicationName: 'AdminLTE React',
+  authors: [{ name: 'Colorlib', url: 'https://colorlib.com' }],
+  openGraph: {
+    title: 'AdminLTE React — Bootstrap 5 admin dashboard',
+    description: 'AdminLTE 4 + Bootstrap 5.3 components for React & Next.js. 60+ demo pages, dark mode, ⌘K palette.',
+    siteName: 'AdminLTE React',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

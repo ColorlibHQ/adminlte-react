@@ -1,5 +1,7 @@
 import { AppContent, Card, Callout } from 'adminlte-react'
 
+export const metadata = { title: "Form Elements" }
+
 export default function FormElementsPage() {
   return (
     <AppContent

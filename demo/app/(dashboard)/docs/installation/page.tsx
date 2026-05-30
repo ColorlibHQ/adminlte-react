@@ -3,7 +3,7 @@ import { DocsPage } from '@/components/docs/docs-page'
 import { CodeBlock } from '@/components/docs/code-block'
 
 export const metadata: Metadata = {
-  title: 'Installation — AdminLTE React',
+  title: 'Installation',
   description: 'Install adminlte-react, its peer dependencies, and wire up CSS and Bootstrap JS.',
 }
 

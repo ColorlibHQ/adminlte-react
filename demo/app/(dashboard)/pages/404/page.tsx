@@ -1,5 +1,7 @@
 import { AppContent } from 'adminlte-react'
 
+export const metadata = { title: "404 Not Found" }
+
 export default function Page() {
   return (
     <AppContent

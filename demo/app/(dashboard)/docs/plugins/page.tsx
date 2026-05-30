@@ -3,7 +3,7 @@ import { DocsPage } from '@/components/docs/docs-page'
 import { CodeBlock } from '@/components/docs/code-block'
 
 export const metadata: Metadata = {
-  title: 'Plugins & Dynamic Imports — AdminLTE React',
+  title: 'Plugins & Dynamic Imports',
   description: 'How the chart, map, datatable, editor, and advanced form components lazy-load their libraries, and what you need to install.',
 }
 

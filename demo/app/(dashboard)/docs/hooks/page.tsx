@@ -4,7 +4,7 @@ import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'
 
 export const metadata: Metadata = {
-  title: 'Hooks & Context — AdminLTE React',
+  title: 'Hooks & Context',
   description: 'Context providers and hooks for sidebar state, color mode, command palette, card widgets, fullscreen, treeview, and sortable lists.',
 }
 

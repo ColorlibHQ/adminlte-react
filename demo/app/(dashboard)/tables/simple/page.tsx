@@ -64,6 +64,8 @@ const tableHead = (
   </thead>
 )
 
+export const metadata = { title: "Simple Tables" }
+
 export default function Page() {
   return (
     <AppContent

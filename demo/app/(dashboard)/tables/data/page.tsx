@@ -1,6 +1,8 @@
 import { AppContent } from 'adminlte-react'
 import { UsersTable } from '@/components/users-table'
 
+export const metadata = { title: "Data Tables" }
+
 export default function DataTablePage() {
   return (
     <AppContent

@@ -1,5 +1,7 @@
 import { AppContent, Card } from 'adminlte-react'
 
+export const metadata = { title: "Compose" }
+
 export default function ComposeMessagePage() {
   return (
     <AppContent

@@ -1,5 +1,7 @@
 import { AppContent, Callout } from 'adminlte-react'
 
+export const metadata = { title: "Form Layout" }
+
 export default function Page() {
   return (
     <AppContent

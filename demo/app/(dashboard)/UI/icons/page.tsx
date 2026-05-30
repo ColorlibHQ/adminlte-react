@@ -1,5 +1,7 @@
 import { AppContent, Card } from 'adminlte-react'
 
+export const metadata = { title: "Icons" }
+
 export default function Page() {
   return (
     <AppContent

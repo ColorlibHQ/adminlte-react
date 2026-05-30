@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { DocsPage } from '@/components/docs/docs-page'
 
 export const metadata: Metadata = {
-  title: 'Introduction — AdminLTE React',
+  title: 'Introduction',
   description: 'What adminlte-react is, how it is architected, and who it is for.',
 }
 

@@ -3,7 +3,7 @@ import { DocsPage } from '@/components/docs/docs-page'
 import { CodeBlock } from '@/components/docs/code-block'
 
 export const metadata: Metadata = {
-  title: 'Command Palette — AdminLTE React',
+  title: 'Command Palette',
   description: 'The built-in ⌘K command palette: keyboard-driven page search generated from your menu.',
 }
 

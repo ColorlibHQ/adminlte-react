@@ -1,5 +1,7 @@
 import { AppContent } from 'adminlte-react'
 
+export const metadata = { title: "FAQ" }
+
 export default function Page() {
   return (
     <AppContent title="FAQ" breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'FAQ' }]}>

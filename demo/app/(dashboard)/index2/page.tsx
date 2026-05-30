@@ -70,6 +70,8 @@ const latestMembers = [
   { name: 'Nadia', img: 'user3-128x128.jpg', date: '15 Jan' },
 ]
 
+export const metadata = { title: "Dashboard v2" }
+
 export default function Page() {
   return (
     <AppContent

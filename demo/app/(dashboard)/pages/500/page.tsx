@@ -1,5 +1,7 @@
 import { AppContent } from 'adminlte-react'
 
+export const metadata = { title: "500 Server Error" }
+
 export default function Page() {
   return (
     <AppContent

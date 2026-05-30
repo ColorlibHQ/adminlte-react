@@ -3,7 +3,7 @@ import { DocsPage } from '@/components/docs/docs-page'
 import { CodeBlock } from '@/components/docs/code-block'
 
 export const metadata: Metadata = {
-  title: 'Quick Start — AdminLTE React',
+  title: 'Quick Start',
   description: 'Assemble a dashboard: define a menu, wrap your routes in DashboardLayout, and build pages with AppContent.',
 }
 

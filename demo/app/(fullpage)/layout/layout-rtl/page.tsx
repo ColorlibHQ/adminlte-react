@@ -2,6 +2,8 @@ import { AppContent, Card } from 'adminlte-react'
 import { DemoLayout } from '@/components/demo-layout'
 import { RtlStyles } from '@/components/rtl-styles'
 
+export const metadata = { title: "RTL Layout" }
+
 export default function Page() {
   return (
     <DemoLayout dir="rtl">

@@ -4,7 +4,7 @@ import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'
 
 export const metadata: Metadata = {
-  title: 'Tools — AdminLTE React',
+  title: 'Tools',
   description: 'API reference for Modal, Datatable (Tabulator), and Editor (Quill).',
 }
 

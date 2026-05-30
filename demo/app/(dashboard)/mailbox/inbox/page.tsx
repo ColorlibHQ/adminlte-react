@@ -1,5 +1,7 @@
 import { AppContent } from 'adminlte-react'
 
+export const metadata = { title: "Inbox" }
+
 export default function Page() {
   return (
     <AppContent

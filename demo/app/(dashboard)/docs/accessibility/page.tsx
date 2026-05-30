@@ -3,7 +3,7 @@ import { DocsPage } from '@/components/docs/docs-page'
 import { CodeBlock } from '@/components/docs/code-block'
 
 export const metadata: Metadata = {
-  title: 'Accessibility — AdminLTE React',
+  title: 'Accessibility',
   description: 'WCAG 2.1 AA behaviors enabled automatically by DashboardLayout.',
 }
 

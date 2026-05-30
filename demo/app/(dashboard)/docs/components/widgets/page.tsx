@@ -17,7 +17,7 @@ import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'
 
 export const metadata: Metadata = {
-  title: 'Widgets — AdminLTE React',
+  title: 'Widgets',
   description: 'API reference for stat boxes, cards, alerts, progress, timeline, charts, navbar dropdowns, and the command palette.',
 }
 

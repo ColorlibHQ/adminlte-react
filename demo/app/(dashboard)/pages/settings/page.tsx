@@ -1,4 +1,7 @@
 import { AppContent } from 'adminlte-react'
+import { PersistSettings } from '@/components/persist-settings'
+
+export const metadata = { title: "Settings" }
 
 export default function Page() {
   return (
@@ -6,7 +9,8 @@ export default function Page() {
       title="Settings"
       breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Settings' }]}
     >
-      <div className="row g-3">
+      <PersistSettings rootId="settings-form-root" />
+      <div id="settings-form-root" className="row g-3">
         {/* Left rail */}
         <div className="col-md-3">
           <div

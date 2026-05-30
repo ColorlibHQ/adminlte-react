@@ -1,5 +1,7 @@
 import { AuthLayout } from 'adminlte-react'
 
+export const metadata = { title: "Login" }
+
 export default function Page() {
   return (
     <AuthLayout authType="login" logo={<><b>Admin</b>LTE</>} logoHref="/">

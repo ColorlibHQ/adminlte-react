@@ -1,6 +1,8 @@
 import { AppContent, Card } from 'adminlte-react'
 import { DemoLayout } from '@/components/demo-layout'
 
+export const metadata = { title: "Collapsed Sidebar (no hover)" }
+
 export default function Page() {
   return (
     <DemoLayout sidebarMini>

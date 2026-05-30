@@ -1,5 +1,7 @@
 import { AppContent } from 'adminlte-react'
 
+export const metadata = { title: "Info Box" }
+
 export default function InfoBoxPage() {
   return (
     <AppContent

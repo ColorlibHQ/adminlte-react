@@ -1,6 +1,8 @@
 import { AppContent, Card } from 'adminlte-react'
 import { DemoLayout } from '@/components/demo-layout'
 
+export const metadata = { title: "Custom Content Area" }
+
 export default function Page() {
   return (
     <DemoLayout fixedHeader>

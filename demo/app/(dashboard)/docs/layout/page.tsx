@@ -4,7 +4,7 @@ import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'
 
 export const metadata: Metadata = {
-  title: 'Layout & Shell — AdminLTE React',
+  title: 'Layout & Shell',
   description: 'DashboardLayout, AuthLayout, and AppContent: the building blocks of every page.',
 }
 
