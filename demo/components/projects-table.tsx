@@ -177,7 +177,7 @@ export function ProjectsTable({ projects }: { projects: Project[] }) {
                       {p.team.map((m, i) => (
                         <span
                           key={m.initials + i}
-                          className={`rounded-circle d-inline-flex align-items-center justify-content-center bg-${m.theme}-subtle text-${m.theme} fw-semibold`}
+                          className={`rounded-circle d-inline-flex align-items-center justify-content-center bg-${m.theme}-subtle text-${m.theme}-emphasis fw-semibold`}
                           style={{ ...avatarBase, marginLeft: i === 0 ? 0 : '-0.5rem' }}
                           title={m.initials}
                         >

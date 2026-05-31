@@ -333,3 +333,22 @@ body {
     top: 1rem;
   }
 }
+
+/* ── Contrast (WCAG-AA) overrides — light mode only ──────────────────────────
+   Bootstrap's default link / code / muted-text tokens fall just under the 4.5:1
+   threshold on the light tertiary backgrounds AdminLTE uses for cards and the
+   topbar. These darken only those tokens in light mode; dark mode already passes.
+   (Scoped to [data-bs-theme="light"] so the dark sidebar / dark mode are untouched.) */
+[data-bs-theme='light'] {
+  --bs-link-color-rgb: 11, 94, 215; /* #0b5ed7 — AA on #f8f9fa card backgrounds */
+  --bs-link-hover-color-rgb: 9, 75, 172; /* #094bac */
+  --bs-code-color: #a4276a; /* darker pink — AA on light backgrounds (was #d63384) */
+}
+[data-bs-theme='light'] .text-secondary,
+[data-bs-theme='light'] .text-body-secondary {
+  color: #565e64 !important; /* darker muted text — AA on light gray (was #6c757d) */
+}
+/* Carousel captions sit on light demo slides (not photos), so keep them dark. */
+#docs-carousel .carousel-caption {
+  color: var(--bs-emphasis-color);
+}

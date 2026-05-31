@@ -16,7 +16,7 @@ export default function Page() {
           <div className="card">
             <div className="card-body text-center">
               <div
-                className="rounded-circle bg-primary-subtle text-primary d-inline-flex align-items-center justify-content-center mb-3"
+                className="rounded-circle bg-primary-subtle text-primary-emphasis d-inline-flex align-items-center justify-content-center mb-3"
                 style={{ width: '96px', height: '96px', fontSize: '2rem' }}
                 aria-hidden="true"
               >
@@ -141,7 +141,7 @@ export default function Page() {
                 >
                   <article className="d-flex gap-3 mb-4">
                     <div
-                      className="flex-shrink-0 rounded-circle bg-success-subtle text-success d-flex align-items-center justify-content-center"
+                      className="flex-shrink-0 rounded-circle bg-success-subtle text-success-emphasis d-flex align-items-center justify-content-center"
                       style={{ width: '40px', height: '40px' }}
                       aria-hidden="true"
                     >
@@ -168,7 +168,7 @@ export default function Page() {
                   </article>
                   <article className="d-flex gap-3 mb-4">
                     <div
-                      className="flex-shrink-0 rounded-circle bg-info-subtle text-info d-flex align-items-center justify-content-center"
+                      className="flex-shrink-0 rounded-circle bg-info-subtle text-info-emphasis d-flex align-items-center justify-content-center"
                       style={{ width: '40px', height: '40px' }}
                       aria-hidden="true"
                     >
@@ -187,7 +187,7 @@ export default function Page() {
                   </article>
                   <article className="d-flex gap-3">
                     <div
-                      className="flex-shrink-0 rounded-circle bg-warning-subtle text-warning d-flex align-items-center justify-content-center"
+                      className="flex-shrink-0 rounded-circle bg-warning-subtle text-warning-emphasis d-flex align-items-center justify-content-center"
                       style={{ width: '40px', height: '40px' }}
                       aria-hidden="true"
                     >

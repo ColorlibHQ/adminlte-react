@@ -63,9 +63,13 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
       errors). The smoke run caught two real bugs — a broken kanban add-card attribute
       (`data-add-card-htmlFor` → `data-add-card-for`) and a controlled radio missing `onChange`.
 - [x] F2. Accessibility audit (**axe** via Playwright on 5 representative pages). Gate = zero
-      **critical** violations (now green): fixed `button-name` (card tool, Stepper markers),
+      **critical** violations (green): fixed `button-name` (card tool, Stepper markers),
       `aria-allowed-attr` (sortable `<th>` no longer `role=button`), `label`/`select-name`
-      (Tom Select control + native select aria-label). Remaining **serious** findings are logged
-      as a known baseline — mostly `color-contrast` from the AdminLTE/Bootstrap theme palette.
+      (Tom Select control + native select aria-label).
+- [x] F2a. **Contrast pass (WCAG-AA):** eliminated all `color-contrast` violations (was 29 on the
+      showcase, 15 on projects, …→ **0** across all audited pages). `bg-*-subtle text-*` circles →
+      `text-*-emphasis` (the intended BS 5.3 pairing); a light-mode-only token layer in
+      `globals.css` darkens links (`#0d6efd`→`#0b5ed7`), inline `code` (`#d63384`→`#a4276a`) and
+      muted text (`#6c757d`→`#565e64`); demo carousel captions made dark (they sit on light slides).
 - [x] F3. CHANGELOG: new UI-element components + injectable Link documented under Unreleased.
 - [ ] F4. (owner) make repo public · `npm publish` · create `adminlte-django` repo

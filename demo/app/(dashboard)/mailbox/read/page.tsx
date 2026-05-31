@@ -31,7 +31,7 @@ export default function Page() {
           {/* Sender meta */}
           <div className="d-flex gap-3 align-items-start mb-4">
             <div
-              className="flex-shrink-0 rounded-circle bg-primary-subtle text-primary d-flex align-items-center justify-content-center"
+              className="flex-shrink-0 rounded-circle bg-primary-subtle text-primary-emphasis d-flex align-items-center justify-content-center"
               style={{ width: '48px', height: '48px' }}
               aria-hidden="true"
             >

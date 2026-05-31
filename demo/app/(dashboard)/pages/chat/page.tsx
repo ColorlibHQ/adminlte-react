@@ -81,7 +81,7 @@ export default function Page() {
           </div>
           <div className="flex-grow-1 overflow-auto">
             <a href="#" className="chat-contact active">
-              <span className="chat-avatar bg-primary-subtle text-primary online"> OB </span>
+              <span className="chat-avatar bg-primary-subtle text-primary-emphasis online"> OB </span>
               <div className="flex-grow-1 overflow-hidden">
                 <div className="d-flex justify-content-between">
                   <p className="mb-0 text-truncate fw-semibold">Olivia Bennett</p>
@@ -94,7 +94,7 @@ export default function Page() {
               </div>
             </a>
             <a href="#" className="chat-contact">
-              <span className="chat-avatar bg-success-subtle text-success online"> MR </span>
+              <span className="chat-avatar bg-success-subtle text-success-emphasis online"> MR </span>
               <div className="flex-grow-1 overflow-hidden">
                 <div className="d-flex justify-content-between">
                   <p className="mb-0 text-truncate">Marcus Reyes</p>
@@ -106,7 +106,7 @@ export default function Page() {
               </div>
             </a>
             <a href="#" className="chat-contact">
-              <span className="chat-avatar bg-info-subtle text-info"> SK </span>
+              <span className="chat-avatar bg-info-subtle text-info-emphasis"> SK </span>
               <div className="flex-grow-1 overflow-hidden">
                 <div className="d-flex justify-content-between">
                   <p className="mb-0 text-truncate">Sara Khan</p>
@@ -120,7 +120,7 @@ export default function Page() {
               </div>
             </a>
             <a href="#" className="chat-contact">
-              <span className="chat-avatar bg-warning-subtle text-warning"> DS </span>
+              <span className="chat-avatar bg-warning-subtle text-warning-emphasis"> DS </span>
               <div className="flex-grow-1 overflow-hidden">
                 <div className="d-flex justify-content-between">
                   <p className="mb-0 text-truncate fw-semibold">Diego Smania</p>
@@ -133,7 +133,7 @@ export default function Page() {
               </div>
             </a>
             <a href="#" className="chat-contact">
-              <span className="chat-avatar bg-danger-subtle text-danger"> ED </span>
+              <span className="chat-avatar bg-danger-subtle text-danger-emphasis"> ED </span>
               <div className="flex-grow-1 overflow-hidden">
                 <div className="d-flex justify-content-between">
                   <p className="mb-0 text-truncate">Emma Dawson</p>
@@ -145,7 +145,7 @@ export default function Page() {
               </div>
             </a>
             <a href="#" className="chat-contact">
-              <span className="chat-avatar bg-primary-subtle text-primary online"> LC </span>
+              <span className="chat-avatar bg-primary-subtle text-primary-emphasis online"> LC </span>
               <div className="flex-grow-1 overflow-hidden">
                 <div className="d-flex justify-content-between">
                   <p className="mb-0 text-truncate">Liam Carter</p>
@@ -157,7 +157,7 @@ export default function Page() {
               </div>
             </a>
             <a href="#" className="chat-contact">
-              <span className="chat-avatar bg-secondary-subtle text-secondary"> AF </span>
+              <span className="chat-avatar bg-secondary-subtle text-secondary-emphasis"> AF </span>
               <div className="flex-grow-1 overflow-hidden">
                 <div className="d-flex justify-content-between">
                   <p className="mb-0 text-truncate">Ava Foster</p>
@@ -176,7 +176,7 @@ export default function Page() {
         {/* Conversation */}
         <section className="chat-conversation">
           <header className="chat-header">
-            <span className="chat-avatar bg-primary-subtle text-primary online"> OB </span>
+            <span className="chat-avatar bg-primary-subtle text-primary-emphasis online"> OB </span>
             <div className="flex-grow-1">
               <p className="mb-0 fw-semibold">Olivia Bennett</p>
               <small className="text-success">
