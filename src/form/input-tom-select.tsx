@@ -18,24 +18,41 @@ export function InputTomSelect({
   options,
   tomSelectOptions,
   className,
+  'aria-label': ariaLabelProp,
   ...props
 }: InputTomSelectProps) {
   const selectRef = useRef<HTMLSelectElement>(null)
+  // Tom Select hides the native <select> and renders its own combobox input, so
+  // the visible label doesn't reach it. Mirror an accessible name onto both.
+  const ariaLabel = ariaLabelProp ?? label
 
   useEffect(() => {
     const element = selectRef.current
     if (!element) return
+    let instance: { destroy: () => void } | undefined
+    let active = true
 
     // Dynamically import tom-select only when component mounts
     // @ts-ignore - Dynamic import
     import('tom-select').then(({ default: TomSelect }) => {
-      new TomSelect(element, {
+      if (!active || !element) return
+      const ts = new TomSelect(element, {
         create: false,
         allowEmptyOption: true,
         ...tomSelectOptions,
       })
+      instance = ts as unknown as { destroy: () => void }
+      if (ariaLabel) {
+        const control = (ts as unknown as { control_input?: HTMLElement }).control_input
+        control?.setAttribute('aria-label', ariaLabel)
+      }
     })
-  }, [tomSelectOptions])
+
+    return () => {
+      active = false
+      instance?.destroy()
+    }
+  }, [tomSelectOptions, ariaLabel])
 
   return (
     <div className={`mb-3 ${fgroupClass || ''}`}>
@@ -48,6 +65,7 @@ export function InputTomSelect({
         ref={selectRef}
         name={name}
         id={props.id || name}
+        aria-label={ariaLabel}
         className={`form-select ${error ? 'is-invalid' : ''} ${className || ''}`.trim()}
         {...props}
       >

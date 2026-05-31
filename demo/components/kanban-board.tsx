@@ -144,7 +144,7 @@ export function KanbanBoard() {
                             </div>
                           </article>
                         </div>
-                        <button className="kanban-add-card mt-2" type="button" data-add-card-htmlFor="backlog">
+                        <button className="kanban-add-card mt-2" type="button" data-add-card-for="backlog">
                           <i className="bi bi-plus-lg me-1" aria-hidden="true"></i>
                           Add card
                         </button>
@@ -192,7 +192,7 @@ export function KanbanBoard() {
                             </div>
                           </article>
                         </div>
-                        <button className="kanban-add-card mt-2" type="button" data-add-card-htmlFor="todo">
+                        <button className="kanban-add-card mt-2" type="button" data-add-card-for="todo">
                           <i className="bi bi-plus-lg me-1" aria-hidden="true"></i>
                           Add card
                         </button>
@@ -240,7 +240,7 @@ export function KanbanBoard() {
                             </div>
                           </article>
                         </div>
-                        <button className="kanban-add-card mt-2" type="button" data-add-card-htmlFor="in-progress">
+                        <button className="kanban-add-card mt-2" type="button" data-add-card-for="in-progress">
                           <i className="bi bi-plus-lg me-1" aria-hidden="true"></i>
                           Add card
                         </button>
@@ -295,7 +295,7 @@ export function KanbanBoard() {
                             </div>
                           </article>
                         </div>
-                        <button className="kanban-add-card mt-2" type="button" data-add-card-htmlFor="done">
+                        <button className="kanban-add-card mt-2" type="button" data-add-card-for="done">
                           <i className="bi bi-plus-lg me-1" aria-hidden="true"></i>
                           Add card
                         </button>

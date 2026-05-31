@@ -50,8 +50,13 @@ export function Pagination({
   if (totalPages < 1) return null
   const tokens = buildRange(page, totalPages, siblingCount)
 
-  const item = (key: React.Key, content: React.ReactNode, target: number, opts: { active?: boolean; disabled?: boolean } = {}) => {
-    const { active, disabled } = opts
+  const item = (
+    key: React.Key,
+    content: React.ReactNode,
+    target: number,
+    opts: { active?: boolean; disabled?: boolean; ariaLabel?: string } = {}
+  ) => {
+    const { active, disabled, ariaLabel } = opts
     const go = (e: React.MouseEvent) => {
       if (disabled || active) return
       if (onPageChange) {
@@ -62,7 +67,14 @@ export function Pagination({
     return (
       <li key={key} className={cn('page-item', active && 'active', disabled && 'disabled')}>
         {onPageChange ? (
-          <button type="button" className="page-link" onClick={go} aria-current={active ? 'page' : undefined} disabled={disabled}>
+          <button
+            type="button"
+            className="page-link"
+            onClick={go}
+            aria-label={ariaLabel}
+            aria-current={active ? 'page' : undefined}
+            disabled={disabled}
+          >
             {content}
           </button>
         ) : (
@@ -70,6 +82,7 @@ export function Pagination({
             className="page-link"
             href="#"
             onClick={go}
+            aria-label={ariaLabel}
             aria-current={active ? 'page' : undefined}
             aria-disabled={disabled}
             tabIndex={disabled ? -1 : undefined}
@@ -92,7 +105,11 @@ export function Pagination({
           className
         )}
       >
-        {!hideControls && item('prev', <span aria-hidden="true">&lsaquo;</span>, page - 1, { disabled: page <= 1 })}
+        {!hideControls &&
+          item('prev', <span aria-hidden="true">&lsaquo;</span>, page - 1, {
+            disabled: page <= 1,
+            ariaLabel: 'Previous page',
+          })}
         {tokens.map((t, i) =>
           t === 'ellipsis' ? (
             <li key={`e${i}`} className="page-item disabled">
@@ -102,7 +119,11 @@ export function Pagination({
             item(t, t, t, { active: t === page })
           )
         )}
-        {!hideControls && item('next', <span aria-hidden="true">&rsaquo;</span>, page + 1, { disabled: page >= totalPages })}
+        {!hideControls &&
+          item('next', <span aria-hidden="true">&rsaquo;</span>, page + 1, {
+            disabled: page >= totalPages,
+            ariaLabel: 'Next page',
+          })}
       </ul>
     </nav>
   )

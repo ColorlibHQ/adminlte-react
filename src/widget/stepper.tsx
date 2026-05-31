@@ -40,7 +40,13 @@ export function Stepper({ steps, active, orientation = 'horizontal', onStepClick
     )
     const style = { width: 38, height: 38 }
     return onStepClick ? (
-      <button type="button" className={cn(cls, 'border-0')} style={style} onClick={() => onStepClick(index)}>
+      <button
+        type="button"
+        className={cn(cls, 'border-0')}
+        style={style}
+        onClick={() => onStepClick(index)}
+        aria-label={`Go to step ${index + 1}`}
+      >
         {content}
       </button>
     ) : (

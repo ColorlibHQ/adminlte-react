@@ -369,7 +369,7 @@ export default function Page() {
                               name="btnradio"
                               id="btnradio1"
                               autoComplete="off"
-                              checked
+                              defaultChecked
                             />
                             <label className="btn btn-outline-primary" htmlFor="btnradio1">Radio 1</label>
 

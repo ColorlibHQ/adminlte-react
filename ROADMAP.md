@@ -58,7 +58,14 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
 - [x] E3. Tabulator + Flatpickr + Tom Select verified rendering under the new stack ✓
 
 ## F. Quality / infra
-- [ ] F1. Tests — Playwright route smoke (every route 200, no console errors) + unit tests
-- [ ] F2. Accessibility audit (axe) to back the WCAG-AA claim
-- [ ] F3. CHANGELOG: dependency bump + new components + app polish
+- [x] F1. Tests — **Vitest** unit tests (19: `cn`, `Pagination`, `Badge`, `Breadcrumb`, `Spinner`,
+      `Avatar`, `ListGroupItem`) + **Playwright** route smoke (all 62 routes: 200 + no console
+      errors). The smoke run caught two real bugs — a broken kanban add-card attribute
+      (`data-add-card-htmlFor` → `data-add-card-for`) and a controlled radio missing `onChange`.
+- [x] F2. Accessibility audit (**axe** via Playwright on 5 representative pages). Gate = zero
+      **critical** violations (now green): fixed `button-name` (card tool, Stepper markers),
+      `aria-allowed-attr` (sortable `<th>` no longer `role=button`), `label`/`select-name`
+      (Tom Select control + native select aria-label). Remaining **serious** findings are logged
+      as a known baseline — mostly `color-contrast` from the AdminLTE/Bootstrap theme palette.
+- [x] F3. CHANGELOG: new UI-element components + injectable Link documented under Unreleased.
 - [ ] F4. (owner) make repo public · `npm publish` · create `adminlte-django` repo

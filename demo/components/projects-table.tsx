@@ -68,18 +68,22 @@ export function ProjectsTable({ projects }: { projects: Project[] }) {
   const Th = ({ label, col, className }: { label: string; col: SortKey; className?: string }) => (
     <th
       className={className}
-      role="button"
-      onClick={() => toggleSort(col)}
-      style={{ cursor: 'pointer', userSelect: 'none' }}
       aria-sort={sortKey === col ? (sortDir === 'asc' ? 'ascending' : 'descending') : 'none'}
     >
-      {label}{' '}
-      <i
-        className={`bi small text-secondary ${
-          sortKey === col ? (sortDir === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-arrow-down-up'
-        }`}
-        aria-hidden="true"
-      ></i>
+      <button
+        type="button"
+        className="btn btn-link p-0 text-reset text-decoration-none fw-bold"
+        onClick={() => toggleSort(col)}
+        style={{ userSelect: 'none' }}
+      >
+        {label}{' '}
+        <i
+          className={`bi small text-secondary ${
+            sortKey === col ? (sortDir === 'asc' ? 'bi-caret-up-fill' : 'bi-caret-down-fill') : 'bi-arrow-down-up'
+          }`}
+          aria-hidden="true"
+        ></i>
+      </button>
     </th>
   )
 

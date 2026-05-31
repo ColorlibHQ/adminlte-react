@@ -9,7 +9,10 @@
     "export": "EXPORT=true next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "playwright test",
+    "test:smoke": "playwright test smoke",
+    "test:a11y": "playwright test a11y"
   },
   "dependencies": {
     "adminlte-react": "workspace:*",
@@ -22,6 +25,8 @@
     "tabulator-tables": "^6.4.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",

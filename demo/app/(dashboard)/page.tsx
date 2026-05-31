@@ -105,8 +105,9 @@ export default function DashboardPage() {
                   type="button"
                   className="btn btn-primary btn-sm"
                   data-lte-toggle="card-collapse"
+                  aria-label="Collapse card"
                 >
-                  <i className="bi bi-plus-lg"></i>
+                  <i className="bi bi-plus-lg" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
