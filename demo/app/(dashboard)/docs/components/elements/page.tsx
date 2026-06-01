@@ -202,25 +202,39 @@ export default function ElementsPage() {
             slides={[
               {
                 content: (
-                  <div className="d-flex align-items-center justify-content-center bg-primary-subtle text-primary-emphasis" style={{ height: 220 }}>
-                    <span className="fs-4">Slide one</span>
+                  <div
+                    className="d-flex align-items-start justify-content-center pt-4 bg-primary-subtle text-primary-emphasis"
+                    style={{ height: 220 }}
+                    aria-hidden="true"
+                  >
+                    <i className="bi bi-image fs-2 opacity-50"></i>
                   </div>
                 ),
-                caption: { title: 'First slide', text: 'With a caption.' },
+                caption: { title: 'First slide', text: 'Captions render along the bottom.' },
               },
               {
                 content: (
-                  <div className="d-flex align-items-center justify-content-center bg-success-subtle text-success-emphasis" style={{ height: 220 }}>
-                    <span className="fs-4">Slide two</span>
+                  <div
+                    className="d-flex align-items-start justify-content-center pt-4 bg-success-subtle text-success-emphasis"
+                    style={{ height: 220 }}
+                    aria-hidden="true"
+                  >
+                    <i className="bi bi-image fs-2 opacity-50"></i>
                   </div>
                 ),
+                caption: { title: 'Second slide', text: 'They reposition on small screens.' },
               },
               {
                 content: (
-                  <div className="d-flex align-items-center justify-content-center bg-warning-subtle text-warning-emphasis" style={{ height: 220 }}>
-                    <span className="fs-4">Slide three</span>
+                  <div
+                    className="d-flex align-items-start justify-content-center pt-4 bg-warning-subtle text-warning-emphasis"
+                    style={{ height: 220 }}
+                    aria-hidden="true"
+                  >
+                    <i className="bi bi-image fs-2 opacity-50"></i>
                   </div>
                 ),
+                caption: { title: 'Third slide', text: 'Controls and indicators included.' },
               },
             ]}
           />
