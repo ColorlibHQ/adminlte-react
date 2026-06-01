@@ -12,6 +12,8 @@ export interface SidebarProps {
   logoHref?: string
   theme?: 'light' | 'dark'
   sidebarClass?: string
+  docsHref?: string
+  docsLabel?: string
 }
 
 export function Sidebar({
@@ -20,6 +22,8 @@ export function Sidebar({
   logoHref = '/',
   theme = 'dark',
   sidebarClass,
+  docsHref,
+  docsLabel,
 }: SidebarProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -53,7 +57,7 @@ export function Sidebar({
         <SidebarBrand logo={logo} href={logoHref} />
 
         <div className="sidebar-wrapper" ref={wrapperRef}>
-          <SidebarNav items={items} />
+          <SidebarNav items={items} docsHref={docsHref} docsLabel={docsLabel} />
         </div>
       </aside>
 

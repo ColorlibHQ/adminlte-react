@@ -33,6 +33,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LinkProvider` / `useLinkComponent` and a `linkComponent` prop on `DashboardLayout` — inject a
   router link (e.g. an adapter around `next/link`) so sidebar navigation is client-side. Defaults
   to a plain `<a>`, keeping the library framework-agnostic.
+- `docsHref` / `docsLabel` props on `DashboardLayout` for the sidebar footer link, routed through
+  the injectable Link. **Changed:** the footer link is now opt-in — previously it was hardcoded to
+  the external AdminLTE HTML docs; it now renders only when `docsHref` is set (point it at your own
+  docs). The demo points it at its in-app `/docs`.
 
 ### Tested
 

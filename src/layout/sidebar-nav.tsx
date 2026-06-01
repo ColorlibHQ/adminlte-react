@@ -2,14 +2,19 @@
 
 import { usePathname } from 'next/navigation'
 import { SidebarNavItem } from './sidebar-nav-item'
+import { useLinkComponent } from '../context/link-context'
 import type { MenuNode } from '../types/menu'
 
 export interface SidebarNavProps {
   items: MenuNode[]
+  /** Optional footer link (e.g. to your docs). Omitted when not provided. */
+  docsHref?: string
+  docsLabel?: string
 }
 
-export function SidebarNav({ items }: SidebarNavProps) {
+export function SidebarNav({ items, docsHref, docsLabel = 'View documentation' }: SidebarNavProps) {
   const pathname = usePathname()
+  const Link = useLinkComponent()
 
   return (
     <nav className="mt-2" aria-label="Main navigation">
@@ -29,17 +34,17 @@ export function SidebarNav({ items }: SidebarNavProps) {
         ))}
       </ul>
 
-      <div className="p-3 mt-3 border-top border-secondary border-opacity-25">
-        <a
-          href="https://adminlte.io/docs"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
-        >
-          <i className="bi bi-book" aria-hidden="true"></i>
-          View documentation
-        </a>
-      </div>
+      {docsHref && (
+        <div className="p-3 mt-3 border-top border-secondary border-opacity-25">
+          <Link
+            href={docsHref}
+            className="btn btn-sm btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2"
+          >
+            <i className="bi bi-book" aria-hidden="true"></i>
+            {docsLabel}
+          </Link>
+        </div>
+      )}
     </nav>
   )
 }

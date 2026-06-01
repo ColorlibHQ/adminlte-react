@@ -39,6 +39,8 @@ export function DashboardLayout({
   topbarEnd,
   footer,
   linkComponent,
+  docsHref,
+  docsLabel,
   children,
 }: DashboardLayoutProps) {
   // Compute static body classes server-side
@@ -85,6 +87,8 @@ export function DashboardLayout({
               logoHref={logoHref}
               theme={sidebarTheme}
               sidebarClass={sidebarClass || defaultSidebarClass}
+              docsHref={docsHref}
+              docsLabel={docsLabel}
             />
 
             <main className="app-main">{children}</main>

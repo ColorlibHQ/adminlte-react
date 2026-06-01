@@ -45,6 +45,7 @@ export function DemoLayout({ children, ...props }: DemoLayoutProps) {
     <DashboardLayout
       menuItems={menuItems}
       linkComponent={NavLink}
+      docsHref={withBase('/docs')}
       logo={withBase('/assets/img/AdminLTELogo.png')}
       logoHref={withBase('/')}
       colorModeToggle

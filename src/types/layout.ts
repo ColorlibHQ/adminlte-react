@@ -42,6 +42,10 @@ export interface DashboardLayoutProps {
    * Enables client-side navigation; defaults to a plain `<a>` (full-page navigation).
    */
   linkComponent?: LinkComponent
+  /** Optional sidebar footer link, e.g. to your documentation. Hidden when unset. */
+  docsHref?: string
+  /** Label for the sidebar footer link (default "View documentation"). */
+  docsLabel?: string
   children: React.ReactNode
 }
 
