@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to **adminlte-react** are documented in this file.
+All notable changes to **@colorlib/adminlte-react** are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -112,7 +112,7 @@ Next.js App Router and React Server Components.
 
 - Built with `tsup` to dual ESM + CJS with type declarations and source maps. The
   published bundle is tagged `"use client"` so it works under the App Router; the
-  AdminLTE stylesheet ships under the `adminlte-react/css` export.
+  AdminLTE stylesheet ships under the `@colorlib/adminlte-react/css` export.
 - Heavy third-party libraries are never bundled eagerly — they load via dynamic
   `import()` inside the components that use them.
 

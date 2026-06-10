@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { withBase } from '@/lib/base'
-import { AppContent, ApexChart, SparklineChart } from 'adminlte-react'
+import { AppContent, ApexChart, SparklineChart } from '@colorlib/adminlte-react'
 
 const salesChartConfig = {
   chart: {

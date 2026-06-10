@@ -1,5 +1,5 @@
 {
-  "name": "adminlte-react",
+  "name": "@colorlib/adminlte-react",
   "version": "0.1.0",
   "description": "AdminLTE 4 React/Next.js component library",
   "license": "MIT",
@@ -84,5 +84,9 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.60.0",
     "vitest": "^4.1.7"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://adminlte.io/themes/next-react/"
 }

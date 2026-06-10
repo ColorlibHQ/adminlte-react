@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import type { LinkComponent } from 'adminlte-react'
+import type { LinkComponent } from '@colorlib/adminlte-react'
 import { BASE } from '@/lib/base'
 
 /**

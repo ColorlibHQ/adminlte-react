@@ -84,7 +84,7 @@ importers:
 
   demo:
     dependencies:
-      adminlte-react:
+      '@colorlib/adminlte-react':
         specifier: workspace:*
         version: link:..
       apexcharts:

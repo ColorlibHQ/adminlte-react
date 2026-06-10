@@ -1,6 +1,6 @@
 'use client'
 
-import { SmallBox, Card, ApexChart, SparklineChart, WorldMap, DirectChat, useSortable, AppContent } from 'adminlte-react'
+import { SmallBox, Card, ApexChart, SparklineChart, WorldMap, DirectChat, useSortable, AppContent } from '@colorlib/adminlte-react'
 import {
   revenueChartConfig,
   revenueChartSeries,

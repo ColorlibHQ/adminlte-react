@@ -25,7 +25,7 @@ export default function HooksPage() {
       <h3 id="use-sidebar-context">useSidebarContext()</h3>
       <p>Read and control the sidebar (desktop collapse + mobile off-canvas).</p>
       <CodeBlock code={`'use client'
-import { useSidebarContext } from 'adminlte-react'
+import { useSidebarContext } from '@colorlib/adminlte-react'
 
 function CollapseButton() {
   const { isCollapsed, toggle } = useSidebarContext()
@@ -52,7 +52,7 @@ function CollapseButton() {
       <h3 id="use-command-palette">useCommandPalette()</h3>
       <p>Open or close the ⌘K command palette programmatically.</p>
       <CodeBlock code={`'use client'
-import { useCommandPalette } from 'adminlte-react'
+import { useCommandPalette } from '@colorlib/adminlte-react'
 
 function SearchButton() {
   const palette = useCommandPalette()       // may be undefined outside the provider
@@ -151,7 +151,7 @@ function SearchButton() {
         and reorderable card columns.
       </p>
       <CodeBlock code={`'use client'
-import { useSortable } from 'adminlte-react'
+import { useSortable } from '@colorlib/adminlte-react'
 
 function Board() {
   useSortable()   // pass false to disable

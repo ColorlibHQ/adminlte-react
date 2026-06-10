@@ -1,4 +1,4 @@
-import { AppContent, Card } from 'adminlte-react'
+import { AppContent, Card } from '@colorlib/adminlte-react'
 import { DemoLayout } from '@/components/demo-layout'
 
 export const metadata = { title: "Collapsed Sidebar" }

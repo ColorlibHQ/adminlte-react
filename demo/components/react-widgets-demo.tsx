@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Accordion, Tabs, Toast, Tooltip, Button } from 'adminlte-react'
+import { Accordion, Tabs, Toast, Tooltip, Button } from '@colorlib/adminlte-react'
 
 /** Live showcase of the typed React components (Accordion, Tabs, Toast, Tooltip). */
 export function ReactWidgetsDemo() {

@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-`adminlte-react` — an AdminLTE 4 / Bootstrap 5.3 component library built for Next.js 14+ App Router (React Server Components). **The repo root _is_ the library** (the published npm package). It's also a small pnpm workspace: the root package is the library, and `demo/` is a Next.js 14 App Router app that dogfoods it via `"adminlte-react": "workspace:*"` (pnpm symlinks `demo/node_modules/adminlte-react` → repo root).
+`@colorlib/adminlte-react` — an AdminLTE 4 / Bootstrap 5.3 component library built for Next.js 14+ App Router (React Server Components). **The repo root _is_ the library** (the published npm package). It's also a small pnpm workspace: the root package is the library, and `demo/` is a Next.js 14 App Router app that dogfoods it via `"@colorlib/adminlte-react": "workspace:*"` (pnpm symlinks `demo/node_modules/adminlte-react` → repo root).
 
-- Root (`src/`, `package.json` named `adminlte-react`, `tsup.config.ts`, `dist/`) — the publishable library
+- Root (`src/`, `package.json` named `@colorlib/adminlte-react`, `tsup.config.ts`, `dist/`) — the publishable library
 - `demo/` — demo + dev playground; consumes the library through the workspace link
 
 There is no test framework configured. `pnpm lint` runs ESLint (`eslint.config.mjs`: typescript-eslint + react-hooks) over `src/`; `pnpm type-check` (`tsc --noEmit`) is the strict type gate. Both pass clean — keep them that way.
@@ -74,7 +74,7 @@ Heavy third-party libs are **never** statically imported. Each wrapper component
 `next` is declared an **optional** peer dependency, but `layout/sidebar-nav.tsx` imports `usePathname` from `next/navigation` for active-link detection — so the sidebar in practice requires Next. Navigation uses plain `<a href>` (full page loads), not `next/link`.
 
 ### What the library ships vs. what the consumer provides
-The library ships JS + **only** `dist/css/adminlte.css` (import via `'adminlte-react/css'`). Everything else is the consumer's responsibility, loaded via CDN in `demo/app/layout.tsx`: **Bootstrap JS bundle** (required for dropdowns/modals — the library does not bundle it), Popper, OverlayScrollbars, Bootstrap Icons, Source Sans 3 font, and the plugin CSS (ApexCharts, jsVectorMap, Tabulator). When adding a component that needs runtime JS or CSS the library doesn't bundle, document the CDN/import requirement and mirror it in the demo's root layout.
+The library ships JS + **only** `dist/css/adminlte.css` (import via `'@colorlib/adminlte-react/css'`). Everything else is the consumer's responsibility, loaded via CDN in `demo/app/layout.tsx`: **Bootstrap JS bundle** (required for dropdowns/modals — the library does not bundle it), Popper, OverlayScrollbars, Bootstrap Icons, Source Sans 3 font, and the plugin CSS (ApexCharts, jsVectorMap, Tabulator). When adding a component that needs runtime JS or CSS the library doesn't bundle, document the CDN/import requirement and mirror it in the demo's root layout.
 
 ### Demo route groups
 `demo/app` uses route groups: `(dashboard)` (main shell via `demo/components/demo-layout.tsx`, which wraps `DashboardLayout` with shared brand/user/topbar), `(auth)` (login/register via `AuthLayout`), `(fullpage)` (layout-flag demos: fixed header/sidebar/footer, RTL, mini, etc.).

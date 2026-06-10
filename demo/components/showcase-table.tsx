@@ -1,6 +1,6 @@
 'use client'
 
-import { Table, Badge } from 'adminlte-react'
+import { Table, Badge } from '@colorlib/adminlte-react'
 
 interface Person {
   name: string

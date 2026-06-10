@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { AppContent, Card } from 'adminlte-react'
+import { AppContent, Card } from '@colorlib/adminlte-react'
 
 const themeBg = [
   'bg-primary',

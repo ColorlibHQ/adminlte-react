@@ -7,7 +7,7 @@ import {
   InputSwitch,
   InputColor,
   InputFile,
-} from 'adminlte-react'
+} from '@colorlib/adminlte-react'
 import { DocsPage } from '@/components/docs/docs-page'
 import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import 'adminlte-react/css'
+import '@colorlib/adminlte-react/css'
 import './globals.css'
 import { SubpathLinks } from '@/components/subpath-links'
 import { InertLinks } from '@/components/inert-links'

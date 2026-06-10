@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { withBase } from '@/lib/base'
-import { AppContent, ApexChart } from 'adminlte-react'
+import { AppContent, ApexChart } from '@colorlib/adminlte-react'
 
 const visitorsChartSeries = [
   { name: 'High - 2023', data: [100, 120, 170, 167, 180, 177, 160] },

@@ -1,4 +1,4 @@
-import type { DirectChatContact, DirectChatMessage } from 'adminlte-react'
+import type { DirectChatContact, DirectChatMessage } from '@colorlib/adminlte-react'
 import { withBase } from './base'
 
 // ApexCharts Revenue Chart Config

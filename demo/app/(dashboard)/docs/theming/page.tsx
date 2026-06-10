@@ -57,7 +57,7 @@ export default function ThemingPage() {
       </p>
       <CodeBlock
         code={`'use client'
-import { useColorModeContext } from 'adminlte-react'
+import { useColorModeContext } from '@colorlib/adminlte-react'
 
 function ThemeButtons() {
   const { colorMode, setColorMode, resolvedMode } = useColorModeContext()

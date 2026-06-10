@@ -1,5 +1,5 @@
 {
-  "name": "adminlte-react-demo",
+  "name": "@colorlib/adminlte-react-demo",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -15,7 +15,7 @@
     "test:a11y": "playwright test a11y"
   },
   "dependencies": {
-    "adminlte-react": "workspace:*",
+    "@colorlib/adminlte-react": "workspace:*",
     "apexcharts": "^5.13.0",
     "jsvectormap": "^1.7.0",
     "next": "^16.2.6",

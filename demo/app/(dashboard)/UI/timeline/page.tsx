@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { withBase } from '@/lib/base'
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@colorlib/adminlte-react'
 
 export const metadata = { title: "Timeline" }
 

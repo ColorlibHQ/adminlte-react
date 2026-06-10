@@ -1,4 +1,4 @@
-import { Card, AppContent } from 'adminlte-react'
+import { Card, AppContent } from '@colorlib/adminlte-react'
 
 const abilities = [
   { theme: 'primary' as const, title: 'Expandable', collapsible: true, defaultCollapsed: true },

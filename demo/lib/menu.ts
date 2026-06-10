@@ -1,4 +1,4 @@
-import type { MenuNode } from 'adminlte-react'
+import type { MenuNode } from '@colorlib/adminlte-react'
 import { withBase } from './base'
 
 const rawMenu: MenuNode[] = [

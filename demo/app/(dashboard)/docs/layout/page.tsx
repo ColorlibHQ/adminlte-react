@@ -81,7 +81,7 @@ export default function LayoutDocsPage() {
       </p>
       <CodeBlock
         filename="app/(auth)/login/page.tsx"
-        code={`import { AuthLayout, Input, Button } from 'adminlte-react'
+        code={`import { AuthLayout, Input, Button } from '@colorlib/adminlte-react'
 
 export default function LoginPage() {
   return (

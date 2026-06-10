@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@colorlib/adminlte-react'
 import { ReactWidgetsDemo } from '@/components/react-widgets-demo'
 
 export const metadata = { title: "General UI" }
@@ -14,7 +14,7 @@ export default function Page() {
       ]}
     >
       <h4 className="mb-1">AdminLTE React components</h4>
-      <p className="text-secondary">Typed, state-driven components from the <code>adminlte-react</code> library — no jQuery, no Bootstrap JS required.</p>
+      <p className="text-secondary">Typed, state-driven components from the <code>@colorlib/adminlte-react</code> library — no jQuery, no Bootstrap JS required.</p>
       <ReactWidgetsDemo />
 
       <hr className="my-4" />

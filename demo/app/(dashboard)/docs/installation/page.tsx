@@ -4,7 +4,7 @@ import { CodeBlock } from '@/components/docs/code-block'
 
 export const metadata: Metadata = {
   title: 'Installation',
-  description: 'Install adminlte-react, its peer dependencies, and wire up CSS and Bootstrap JS.',
+  description: 'Install @colorlib/adminlte-react, its peer dependencies, and wire up CSS and Bootstrap JS.',
 }
 
 export default function InstallationPage() {
@@ -16,11 +16,11 @@ export default function InstallationPage() {
       <h2>1. Install the package</h2>
       <CodeBlock
         language="bash"
-        code={`pnpm add adminlte-react
+        code={`pnpm add @colorlib/adminlte-react
 # or
-npm install adminlte-react
+npm install @colorlib/adminlte-react
 # or
-yarn add adminlte-react`}
+yarn add @colorlib/adminlte-react`}
       />
 
       <h2>2. Install peer dependencies</h2>
@@ -44,7 +44,7 @@ yarn add adminlte-react`}
       </p>
       <CodeBlock
         filename="app/layout.tsx"
-        code={`import 'adminlte-react/css'
+        code={`import '@colorlib/adminlte-react/css'
 import './globals.css'`}
       />
 
@@ -56,7 +56,7 @@ import './globals.css'`}
       <CodeBlock
         filename="app/layout.tsx"
         code={`import type { Metadata } from 'next'
-import 'adminlte-react/css'
+import '@colorlib/adminlte-react/css'
 import './globals.css'
 
 export const metadata: Metadata = {

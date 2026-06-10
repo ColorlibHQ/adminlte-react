@@ -1,4 +1,4 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@colorlib/adminlte-react'
 import { getProjects } from '@/lib/projects-data'
 import { ProjectsTable } from '@/components/projects-table'
 

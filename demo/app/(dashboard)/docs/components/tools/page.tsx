@@ -24,7 +24,7 @@ export default function ToolsPage() {
         <code>onShow</code> / <code>onHide</code> callbacks fire on Bootstrap&apos;s modal
         events.
       </p>
-      <CodeBlock code={`import { Modal, Button } from 'adminlte-react'
+      <CodeBlock code={`import { Modal, Button } from '@colorlib/adminlte-react'
 
 export function Example() {
   return (

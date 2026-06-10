@@ -11,7 +11,7 @@ import {
   Carousel,
   Offcanvas,
   OffcanvasTrigger,
-} from 'adminlte-react'
+} from '@colorlib/adminlte-react'
 import { DocsPage } from '@/components/docs/docs-page'
 import { ShowcasePrimitives } from '@/components/showcase-primitives'
 import { ShowcaseTable } from '@/components/showcase-table'

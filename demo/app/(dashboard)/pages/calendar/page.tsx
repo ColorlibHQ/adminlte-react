@@ -1,4 +1,4 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@colorlib/adminlte-react'
 import { CalendarView } from '@/components/calendar-view'
 
 export const metadata = { title: "Calendar" }

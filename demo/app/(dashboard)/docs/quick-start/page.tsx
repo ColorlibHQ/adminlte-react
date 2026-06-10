@@ -21,7 +21,7 @@ export default function QuickStartPage() {
       </p>
       <CodeBlock
         filename="lib/menu.ts"
-        code={`import type { MenuNode } from 'adminlte-react'
+        code={`import type { MenuNode } from '@colorlib/adminlte-react'
 
 export const menuItems: MenuNode[] = [
   {
@@ -54,7 +54,7 @@ export const menuItems: MenuNode[] = [
       </p>
       <CodeBlock
         filename="app/(dashboard)/layout.tsx"
-        code={`import { DashboardLayout } from 'adminlte-react'
+        code={`import { DashboardLayout } from '@colorlib/adminlte-react'
 import { menuItems } from '@/lib/menu'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -85,7 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </p>
       <CodeBlock
         filename="app/(dashboard)/page.tsx"
-        code={`import { AppContent, SmallBox, Card } from 'adminlte-react'
+        code={`import { AppContent, SmallBox, Card } from '@colorlib/adminlte-react'
 
 export default function DashboardPage() {
   return (

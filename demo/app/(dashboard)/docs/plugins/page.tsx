@@ -71,7 +71,7 @@ export default function PluginsPage() {
         load once (CDN or a bundler import). Libraries marked <em>Required</em> are listed
         as <code>external</code> in the build, so you <strong>must</strong> install the npm
         package for the JavaScript to resolve. Libraries marked <em>Bundled</em> ship inside{' '}
-        <code>adminlte-react</code>&apos;s code-split chunks — installing them is optional
+        <code>@colorlib/adminlte-react</code>&apos;s code-split chunks — installing them is optional
         for the JS, but you still need their CSS.
       </p>
       <div className="table-responsive">

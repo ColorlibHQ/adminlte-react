@@ -11,7 +11,7 @@ import {
   Timeline,
   DescriptionBlock,
   ProfileCard,
-} from 'adminlte-react'
+} from '@colorlib/adminlte-react'
 import { DocsPage } from '@/components/docs/docs-page'
 import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'
@@ -438,7 +438,7 @@ export default function WidgetsPage() {
         To build a custom set, use <code>flattenMenuToCommands</code> or supply your own{' '}
         <code>CommandItem[]</code>.
       </p>
-      <CodeBlock code={`import { CommandPalette, flattenMenuToCommands } from 'adminlte-react'
+      <CodeBlock code={`import { CommandPalette, flattenMenuToCommands } from '@colorlib/adminlte-react'
 
 const items = flattenMenuToCommands(menuItems)
 // items: { label, href, icon?, section? }[]

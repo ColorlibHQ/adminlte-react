@@ -1,4 +1,4 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@colorlib/adminlte-react'
 import { PersistSettings } from '@/components/persist-settings'
 import { DemoForm } from '@/components/demo-form'
 
