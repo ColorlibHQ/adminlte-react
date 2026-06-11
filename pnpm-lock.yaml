@@ -84,18 +84,24 @@ importers:
 
   demo:
     dependencies:
-      adminlte-react:
+      '@adminlte/react':
         specifier: workspace:*
         version: link:..
       apexcharts:
         specifier: ^5.13.0
         version: 5.13.0
+      flatpickr:
+        specifier: ^4.6.13
+        version: 4.6.13
       jsvectormap:
         specifier: ^1.7.0
         version: 1.7.0
       next:
         specifier: ^16.2.6
         version: 16.2.6(@babel/core@7.29.7)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      quill:
+        specifier: ^2.0.3
+        version: 2.0.3
       react:
         specifier: ^19.2.6
         version: 19.2.6
@@ -108,6 +114,9 @@ importers:
       tabulator-tables:
         specifier: ^6.4.0
         version: 6.4.0
+      tom-select:
+        specifier: ^2.6.1
+        version: 2.6.1
     devDependencies:
       '@axe-core/playwright':
         specifier: ^4.11.3

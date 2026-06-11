@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import 'adminlte-react/css'
+import Script from 'next/script'
+import '@adminlte/react/css'
 import './globals.css'
 import { SubpathLinks } from '@/components/subpath-links'
 import { InertLinks } from '@/components/inert-links'
@@ -19,6 +20,13 @@ export const metadata: Metadata = {
     description: 'AdminLTE 4 + Bootstrap 5.3 components for React & Next.js. 60+ demo pages, dark mode, ⌘K palette.',
     siteName: 'AdminLTE React',
     type: 'website',
+    images: ['/assets/img/AdminLTEFullLogo.png'],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'AdminLTE React — Bootstrap 5 admin dashboard',
+    description: 'AdminLTE 4 + Bootstrap 5.3 components for React & Next.js. 60+ demo pages, dark mode, ⌘K palette.',
+    images: ['/assets/img/AdminLTEFullLogo.png'],
   },
 }
 
@@ -30,6 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Open the CDN connection early — every stylesheet below comes from it.
+            The crossOrigin variant covers the CORS-mode font file requests. */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         {/* Source Sans 3 (AdminLTE's default typeface) */}
         <link
           rel="stylesheet"
@@ -80,12 +92,16 @@ export default function RootLayout({
         {children}
         <SubpathLinks />
         <InertLinks />
-        {/* Popper JS */}
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-        {/* Bootstrap JS */}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+        {/* Bootstrap JS (the bundle build already includes Popper) */}
+        <Script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+          strategy="afterInteractive"
+        />
         {/* OverlayScrollbars JS */}
-        <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"></script>
+        <Script
+          src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

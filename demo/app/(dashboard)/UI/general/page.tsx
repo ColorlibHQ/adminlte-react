@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 import { ReactWidgetsDemo } from '@/components/react-widgets-demo'
 
 export const metadata = { title: "General UI" }

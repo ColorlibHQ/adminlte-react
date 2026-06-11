@@ -44,7 +44,7 @@ yarn add adminlte-react`}
       </p>
       <CodeBlock
         filename="app/layout.tsx"
-        code={`import 'adminlte-react/css'
+        code={`import '@adminlte/react/css'
 import './globals.css'`}
       />
 
@@ -56,7 +56,7 @@ import './globals.css'`}
       <CodeBlock
         filename="app/layout.tsx"
         code={`import type { Metadata } from 'next'
-import 'adminlte-react/css'
+import '@adminlte/react/css'
 import './globals.css'
 
 export const metadata: Metadata = {

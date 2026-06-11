@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 
 interface FileRow {
   name: string

@@ -60,9 +60,9 @@ A modern React/Next.js component library for building admin dashboards and web a
 ## Installation
 
 ```bash
-npm install adminlte-react
+npm install @adminlte/react
 # or
-pnpm add adminlte-react
+pnpm add @adminlte/react
 ```
 
 ### Peer Dependencies
@@ -104,7 +104,7 @@ for the full matrix.
 
 ```tsx
 // app/layout.tsx
-import 'adminlte-react/css'
+import '@adminlte/react/css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './globals.css'
 
@@ -135,7 +135,7 @@ export default function RootLayout({ children }) {
 
 ```tsx
 // app/(dashboard)/layout.tsx
-import { DashboardLayout } from 'adminlte-react'
+import { DashboardLayout } from '@adminlte/react'
 import { menuItems } from '@/lib/menu'
 
 export default function Layout({ children }) {
@@ -156,7 +156,7 @@ export default function Layout({ children }) {
 
 ```ts
 // lib/menu.ts
-import type { MenuNode } from 'adminlte-react'
+import type { MenuNode } from '@adminlte/react'
 
 export const menuItems: MenuNode[] = [
   {
@@ -189,7 +189,7 @@ export const menuItems: MenuNode[] = [
 
 ```tsx
 // app/(dashboard)/page.tsx
-import { AppContent, SmallBox, Card, Progress } from 'adminlte-react'
+import { AppContent, SmallBox, Card, Progress } from '@adminlte/react'
 
 export default function Dashboard() {
   return (
@@ -289,7 +289,7 @@ Standalone hooks:
 
 ```tsx
 'use client'
-import { useSidebarContext, useColorModeContext } from 'adminlte-react'
+import { useSidebarContext, useColorModeContext } from '@adminlte/react'
 
 function Toolbar() {
   const { toggle } = useSidebarContext()
@@ -320,7 +320,7 @@ All components use Bootstrap 5.3 utility classes. Customize via CSS variables or
 Full TypeScript support with exported types:
 
 ```tsx
-import type { DashboardLayoutProps, MenuNode, BootstrapTheme } from 'adminlte-react'
+import type { DashboardLayoutProps, MenuNode, BootstrapTheme } from '@adminlte/react'
 
 const props: DashboardLayoutProps = {
   menuItems: [],

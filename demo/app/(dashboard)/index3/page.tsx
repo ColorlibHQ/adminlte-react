@@ -1,15 +1,16 @@
 'use client'
 
 import Image from 'next/image'
+import type { ApexOptions } from 'apexcharts'
 import { withBase } from '@/lib/base'
-import { AppContent, ApexChart } from 'adminlte-react'
+import { AppContent, ApexChart } from '@adminlte/react'
 
 const visitorsChartSeries = [
   { name: 'High - 2023', data: [100, 120, 170, 167, 180, 177, 160] },
   { name: 'Low - 2023', data: [60, 80, 70, 67, 80, 77, 100] },
 ]
 
-const visitorsChartConfig = {
+const visitorsChartConfig: ApexOptions = {
   chart: {
     height: 200,
     type: 'line',
@@ -37,7 +38,7 @@ const salesChartSeries = [
   { name: 'Free Cash Flow', data: [35, 41, 36, 26, 45, 48, 52, 53, 41] },
 ]
 
-const salesChartConfig = {
+const salesChartConfig: ApexOptions = {
   chart: {
     type: 'bar',
     height: 200,
@@ -46,7 +47,7 @@ const salesChartConfig = {
     bar: {
       horizontal: false,
       columnWidth: '55%',
-      endingShape: 'rounded',
+      borderRadius: 4,
     },
   },
   legend: { show: false },

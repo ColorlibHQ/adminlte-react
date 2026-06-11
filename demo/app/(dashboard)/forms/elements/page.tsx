@@ -1,4 +1,4 @@
-import { AppContent, Card, Callout, InputFlatpickr, InputTomSelect } from 'adminlte-react'
+import { AppContent, Card, Callout, InputFlatpickr, InputTomSelect } from '@adminlte/react'
 
 export const metadata = { title: "Form Elements" }
 

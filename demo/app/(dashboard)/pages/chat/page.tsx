@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 
 type ChatMessage = {
   from: 'them' | 'me'

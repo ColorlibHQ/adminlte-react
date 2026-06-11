@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 
 export default function FormValidationPage() {
   // Enable Bootstrap-style validation for forms marked with .needs-validation

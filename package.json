@@ -1,17 +1,17 @@
 {
-  "name": "adminlte-react",
+  "name": "@adminlte/react",
   "version": "0.1.0",
   "description": "AdminLTE 4 React/Next.js component library",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "default": "./dist/index.js"
     },
     "./css": "./dist/css/adminlte.css"
   },
@@ -39,9 +39,9 @@
     "components"
   ],
   "scripts": {
-    "build": "tsup && npm run copy-css && npm run add-use-client",
+    "build": "tsup && npm run copy-css && npm run fix-dist",
     "copy-css": "mkdir -p dist/css && cp node_modules/admin-lte/dist/css/adminlte.css dist/css/",
-    "add-use-client": "node add-use-client.js",
+    "fix-dist": "node fix-dist.js",
     "dev": "tsup --watch",
     "type-check": "tsc --noEmit",
     "lint": "eslint src",
@@ -51,12 +51,40 @@
     "test:watch": "vitest"
   },
   "peerDependencies": {
+    "apexcharts": ">=4.0.0",
+    "flatpickr": ">=4.6.0",
+    "jsvectormap": ">=1.6.0",
     "next": ">=14.0.0",
+    "quill": ">=2.0.0",
     "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react-dom": ">=18.0.0",
+    "sortablejs": ">=1.15.0",
+    "tabulator-tables": ">=6.0.0",
+    "tom-select": ">=2.3.0"
   },
   "peerDependenciesMeta": {
+    "apexcharts": {
+      "optional": true
+    },
+    "flatpickr": {
+      "optional": true
+    },
+    "jsvectormap": {
+      "optional": true
+    },
     "next": {
+      "optional": true
+    },
+    "quill": {
+      "optional": true
+    },
+    "sortablejs": {
+      "optional": true
+    },
+    "tabulator-tables": {
+      "optional": true
+    },
+    "tom-select": {
       "optional": true
     }
   },

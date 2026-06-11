@@ -1,5 +1,5 @@
-import { DashboardLayout, NavMessages, NavNotifications } from 'adminlte-react'
-import type { DashboardLayoutProps } from 'adminlte-react'
+import { DashboardLayout, NavMessages, NavNotifications } from '@adminlte/react'
+import type { DashboardLayoutProps } from '@adminlte/react'
 import { menuItems } from '@/lib/menu'
 import { withBase } from '@/lib/base'
 import { NavLink } from '@/components/nav-link'

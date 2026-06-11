@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Pagination, Stepper } from 'adminlte-react'
+import { Pagination, Stepper } from '@adminlte/react'
 
 const steps = [
   { label: 'Account', description: 'Your details', icon: 'bi-person' },

@@ -1,4 +1,4 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 import { DocsNav } from './docs-nav'
 
 interface DocsPageProps {

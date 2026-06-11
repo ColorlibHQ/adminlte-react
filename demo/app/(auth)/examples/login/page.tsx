@@ -1,4 +1,4 @@
-import { AuthLayout } from 'adminlte-react'
+import { AuthLayout } from '@adminlte/react'
 import { DemoForm } from '@/components/demo-form'
 
 export const metadata = { title: "Login" }

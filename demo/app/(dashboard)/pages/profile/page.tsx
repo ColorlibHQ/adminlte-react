@@ -1,13 +1,17 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 import { DemoForm } from '@/components/demo-form'
 
-export const metadata = { title: "Profile" }
+export const metadata = { title: 'Profile' }
 
 export default function Page() {
   return (
     <AppContent
       title="User Profile"
-      breadcrumbs={[{ label: 'Home', href: '#' }, { label: 'User', href: '#' }, { label: 'Profile' }]}
+      breadcrumbs={[
+        { label: 'Home', href: '#' },
+        { label: 'User', href: '#' },
+        { label: 'Profile' },
+      ]}
     >
       <div className="row g-3">
         {/* Profile sidebar */}
@@ -111,6 +115,7 @@ export default function Page() {
                     type="button"
                     role="tab"
                     aria-selected="false"
+                    tabIndex={-1}
                   >
                     Timeline
                   </button>
@@ -124,6 +129,7 @@ export default function Page() {
                     type="button"
                     role="tab"
                     aria-selected="false"
+                    tabIndex={-1}
                   >
                     Settings
                   </button>
@@ -153,8 +159,8 @@ export default function Page() {
                         <small className="text-secondary">2 hours ago</small>
                       </div>
                       <p className="mb-2">
-                        Shipped <a href="#">design-system v2.4</a> with a refreshed color palette and
-                        new motion primitives.
+                        Shipped <a href="#">design-system v2.4</a> with a refreshed color palette
+                        and new motion primitives.
                       </p>
                       <a href="#" className="btn btn-sm btn-outline-secondary">
                         <i className="bi bi-hand-thumbs-up me-1" aria-hidden="true"></i>
@@ -180,8 +186,8 @@ export default function Page() {
                         <small className="text-secondary">Yesterday</small>
                       </div>
                       <p className="mb-2">
-                        Posted a question in <a href="#">#design-help</a>: how should we handle focus
-                        rings on dark-themed CTA buttons?
+                        Posted a question in <a href="#">#design-help</a>: how should we handle
+                        focus rings on dark-themed CTA buttons?
                       </p>
                     </div>
                   </article>
@@ -236,7 +242,9 @@ export default function Page() {
                         <i className="bi bi-briefcase" aria-hidden="true"></i>
                       </span>
                       <div>
-                        <p className="mb-0 fw-semibold">Joined the product team as Senior Designer</p>
+                        <p className="mb-0 fw-semibold">
+                          Joined the product team as Senior Designer
+                        </p>
                         <small className="text-secondary">March 1, 2026</small>
                       </div>
                     </li>
@@ -250,19 +258,35 @@ export default function Page() {
                   role="tabpanel"
                   aria-labelledby="settings-tab"
                 >
-                  <DemoForm className="row g-3" resetOnSubmit={false} successMessage="Profile updated. (demo)">
+                  <DemoForm
+                    className="row g-3"
+                    resetOnSubmit={false}
+                    successMessage="Profile updated. (demo)"
+                  >
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="profile-first">
                         First name
                       </label>
-                      <input type="text" required className="form-control" id="profile-first" defaultValue="Jane" />
+                      <input
+                        type="text"
+                        required
+                        className="form-control"
+                        id="profile-first"
+                        defaultValue="Jane"
+                      />
                       <div className="invalid-feedback">First name is required.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="profile-last">
                         Last name
                       </label>
-                      <input type="text" required className="form-control" id="profile-last" defaultValue="Doe" />
+                      <input
+                        type="text"
+                        required
+                        className="form-control"
+                        id="profile-last"
+                        defaultValue="Doe"
+                      />
                       <div className="invalid-feedback">Last name is required.</div>
                     </div>
                     <div className="col-md-6">

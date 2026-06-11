@@ -38,7 +38,7 @@ import {
   CommandPalette,
   flattenMenuToCommands,
   useCommandPalette,
-} from 'adminlte-react'
+} from '@adminlte/react'
 import { menuItems } from '@/lib/menu'
 
 function SearchButton() {
@@ -64,7 +64,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       </p>
       <CodeBlock
         language="tsx"
-        code={`import type { CommandItem } from 'adminlte-react'
+        code={`import type { CommandItem } from '@adminlte/react'
 
 const commands: CommandItem[] = [
   ...flattenMenuToCommands(menuItems),

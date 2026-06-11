@@ -1,8 +1,9 @@
-import type { DirectChatContact, DirectChatMessage } from 'adminlte-react'
+import type { ApexOptions } from 'apexcharts'
+import type { DirectChatContact, DirectChatMessage } from '@adminlte/react'
 import { withBase } from './base'
 
 // ApexCharts Revenue Chart Config
-export const revenueChartConfig = {
+export const revenueChartConfig: ApexOptions = {
   chart: {
     height: 300,
     type: 'area' as const,

@@ -1,4 +1,4 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 import { UsersTable } from '@/components/users-table'
 
 export const metadata = { title: "Data Tables" }

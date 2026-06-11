@@ -7,7 +7,7 @@ import {
   InputSwitch,
   InputColor,
   InputFile,
-} from 'adminlte-react'
+} from '@adminlte/react'
 import { DocsPage } from '@/components/docs/docs-page'
 import { CodeBlock } from '@/components/docs/code-block'
 import { PropsTable } from '@/components/docs/props-table'
@@ -72,7 +72,7 @@ export default function FormsPage() {
       <PropsTable
         rows={[
           { name: 'label / hint / error / fgroupClass', type: 'string', description: 'See Common props.' },
-          { name: 'igroupSize', type: "'sm' | 'lg'", description: 'Input group size.' },
+          { name: 'igroupSize', type: "'sm' | 'lg'", description: 'Control size (form-control-sm / form-control-lg).' },
           { name: '...native', type: 'InputHTMLAttributes', description: 'type, value, placeholder, onChange, etc.' },
         ]}
       />

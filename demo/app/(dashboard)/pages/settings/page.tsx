@@ -1,8 +1,8 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 import { PersistSettings } from '@/components/persist-settings'
 import { DemoForm } from '@/components/demo-form'
 
-export const metadata = { title: "Settings" }
+export const metadata = { title: 'Settings' }
 
 export default function Page() {
   return (
@@ -33,6 +33,8 @@ export default function Page() {
               className="list-group-item list-group-item-action"
               data-bs-toggle="pill"
               role="tab"
+              aria-selected="false"
+              tabIndex={-1}
             >
               <i className="bi bi-bell me-2" aria-hidden="true"></i>Notifications
             </a>
@@ -41,6 +43,8 @@ export default function Page() {
               className="list-group-item list-group-item-action"
               data-bs-toggle="pill"
               role="tab"
+              aria-selected="false"
+              tabIndex={-1}
             >
               <i className="bi bi-shield-lock me-2" aria-hidden="true"></i>Security
             </a>
@@ -49,6 +53,8 @@ export default function Page() {
               className="list-group-item list-group-item-action"
               data-bs-toggle="pill"
               role="tab"
+              aria-selected="false"
+              tabIndex={-1}
             >
               <i className="bi bi-credit-card me-2" aria-hidden="true"></i>Billing
             </a>
@@ -57,6 +63,8 @@ export default function Page() {
               className="list-group-item list-group-item-action text-danger"
               data-bs-toggle="pill"
               role="tab"
+              aria-selected="false"
+              tabIndex={-1}
             >
               <i className="bi bi-exclamation-triangle me-2" aria-hidden="true"></i>
               Danger zone
@@ -74,7 +82,11 @@ export default function Page() {
                   <h3 className="card-title">Account</h3>
                 </div>
                 <div className="card-body">
-                  <DemoForm className="row g-3" resetOnSubmit={false} successMessage="Account settings saved. (demo)">
+                  <DemoForm
+                    className="row g-3"
+                    resetOnSubmit={false}
+                    successMessage="Account settings saved. (demo)"
+                  >
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="settings-name">
                         Full name
@@ -144,83 +156,88 @@ export default function Page() {
                   <h3 className="card-title">Notifications</h3>
                 </div>
                 <div className="card-body">
-                  <DemoForm resetOnSubmit={false} successMessage="Notification preferences saved. (demo)">
-                  <p className="text-secondary">Choose what to be notified about.</p>
-                  <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
-                    <div>
-                      <p className="mb-0 fw-semibold">Product updates</p>
-                      <small className="text-secondary">Major releases and changelogs</small>
+                  <DemoForm
+                    resetOnSubmit={false}
+                    successMessage="Notification preferences saved. (demo)"
+                  >
+                    <p className="text-secondary">Choose what to be notified about.</p>
+                    <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
+                      <div>
+                        <p className="mb-0 fw-semibold">Product updates</p>
+                        <small className="text-secondary">Major releases and changelogs</small>
+                      </div>
+                      <div className="form-check form-switch mb-0">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          role="switch"
+                          id="notif-0"
+                          defaultChecked
+                        />
+                        <label className="visually-hidden" htmlFor="notif-0">
+                          Toggle Product updates
+                        </label>
+                      </div>
                     </div>
-                    <div className="form-check form-switch mb-0">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="notif-0"
-                        defaultChecked
-                      />
-                      <label className="visually-hidden" htmlFor="notif-0">
-                        Toggle Product updates
-                      </label>
+                    <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
+                      <div>
+                        <p className="mb-0 fw-semibold">Security alerts</p>
+                        <small className="text-secondary">
+                          Sign-in attempts and account changes
+                        </small>
+                      </div>
+                      <div className="form-check form-switch mb-0">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          role="switch"
+                          id="notif-1"
+                          defaultChecked
+                        />
+                        <label className="visually-hidden" htmlFor="notif-1">
+                          Toggle Security alerts
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
-                    <div>
-                      <p className="mb-0 fw-semibold">Security alerts</p>
-                      <small className="text-secondary">
-                        Sign-in attempts and account changes
-                      </small>
+                    <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
+                      <div>
+                        <p className="mb-0 fw-semibold">Weekly digest</p>
+                        <small className="text-secondary">
+                          A summary of activity in your workspace
+                        </small>
+                      </div>
+                      <div className="form-check form-switch mb-0">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          role="switch"
+                          id="notif-2"
+                        />
+                        <label className="visually-hidden" htmlFor="notif-2">
+                          Toggle Weekly digest
+                        </label>
+                      </div>
                     </div>
-                    <div className="form-check form-switch mb-0">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="notif-1"
-                        defaultChecked
-                      />
-                      <label className="visually-hidden" htmlFor="notif-1">
-                        Toggle Security alerts
-                      </label>
+                    <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
+                      <div>
+                        <p className="mb-0 fw-semibold">Mentions</p>
+                        <small className="text-secondary">When a teammate @mentions you</small>
+                      </div>
+                      <div className="form-check form-switch mb-0">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          role="switch"
+                          id="notif-3"
+                        />
+                        <label className="visually-hidden" htmlFor="notif-3">
+                          Toggle Mentions
+                        </label>
+                      </div>
                     </div>
-                  </div>
-                  <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
-                    <div>
-                      <p className="mb-0 fw-semibold">Weekly digest</p>
-                      <small className="text-secondary">
-                        A summary of activity in your workspace
-                      </small>
-                    </div>
-                    <div className="form-check form-switch mb-0">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="notif-2"
-                      />
-                      <label className="visually-hidden" htmlFor="notif-2">
-                        Toggle Weekly digest
-                      </label>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between align-items-start py-2 border-bottom">
-                    <div>
-                      <p className="mb-0 fw-semibold">Mentions</p>
-                      <small className="text-secondary">When a teammate @mentions you</small>
-                    </div>
-                    <div className="form-check form-switch mb-0">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="notif-3"
-                      />
-                      <label className="visually-hidden" htmlFor="notif-3">
-                        Toggle Mentions
-                      </label>
-                    </div>
-                  </div>
-                  <button type="submit" className="btn btn-primary mt-3">Save preferences</button>
+                    <button type="submit" className="btn btn-primary mt-3">
+                      Save preferences
+                    </button>
                   </DemoForm>
                 </div>
               </div>
@@ -245,14 +262,26 @@ export default function Page() {
                       <label className="form-label" htmlFor="pwd-new">
                         New password
                       </label>
-                      <input type="password" required minLength={8} className="form-control" id="pwd-new" />
+                      <input
+                        type="password"
+                        required
+                        minLength={8}
+                        className="form-control"
+                        id="pwd-new"
+                      />
                       <div className="invalid-feedback">Use at least 8 characters.</div>
                     </div>
                     <div className="col-md-6">
                       <label className="form-label" htmlFor="pwd-confirm">
                         Confirm new password
                       </label>
-                      <input type="password" required minLength={8} className="form-control" id="pwd-confirm" />
+                      <input
+                        type="password"
+                        required
+                        minLength={8}
+                        className="form-control"
+                        id="pwd-confirm"
+                      />
                       <div className="invalid-feedback">Re-enter the new password.</div>
                     </div>
                     <div className="col-12">

@@ -1,4 +1,4 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 
 export const metadata = { title: "Pricing" }
 

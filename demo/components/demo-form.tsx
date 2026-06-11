@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Toast } from 'adminlte-react'
+import { Toast } from '@adminlte/react'
 
 /**
  * Wraps form fields with HTML5 validation (Bootstrap `was-validated` styling) and a

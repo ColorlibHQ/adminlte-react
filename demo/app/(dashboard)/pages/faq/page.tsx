@@ -1,4 +1,4 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 import { Faq } from '@/components/faq'
 
 export const metadata = { title: 'FAQ' }

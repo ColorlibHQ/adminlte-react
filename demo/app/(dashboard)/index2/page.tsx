@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import type { ApexOptions } from 'apexcharts'
 import { withBase } from '@/lib/base'
-import { AppContent, ApexChart, SparklineChart } from 'adminlte-react'
+import { AppContent, ApexChart, SparklineChart } from '@adminlte/react'
 
-const salesChartConfig = {
+const salesChartConfig: ApexOptions = {
   chart: {
     height: 180,
     type: 'area',
@@ -32,7 +33,7 @@ const salesChartSeries = [
   { name: 'Electronics', data: [65, 59, 80, 81, 56, 55, 40] },
 ]
 
-const pieChartConfig = {
+const pieChartConfig: ApexOptions = {
   chart: { type: 'donut', height: 350 },
   labels: ['Chrome', 'Edge', 'FireFox', 'Safari', 'Opera', 'IE'],
   dataLabels: { enabled: false },

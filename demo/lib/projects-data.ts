@@ -1,4 +1,4 @@
-import type { BootstrapTheme } from 'adminlte-react'
+import type { BootstrapTheme } from '@adminlte/react'
 
 export interface ProjectMember {
   initials: string

@@ -1,6 +1,6 @@
 'use client'
 
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 import { useState, useRef } from 'react'
 
 const STEP_LABELS = ['Account', 'Profile', 'Preferences', 'Review']

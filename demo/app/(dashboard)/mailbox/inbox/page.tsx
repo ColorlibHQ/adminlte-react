@@ -1,4 +1,4 @@
-import { AppContent } from 'adminlte-react'
+import { AppContent } from '@adminlte/react'
 import { ListSearch } from '@/components/list-search'
 
 export const metadata = { title: "Inbox" }

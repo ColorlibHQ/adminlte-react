@@ -15,14 +15,17 @@
     "test:a11y": "playwright test a11y"
   },
   "dependencies": {
-    "adminlte-react": "workspace:*",
+    "@adminlte/react": "workspace:*",
     "apexcharts": "^5.13.0",
+    "flatpickr": "^4.6.13",
     "jsvectormap": "^1.7.0",
     "next": "^16.2.6",
+    "quill": "^2.0.3",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "sortablejs": "^1.15.7",
-    "tabulator-tables": "^6.4.0"
+    "tabulator-tables": "^6.4.0",
+    "tom-select": "^2.6.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",

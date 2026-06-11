@@ -1,4 +1,4 @@
-import { AppContent, Callout } from 'adminlte-react'
+import { AppContent, Callout } from '@adminlte/react'
 
 export const metadata = { title: "Form Layout" }
 

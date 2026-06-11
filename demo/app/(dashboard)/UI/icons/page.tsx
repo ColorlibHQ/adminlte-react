@@ -1,4 +1,4 @@
-import { AppContent, Card } from 'adminlte-react'
+import { AppContent, Card } from '@adminlte/react'
 
 export const metadata = { title: "Icons" }
 

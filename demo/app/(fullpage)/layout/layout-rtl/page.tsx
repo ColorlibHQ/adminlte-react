@@ -1,4 +1,4 @@
-import { AppContent, Card } from 'adminlte-react'
+import { AppContent, Card } from '@adminlte/react'
 import { DemoLayout } from '@/components/demo-layout'
 import { RtlStyles } from '@/components/rtl-styles'
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { Accordion } from 'adminlte-react'
+import { Accordion } from '@adminlte/react'
 import { faqCategories } from '@/lib/faq-data'
 
 /** Searchable FAQ — filters questions live and renders each category with the library Accordion. */
