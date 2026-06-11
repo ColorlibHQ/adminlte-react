@@ -3,39 +3,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCommandPalette } from '../context/command-palette-context'
-import type { MenuNode } from '../types/menu'
+import type { CommandItem } from '../lib/flatten-menu'
 
-export interface CommandItem {
-  label: string
-  href: string
-  icon?: string
-  section?: string
-}
-
-/**
- * Flattens a MenuNode tree into a flat list of navigable commands.
- * Skips placeholder links (`href === '#'`) and de-duplicates by href.
- */
-export function flattenMenuToCommands(nodes: MenuNode[]): CommandItem[] {
-  const out: CommandItem[] = []
-  const walk = (list: MenuNode[], section?: string) => {
-    let sec = section
-    for (const node of list) {
-      if (node.type === 'header') {
-        sec = node.text
-      } else if (node.type === 'item') {
-        if (node.href && node.href !== '#') {
-          out.push({ label: node.text, href: node.href, icon: node.icon, section: sec })
-        }
-      } else if (node.type === 'group') {
-        walk(node.children, node.text)
-      }
-    }
-  }
-  walk(nodes)
-  const seen = new Set<string>()
-  return out.filter((c) => (seen.has(c.href) ? false : (seen.add(c.href), true)))
-}
+export type { CommandItem }
 
 export interface CommandPaletteProps {
   items: CommandItem[]

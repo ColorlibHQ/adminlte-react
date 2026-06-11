@@ -11,7 +11,8 @@ import { HtmlDir } from '../context/html-dir'
 import { Topbar } from './topbar'
 import { Sidebar } from './sidebar'
 import { Footer } from './footer'
-import { CommandPalette, flattenMenuToCommands } from '../widget/command-palette'
+import { CommandPalette } from '../widget/command-palette'
+import { flattenMenuToCommands } from '../lib/flatten-menu'
 
 /**
  * Main dashboard layout component (RSC outer shell).
