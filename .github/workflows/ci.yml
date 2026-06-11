@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type-check (library)
+        run: pnpm type-check
+
+      - name: Lint (library)
+        run: pnpm lint
+
+      - name: Test (library)
+        run: pnpm test
+
+      - name: Build (library)
+        run: pnpm build
+
+      - name: Verify dist RSC boundaries
+        run: |
+          # Every 'use client' module in src must have a matching directive in dist,
+          # and RSC-authored modules must NOT be marked client.
+          SRC_COUNT=$(grep -rl "^'use client'" src --include='*.ts' --include='*.tsx' | grep -v '.test.' | wc -l)
+          DIST_COUNT=$(grep -rl '^"use client"' dist --include='*.js' | wc -l)
+          echo "src client modules: $SRC_COUNT, dist client modules: $DIST_COUNT"
+          test "$SRC_COUNT" -eq "$DIST_COUNT"
+          # Spot-check: a pure-presentational component must stay a server component
+          ! head -1 dist/form/button.js | grep -q 'use client'
+
+      - name: Type-check (demo)
+        run: pnpm --filter adminlte-react-demo type-check
+
+      - name: Build (demo)
+        run: pnpm demo:build
