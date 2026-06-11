@@ -4,22 +4,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-`adminlte-react` — an AdminLTE 4 / Bootstrap 5.3 component library built for Next.js 14+ App Router (React Server Components). **The repo root _is_ the library** (the published npm package). It's also a small pnpm workspace: the root package is the library, and `demo/` is a Next.js 14 App Router app that dogfoods it via `"adminlte-react": "workspace:*"` (pnpm symlinks `demo/node_modules/adminlte-react` → repo root).
+`@adminlte/react` — an AdminLTE 4 / Bootstrap 5.3 component library built for Next.js 14+ App Router (React Server Components). **The repo root _is_ the library** (the published npm package, under the `@adminlte` npm org). It's also a small pnpm workspace: the root package is the library, and `demo/` is a Next.js 14 App Router app that dogfoods it via `"@adminlte/react": "workspace:*"` (pnpm symlinks `demo/node_modules/@adminlte/react` → repo root).
 
-- Root (`src/`, `package.json` named `adminlte-react`, `tsup.config.ts`, `dist/`) — the publishable library
+- Root (`src/`, `package.json` named `@adminlte/react`, `tsup.config.ts`, `dist/`) — the publishable library
 - `demo/` — demo + dev playground; consumes the library through the workspace link
 
-There is no test framework configured. `pnpm lint` runs ESLint (`eslint.config.mjs`: typescript-eslint + react-hooks) over `src/`; `pnpm type-check` (`tsc --noEmit`) is the strict type gate. Both pass clean — keep them that way.
+Testing: `pnpm test` runs Vitest (jsdom) unit tests colocated in `src/` (`*.test.ts(x)`); the demo has Playwright tests (`cd demo && pnpm test` — route smoke + a11y, starts its own dev server). `pnpm lint` runs ESLint (`eslint.config.mjs`: typescript-eslint + react-hooks) over `src/`; `pnpm type-check` (`tsc --noEmit`) is the strict type gate. All pass clean — keep them that way. CI (`.github/workflows/ci.yml`) runs type-check, lint, unit tests, the library build (plus an RSC-boundary check on `dist/`), and the demo type-check + build.
 
 ## Commands
 
 From the repo root (these operate on the **library**):
 
 ```bash
-pnpm build        # tsup → copy-css → add-use-client (see "The build pipeline" below)
+pnpm build        # tsup → copy-css → fix-dist (see "The build pipeline" below)
 pnpm dev          # tsup --watch (rebuild the library on change)
 pnpm type-check   # tsc --noEmit — the primary check before considering library work done
 pnpm lint         # ESLint over src/ (typescript-eslint + react-hooks)
+pnpm test         # Vitest unit tests (src/**/*.test.*)
 pnpm demo         # run the demo app (next dev) — alias for the demo workspace
 pnpm demo:build   # production build of the demo
 ```
@@ -38,17 +39,17 @@ Every route sets a `<title>` via a `%s · AdminLTE React` template. **The templa
 
 The demo imports the compiled `dist/`, not `src/`. After editing library source, rebuild it (`pnpm build`, or keep `pnpm dev` running in one terminal) before the demo reflects the change — run `pnpm dev` (library watch) and `pnpm demo` side by side during development.
 
-## The build pipeline (and the "use client" gotcha)
+## The build pipeline (per-file ESM, RSC boundaries preserved)
 
-`tsup` (esbuild) bundles `src/index.ts` to dual ESM+CJS with `.d.ts`, treeshaken, sourcemapped. The build is **three sequential steps** (`tsup && copy-css && add-use-client`):
+`tsup` (esbuild) compiles every `src/` module **unbundled** (`bundle: false`, ESM-only, no sourcemaps) to a mirrored `dist/` tree, plus a single bundled `dist/index.d.ts`. The build is **three sequential steps** (`tsup && copy-css && fix-dist`):
 
-1. `tsup` — bundle. **esbuild strips `'use client'` directives during bundling**, so they cannot survive normally.
+1. `tsup` — per-file transform of `src/**/*.ts(x)` (tests excluded). Each module keeps its own `'use client'` (or lack of one), so the RSC/client split in `src/` **is** the published artifact: server-authored components stay Server Components for consumers, and bundlers tree-shake through the barrel.
 2. `copy-css` — copies `node_modules/admin-lte/dist/css/adminlte.css` → `dist/css/` (exposed as the `./css` export).
-3. `add-use-client` — `add-use-client.js` prepends `"use client";` to the **entire** `dist/index.js` and `dist/index.cjs`.
+3. `fix-dist` — `fix-dist.js` (a) re-applies `"use client"` to any dist file whose source declares it (safety net; esbuild currently preserves them itself, hence "0 directives applied" in output), and (b) rewrites relative specifiers to be fully specified (`'./foo'` → `'./foo.js'`) — required because webpack enforces fully-specified ESM imports inside `node_modules`. It exits non-zero if a specifier can't be resolved.
 
-**Critical implication:** the published barrel bundle is marked `'use client'` as a whole. The RSC/client split in `src/` (below) is the authoring model; the single-file published artifact is a client boundary. When changing the build or the entry, preserve this post-processing step or RSC consumers will get "use client" errors.
+**Critical implications:** the package is ESM-only (no CJS) — `exports['.']` has `types`/`import`/`default` conditions only. Don't re-introduce bundling without solving directive preservation per module; don't add a source file with extensionless imports that point at directories (fix-dist resolves `./x` → `x.js` or `x/index.js`). CI verifies the src↔dist client-module counts match and that `dist/form/button.js` stays unmarked.
 
-Heavy plugins (`flatpickr`, `tom-select`, `tabulator-tables`, `quill`) plus `react`/`react-dom`/`next` are `external` in `tsup.config.ts` — never bundled.
+**All** heavy plugins (`apexcharts`, `flatpickr`, `jsvectormap`, `quill`, `sortablejs`, `tabulator-tables`, `tom-select`) are **optional peer dependencies** — never bundled. They're loaded via dynamic `import()` (unbundled output keeps the specifier as written), so consumers install only what they use and Next code-splits them per page. Shared pure helpers that Server Components call (e.g. `lib/flatten-menu.ts`) must live outside `'use client'` modules.
 
 ## Architecture
 
@@ -74,7 +75,7 @@ Heavy third-party libs are **never** statically imported. Each wrapper component
 `next` is declared an **optional** peer dependency, but `layout/sidebar-nav.tsx` imports `usePathname` from `next/navigation` for active-link detection — so the sidebar in practice requires Next. Navigation uses plain `<a href>` (full page loads), not `next/link`.
 
 ### What the library ships vs. what the consumer provides
-The library ships JS + **only** `dist/css/adminlte.css` (import via `'adminlte-react/css'`). Everything else is the consumer's responsibility, loaded via CDN in `demo/app/layout.tsx`: **Bootstrap JS bundle** (required for dropdowns/modals — the library does not bundle it), Popper, OverlayScrollbars, Bootstrap Icons, Source Sans 3 font, and the plugin CSS (ApexCharts, jsVectorMap, Tabulator). When adding a component that needs runtime JS or CSS the library doesn't bundle, document the CDN/import requirement and mirror it in the demo's root layout.
+The library ships JS + **only** `dist/css/adminlte.css` (import via `'@adminlte/react/css'`). Everything else is the consumer's responsibility, loaded via CDN in `demo/app/layout.tsx`: **Bootstrap JS bundle** (required for dropdowns/modals — the library does not bundle it; the bundle build already includes Popper), OverlayScrollbars, Bootstrap Icons, Source Sans 3 font, and the plugin CSS (ApexCharts, jsVectorMap, Tabulator, Quill, Flatpickr, Tom Select). The demo loads the JS via `next/script` `afterInteractive` and preconnects to the CDN. **Gotcha:** markup that Bootstrap JS decorates on window load (e.g. tab/pill `data-bs-toggle` groups) must render those attributes (`aria-selected`, `tabIndex={-1}` on inactive tabs) in JSX, or Bootstrap's mutations race React hydration and cause mismatch errors. When adding a component that needs runtime JS or CSS the library doesn't bundle, document the CDN/import requirement and mirror it in the demo's root layout.
 
 ### Demo route groups
 `demo/app` uses route groups: `(dashboard)` (main shell via `demo/components/demo-layout.tsx`, which wraps `DashboardLayout` with shared brand/user/topbar), `(auth)` (login/register via `AuthLayout`), `(fullpage)` (layout-flag demos: fixed header/sidebar/footer, RTL, mini, etc.).

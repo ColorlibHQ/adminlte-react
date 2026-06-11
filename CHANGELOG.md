@@ -1,11 +1,11 @@
 # Changelog
 
-All notable changes to **adminlte-react** are documented in this file.
+All notable changes to **@adminlte/react** are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.2.0] - 2026-06-10
 
 ### Added
 
@@ -38,9 +38,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   the external AdminLTE HTML docs; it now renders only when `docsHref` is set (point it at your own
   docs). The demo points it at its in-app `/docs`.
 
+### Changed
+
+- **Package renamed to `@adminlte/react`** (previously `adminlte-react`), published under the
+  `@adminlte` npm org. Update imports: `from '@adminlte/react'` and
+  `import '@adminlte/react/css'`.
+- **Build: per-file ESM output (RSC boundaries preserved).** The package is no longer a single
+  bundled file stamped with a blanket `"use client"`. Each source module now compiles to its own
+  `dist/` file, so the `'use client'` directive survives per component: server-component-authored
+  widgets (`Button`, `Input`, `SmallBox`, `DashboardLayout`, …) stay Server Components for
+  consumers, and bundlers can tree-shake through the barrel. CommonJS output was dropped (the
+  package is ESM-only; it targets Next.js 14+ / modern bundlers). Sourcemaps are no longer
+  published (≈7 MB lighter tarball; dist shrank from ≈9 MB to ≈0.75 MB).
+- **All heavy plugins are now optional peer dependencies** (`apexcharts`, `flatpickr`,
+  `jsvectormap`, `quill`, `sortablejs`, `tabulator-tables`, `tom-select`). Previously apexcharts,
+  jsvectormap, and sortablejs were silently bundled in; now all plugins follow the documented
+  model — install only the ones whose components you use. They are still lazy-loaded via dynamic
+  `import()`, which Next.js code-splits per page.
+- `flattenMenuToCommands` / `CommandItem` moved to a server-safe module so Server Components
+  (e.g. `DashboardLayout`) can flatten menus during server render. Barrel imports are unchanged.
+- `ApexChart` props are now typed (`config: ApexOptions`, typed `series`) instead of `any`, and
+  prop changes update the chart in place (`updateOptions`) instead of destroy + re-create.
+  Inline (non-memoized) `series`/`config` objects no longer re-create the chart every render.
+- `SidebarProvider` / `ColorModeProvider` context values are memoized — consumers no longer
+  re-render on every provider render.
+- `Input`, `Select`, `Textarea`, and `InputSwitch` forward refs to their underlying form
+  controls (focus management, react-hook-form, etc.).
+- Sidebar OverlayScrollbars detection switched from a 100 ms `setInterval` poll to an immediate
+  check + `requestAnimationFrame` retry loop, tolerating lazily loaded
+  (`next/script afterInteractive`) OverlayScrollbars.
+
+### Fixed
+
+- `Datatable` destroys its Tabulator instance on unmount/re-render (previously leaked instances
+  and stacked tables on prop changes).
+- `Editor` no longer creates a second Quill instance when `placeholder`/`quillOptions` change;
+  the `value` prop now syncs into the editor after mount (controlled usage works), and the
+  hidden form input tracks the edited HTML instead of the stale `value` prop.
+- `Card` `removable` tool button actually removes the card (was a no-op); new `onRemove`
+  callback fires after removal.
+- `Input` `igroupSize` now actually sizes the control (`form-control-sm`/`form-control-lg`);
+  previously the computed class was never applied.
+
 ### Tested
 
 - Vitest unit tests for pure logic and presentational components.
+- CI workflow (GitHub Actions): type-check, lint, unit tests, library build, an RSC-boundary
+  check on `dist/`, and demo type-check + build.
 
 ## [0.1.0] - 2026-05-29
 
