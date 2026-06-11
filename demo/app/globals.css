@@ -362,3 +362,14 @@ body {
 #docs-carousel .carousel-caption {
   color: var(--bs-emphasis-color);
 }
+
+.docs-copy-btn {
+  font-size: 0.72rem;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--bs-secondary-color);
+}
+
+.docs-copy-btn:hover {
+  color: var(--bs-body-color);
+}

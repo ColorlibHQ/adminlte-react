@@ -4,7 +4,7 @@ import { CodeBlock } from '@/components/docs/code-block'
 
 export const metadata: Metadata = {
   title: 'Installation',
-  description: 'Install adminlte-react, its peer dependencies, and wire up CSS and Bootstrap JS.',
+  description: 'Install @adminlte/react, its peer dependencies, and wire up CSS and Bootstrap JS.',
 }
 
 export default function InstallationPage() {
@@ -16,11 +16,11 @@ export default function InstallationPage() {
       <h2>1. Install the package</h2>
       <CodeBlock
         language="bash"
-        code={`pnpm add adminlte-react
+        code={`pnpm add @adminlte/react
 # or
-npm install adminlte-react
+npm install @adminlte/react
 # or
-yarn add adminlte-react`}
+yarn add @adminlte/react`}
       />
 
       <h2>2. Install peer dependencies</h2>

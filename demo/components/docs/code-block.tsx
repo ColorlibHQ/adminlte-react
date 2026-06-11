@@ -1,3 +1,5 @@
+import { CopyButton } from './copy-button'
+
 interface CodeBlockProps {
   code: string
   /** Short label shown in the header bar (e.g. "tsx", "bash"). */
@@ -11,13 +13,16 @@ interface CodeBlockProps {
  * styled <pre> that respects dark mode via Bootstrap CSS variables.
  */
 export function CodeBlock({ code, language = 'tsx', filename }: CodeBlockProps) {
+  const trimmed = code.trim()
+
   return (
     <div className="docs-codeblock">
-      <div className="docs-codeblock-head">
+      <div className="docs-codeblock-head d-flex justify-content-between align-items-center">
         <span>{filename || language}</span>
+        <CopyButton text={trimmed} />
       </div>
       <pre className="docs-pre">
-        <code>{code.trim()}</code>
+        <code>{trimmed}</code>
       </pre>
     </div>
   )

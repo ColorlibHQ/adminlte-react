@@ -3,7 +3,7 @@ import { DocsPage } from '@/components/docs/docs-page'
 
 export const metadata: Metadata = {
   title: 'Introduction',
-  description: 'What adminlte-react is, how it is architected, and who it is for.',
+  description: 'What @adminlte/react is, how it is architected, and who it is for.',
 }
 
 export default function IntroductionPage() {
@@ -14,7 +14,7 @@ export default function IntroductionPage() {
     >
       <h2>What it is</h2>
       <p>
-        <code>adminlte-react</code> packages the AdminLTE 4 admin theme (built on Bootstrap
+        <code>@adminlte/react</code> packages the AdminLTE 4 admin theme (built on Bootstrap
         5.3) as a set of typed React components: a full dashboard shell, widgets, form
         controls, and tool components. It is designed for the Next.js App Router and React
         Server Components, but works in any React 18+ application.

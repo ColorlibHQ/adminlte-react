@@ -1,3 +1,3 @@
-// The `adminlte-react/css` subpath export points at a .css file; declare it so
-// TypeScript 6 accepts the side-effect import (TS2882).
-declare module 'adminlte-react/css'
+// The `@adminlte/react/css` subpath export points at a .css file; declare it so
+// TypeScript accepts the side-effect import in app/layout.tsx.
+declare module '@adminlte/react/css'

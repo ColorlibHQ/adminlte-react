@@ -4,14 +4,14 @@ import { docsSections } from '@/components/docs/sections'
 
 export const metadata: Metadata = {
   title: 'Documentation',
-  description: 'Guides and API reference for the adminlte-react component library.',
+  description: 'Guides and API reference for the @adminlte/react component library.',
 }
 
 export default function DocsOverviewPage() {
   return (
     <DocsPage
       title="Documentation"
-      lead="adminlte-react is an AdminLTE 4 / Bootstrap 5.3 component library built for the Next.js App Router and React Server Components."
+      lead="@adminlte/react is an AdminLTE 4 / Bootstrap 5.3 component library built for the Next.js App Router and React Server Components."
     >
       <p>
         These docs cover installation, the layout shell, theming, the dynamic-import

@@ -14,7 +14,7 @@ export default function Page() {
       ]}
     >
       <h4 className="mb-1">AdminLTE React components</h4>
-      <p className="text-secondary">Typed, state-driven components from the <code>adminlte-react</code> library — no jQuery, no Bootstrap JS required.</p>
+      <p className="text-secondary">Typed, state-driven components from the <code>@adminlte/react</code> library — no jQuery, no Bootstrap JS required.</p>
       <ReactWidgetsDemo />
 
       <hr className="my-4" />
