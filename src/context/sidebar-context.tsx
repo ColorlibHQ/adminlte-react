@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 
 export interface SidebarContextValue {
   isCollapsed: boolean
@@ -78,38 +78,37 @@ export function SidebarProvider({
     }
   }, [windowWidth, sidebarBreakpoint, isMobileOpen])
 
-  const isMobile = () => {
-    const w = windowWidth ?? (typeof window !== 'undefined' ? window.innerWidth : 9999)
-    return w <= sidebarBreakpoint
-  }
-
   // On mobile the toggle controls the off-canvas overlay (sidebar-open);
   // on desktop it controls the collapsed state (sidebar-collapse).
-  const toggle = () => {
-    if (isMobile()) {
+  const toggle = useCallback(() => {
+    const w = windowWidth ?? (typeof window !== 'undefined' ? window.innerWidth : 9999)
+    if (w <= sidebarBreakpoint) {
       setIsMobileOpen(v => !v)
     } else {
       setIsCollapsed(v => !v)
     }
-  }
-  const collapse = () => {
+  }, [windowWidth, sidebarBreakpoint])
+  const collapse = useCallback(() => {
     setIsCollapsed(true)
     setIsMobileOpen(false)
-  }
-  const expand = () => {
+  }, [])
+  const expand = useCallback(() => {
     setIsCollapsed(false)
     setIsMobileOpen(false)
-  }
+  }, [])
 
-  const value: SidebarContextValue = {
-    isCollapsed,
-    isMobileOpen,
-    isMiniMode,
-    toggle,
-    collapse,
-    expand,
-    sidebarBreakpoint,
-  }
+  const value: SidebarContextValue = useMemo(
+    () => ({
+      isCollapsed,
+      isMobileOpen,
+      isMiniMode,
+      toggle,
+      collapse,
+      expand,
+      sidebarBreakpoint,
+    }),
+    [isCollapsed, isMobileOpen, isMiniMode, toggle, collapse, expand, sidebarBreakpoint]
+  )
 
   return <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>
 }

@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import type { ComponentSize } from '../types/theme'
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -8,17 +9,11 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   hint?: string
 }
 
-export function Input({
-  name,
-  label,
-  igroupSize,
-  fgroupClass,
-  error,
-  hint,
-  className,
-  ...props
-}: InputProps) {
-  const sizeClass = igroupSize ? `input-group-${igroupSize}` : ''
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  { name, label, igroupSize, fgroupClass, error, hint, className, ...props },
+  ref
+) {
+  const sizeClass = igroupSize ? `form-control-${igroupSize}` : ''
 
   return (
     <div className={`mb-3 ${fgroupClass || ''}`}>
@@ -28,13 +23,14 @@ export function Input({
         </label>
       )}
       <input
+        ref={ref}
         name={name}
         id={props.id || name}
-        className={`form-control ${error ? 'is-invalid' : ''} ${className || ''}`.trim()}
+        className={`form-control ${sizeClass} ${error ? 'is-invalid' : ''} ${className || ''}`.trim()}
         {...props}
       />
       {error && <div className="invalid-feedback">{error}</div>}
       {hint && <small className="form-text text-muted">{hint}</small>}
     </div>
   )
-}
+})

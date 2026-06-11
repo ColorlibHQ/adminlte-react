@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import type { ColorMode } from '../types/theme'
 
 export interface ColorModeContextValue {
@@ -67,11 +67,14 @@ export function ColorModeProvider({
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [colorMode])
 
-  const value: ColorModeContextValue = {
-    colorMode,
-    setColorMode,
-    resolvedMode,
-  }
+  const value: ColorModeContextValue = useMemo(
+    () => ({
+      colorMode,
+      setColorMode,
+      resolvedMode,
+    }),
+    [colorMode, resolvedMode]
+  )
 
   return <ColorModeContext.Provider value={value}>{children}</ColorModeContext.Provider>
 }

@@ -35,9 +35,15 @@ export function Datatable({
     const element = tableRef.current
     if (!element) return
 
+    let cancelled = false
+    let instance: { destroy?: () => void } | null = null
+
     // Dynamically import Tabulator only when component mounts
     // @ts-ignore - Dynamic import
     import('tabulator-tables').then(({ default: Tabulator }) => {
+      // Guard: effect may have been cleaned up before the dynamic import resolved
+      if (cancelled) return
+
       const tableOptions = {
         columns: columns.map(col => ({
           title: col.title,
@@ -52,8 +58,14 @@ export function Datatable({
         ...tabulatorOptions,
       }
 
-      new Tabulator(element, tableOptions)
+      instance = new Tabulator(element, tableOptions)
     })
+
+    return () => {
+      cancelled = true
+      instance?.destroy?.()
+      instance = null
+    }
   }, [columns, data, apiUrl, tabulatorOptions])
 
   return (

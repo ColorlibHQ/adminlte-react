@@ -33,20 +33,23 @@ export function Sidebar({
   useEffect(() => {
     if (typeof window === 'undefined' || window.innerWidth <= 992) return
     let instance: { destroy?: () => void } | undefined
-    let tries = 0
-    const id = window.setInterval(() => {
+    let rafId = 0
+    // Generous deadline: the consumer may load OverlayScrollbars lazily
+    // (e.g. next/script afterInteractive), which resolves after hydration
+    const deadline = performance.now() + 10000
+    const tryInit = () => {
       const osg = (window as unknown as { OverlayScrollbarsGlobal?: any }).OverlayScrollbarsGlobal
       if (osg?.OverlayScrollbars && wrapperRef.current) {
         instance = osg.OverlayScrollbars(wrapperRef.current, {
           scrollbars: { theme: 'os-theme-light', autoHide: 'leave', clickScroll: true },
         })
-        window.clearInterval(id)
-      } else if (++tries > 30) {
-        window.clearInterval(id)
+      } else if (performance.now() < deadline) {
+        rafId = window.requestAnimationFrame(tryInit)
       }
-    }, 100)
+    }
+    tryInit()
     return () => {
-      window.clearInterval(id)
+      window.cancelAnimationFrame(rafId)
       instance?.destroy?.()
     }
   }, [])

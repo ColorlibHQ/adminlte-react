@@ -1,3 +1,5 @@
+import { forwardRef } from 'react'
+
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string
   fgroupClass?: string
@@ -5,15 +7,10 @@ export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   hint?: string
 }
 
-export function Textarea({
-  name,
-  label,
-  fgroupClass,
-  error,
-  hint,
-  className,
-  ...props
-}: TextareaProps) {
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function Textarea(
+  { name, label, fgroupClass, error, hint, className, ...props },
+  ref
+) {
   return (
     <div className={`mb-3 ${fgroupClass || ''}`}>
       {label && (
@@ -22,6 +19,7 @@ export function Textarea({
         </label>
       )}
       <textarea
+        ref={ref}
         name={name}
         id={props.id || name}
         className={`form-control ${error ? 'is-invalid' : ''} ${className || ''}`.trim()}
@@ -31,4 +29,4 @@ export function Textarea({
       {hint && <small className="form-text text-muted">{hint}</small>}
     </div>
   )
-}
+})

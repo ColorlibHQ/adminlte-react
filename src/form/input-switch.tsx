@@ -1,5 +1,7 @@
 'use client'
 
+import { forwardRef } from 'react'
+
 export interface InputSwitchProps {
   name: string
   label?: string
@@ -11,21 +13,16 @@ export interface InputSwitchProps {
   error?: string
 }
 
-export function InputSwitch({
-  name,
-  label,
-  id,
-  checked,
-  defaultChecked,
-  onChange,
-  fgroupClass,
-  error,
-}: InputSwitchProps) {
+export const InputSwitch = forwardRef<HTMLInputElement, InputSwitchProps>(function InputSwitch(
+  { name, label, id, checked, defaultChecked, onChange, fgroupClass, error },
+  ref
+) {
   const inputId = id || name
 
   return (
     <div className={`form-check form-switch ${fgroupClass || ''}`}>
       <input
+        ref={ref}
         type="checkbox"
         className={`form-check-input ${error ? 'is-invalid' : ''}`}
         id={inputId}
@@ -42,4 +39,4 @@ export function InputSwitch({
       {error && <div className="invalid-feedback">{error}</div>}
     </div>
   )
-}
+})

@@ -19,6 +19,8 @@ export interface CardProps {
   collapsible?: boolean
   defaultCollapsed?: boolean
   removable?: boolean
+  /** Called after the card removes itself via the remove tool button */
+  onRemove?: () => void
   maximizable?: boolean
   bodyClass?: string
   headerClass?: string
@@ -38,6 +40,7 @@ export function Card({
   collapsible,
   defaultCollapsed,
   removable,
+  onRemove,
   maximizable,
   bodyClass,
   headerClass,
@@ -47,7 +50,7 @@ export function Card({
   children,
   className,
 }: CardProps) {
-  const { isCollapsed, isRemoved, toggleCollapse, toggleMaximize } = useCardWidget(
+  const { isCollapsed, isRemoved, toggleCollapse, toggleMaximize, remove } = useCardWidget(
     defaultCollapsed
   )
 
@@ -80,7 +83,15 @@ export function Card({
                   </button>
                 )}
                 {removable && (
-                  <button type="button" className="btn btn-tool" title="Remove">
+                  <button
+                    type="button"
+                    className="btn btn-tool"
+                    onClick={() => {
+                      remove()
+                      onRemove?.()
+                    }}
+                    title="Remove"
+                  >
                     <i className="bi bi-x-lg"></i>
                   </button>
                 )}

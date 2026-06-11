@@ -1,3 +1,5 @@
+import { forwardRef } from 'react'
+
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string
   fgroupClass?: string
@@ -6,16 +8,10 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   children?: React.ReactNode
 }
 
-export function Select({
-  name,
-  label,
-  fgroupClass,
-  error,
-  options,
-  children,
-  className,
-  ...props
-}: SelectProps) {
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select(
+  { name, label, fgroupClass, error, options, children, className, ...props },
+  ref
+) {
   return (
     <div className={`mb-3 ${fgroupClass || ''}`}>
       {label && (
@@ -24,6 +20,7 @@ export function Select({
         </label>
       )}
       <select
+        ref={ref}
         name={name}
         id={props.id || name}
         className={`form-select ${error ? 'is-invalid' : ''} ${className || ''}`.trim()}
@@ -39,4 +36,4 @@ export function Select({
       {error && <div className="invalid-feedback">{error}</div>}
     </div>
   )
-}
+})
