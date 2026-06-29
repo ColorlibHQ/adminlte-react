@@ -39,6 +39,11 @@ A modern React/Next.js component library for building admin dashboards and web a
 </div>
 <!-- ADMINLTE-ECOSYSTEM:END -->
 
+<p align="center">
+  <a href="https://adminlte.io/themes/next-react/"><img src=".github/preview.png" alt="AdminLTE 4 for React — dashboard preview" width="100%"></a>
+</p>
+
+
 > **Documentation:** Full guides and an API reference for every component, hook, and
 > context live in the demo app under `/docs`. Run `pnpm demo` and open
 > [`/docs/introduction`](http://localhost:3000/docs/introduction). A condensed reference
