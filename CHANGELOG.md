@@ -5,6 +5,17 @@ All notable changes to **@adminlte/react** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-07-02
+
+### Changed
+
+- **AdminLTE core upgraded to 4.1.0.** The bundled stylesheet (`@adminlte/react/css`) picks up everything from core [4.0.4](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#404---2026-07-02) and [4.1.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#410---2026-07-02): ~6 KB gzip smaller (duplicate docs styles removed and the docs/FAQ styling split into core's separate `adminlte-docs.css`, which applications never needed), WCAG AA contrast fix for breadcrumb links on the content-header background, and the repaired callout link/code colors. The RTL stylesheet in the demo was refreshed to match.
+- Demo loads Bootstrap 5.3.8 from the CDN (was 5.3.7), matching the compiled core CSS.
+
+### Notes
+
+- Core 4.1.0's new JavaScript (ESM bundle, TypeScript declarations, component lifecycle, bundled ColorMode) does not affect this port: `@adminlte/react` re-implements all behavior natively in React and never loads `adminlte.js`. Do **not** load core's `adminlte.js` alongside this library — both implement the `data-lte-toggle` data API and cards would double-toggle. Theme preferences continue to interoperate with core via the shared `lte-theme` storage key.
+
 ## [0.2.0] - 2026-06-10
 
 ### Added
