@@ -45,7 +45,7 @@ export default function RootLayout({
         {/* Source Sans 3 (AdminLTE's default typeface) */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+          href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.3.0/index.css"
         />
         {/* Bootstrap Icons */}
         <link
@@ -55,12 +55,12 @@ export default function RootLayout({
         {/* OverlayScrollbars CSS */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css"
         />
         {/* ApexCharts CSS */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/apexcharts@5.13.0/dist/apexcharts.css"
+          href="https://cdn.jsdelivr.net/npm/apexcharts@6.8.0/dist/apexcharts.css"
         />
         {/* jsVectorMap CSS */}
         <link
@@ -70,7 +70,7 @@ export default function RootLayout({
         {/* Tabulator CSS (Bootstrap 5 theme) */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/css/tabulator_bootstrap5.min.css"
+          href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.5.2/dist/css/tabulator_bootstrap5.min.css"
         />
         {/* Quill (rich-text editor) — Snow theme */}
         <link
@@ -85,7 +85,7 @@ export default function RootLayout({
         {/* Tom Select (advanced select) — Bootstrap 5 theme */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.bootstrap5.min.css"
+          href="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/css/tom-select.bootstrap5.min.css"
         />
       </head>
       <body>
@@ -99,7 +99,7 @@ export default function RootLayout({
         />
         {/* OverlayScrollbars JS */}
         <Script
-          src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+          src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js"
           strategy="afterInteractive"
         />
       </body>

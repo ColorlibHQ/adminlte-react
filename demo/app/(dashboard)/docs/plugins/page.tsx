@@ -110,11 +110,11 @@ export default function PluginsPage() {
         filename="app/layout.tsx"
         code={`<head>
   {/* ApexCharts (charts) */}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@6.8.0/dist/apexcharts.css" />
   {/* Tabulator (datatable) — Bootstrap 5 theme */}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.4.0/dist/css/tabulator_bootstrap5.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.5.2/dist/css/tabulator_bootstrap5.min.css" />
   {/* jsVectorMap (world map) */}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.css" />
 </head>`}
       />
       <p>Or import them through your bundler:</p>
@@ -133,9 +133,9 @@ import 'flatpickr/dist/flatpickr.min.css'`}
       </p>
       <CodeBlock
         filename="app/layout.tsx"
-        code={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css" />
+        code={`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css" />
 {/* ...at end of <body>: */}
-<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js" />`}
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js" />`}
       />
     </DocsPage>
   )
