@@ -5,6 +5,21 @@ All notable changes to **@adminlte/react** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-08-13
+
+### Changed
+
+- **AdminLTE core upgraded to 4.3.1.** The bundled stylesheet (`@adminlte/react/css`) picks up everything CSS-side from core [4.2.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#420---2026-08-06), [4.3.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#430---2026-08-10) and [4.3.1](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#431---2026-08-10): the rebuilt v3 ribbons (`.ribbon-wrapper` + `.ribbon`, with 4.3.1's corner-geometry fix), the v3 social/post widgets (`.user-block`, `.post`, `.widget-user`, `.widget-user-2`, `.description-block`), and the contrast fixes core's expanded axe gate caught. The RTL stylesheet in the demo was refreshed to match. Core's new JavaScript (SidebarSearch, the `initialize()`/`teardown()` lifecycle, server-rendered ColorMode resolution) does not affect this port — `@adminlte/react` never loads `adminlte.js` (see the 0.3.0 notes).
+- **All dependencies updated to their latest releases.** Two majors in the dev/demo toolchain: `apexcharts` 5.13 → **6.8** (the `ApexChart` wrapper needed no changes — its peer range was already `>=4.0.0` — and every chart page passes the Playwright suite against v6) and `@testing-library/jest-dom` 6 → 7; plus `jsdom` 29 → 30 and `@types/node` 25 → 26. Minors/patches: Next.js 16.3.0, React 19.2.8, ESLint 10.8.1, typescript-eslint 8.67, Vitest 4.1.10, Playwright 1.62.1, `@axe-core/playwright` 4.13, Tabulator 6.5.2, Tom Select 2.6.2, admin-lte 4.3.1.
+- **Demo CDN pins refreshed to match the installed versions:** apexcharts 6.8.0, tabulator-tables 6.5.2, tom-select 2.6.2, OverlayScrollbars 2.11 → 2.16, Source Sans 3 5.0.12 → 5.3.0. Bootstrap 5.3.8 and Bootstrap Icons 1.13.1 were already current. The copy-paste snippets on the docs Plugins page were brought up to the same versions (they had drifted as far back as apexcharts 3).
+- **Demo calendar migrated to FullCalendar 7** (from 6.1.20). v7 is a real migration, not a pin bump: the global bundle moved (`index.global.min.js` → `all/global.min.js`), CSS is no longer injected by the JS — the demo now loads `skeleton.css` plus the **classic** theme (the pre-v7 look) alongside the script — `Draggable` moved under the `FullCalendar.Interaction` namespace, and per-event `backgroundColor`/`borderColor`/`textColor` were renamed to `color`/`contrastColor`. Verified in-browser: month grid, toolbar views, per-event colors, and external drag-and-drop all work; v7's rewritten DOM (ARIA `grid`/`gridcell`, no tables) passes the a11y suite.
+
+### Notes
+
+- **TypeScript stays on 6.0.3.** TS 7.0 has shipped, but `typescript-eslint` (peer `>=4.8.4 <6.1.0`) refuses to run under it ("typescript-eslint does not support TS 7.0"), which would break the lint gate — core made the same call in its 4.2.0 release. `tsc --noEmit` itself passes on 7.0.2, so the hold can be lifted as soon as typescript-eslint supports TS 7.
+- Peer dependency ranges are unchanged — nothing consumers depend on narrowed.
+- Verified: library build, type-check, lint and 19 unit tests; demo type-check and production build; all 67 Playwright route-smoke + a11y tests.
+
 ## [0.3.0] - 2026-07-02
 
 ### Changed
@@ -171,5 +186,7 @@ Next.js App Router and React Server Components.
 - Heavy third-party libraries are never bundled eagerly — they load via dynamic
   `import()` inside the components that use them.
 
-[Unreleased]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.1.0...HEAD
+[0.4.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/ColorlibHQ/adminlte-react/releases/tag/v0.1.0
