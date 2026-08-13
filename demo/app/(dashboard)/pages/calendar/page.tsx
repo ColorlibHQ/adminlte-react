@@ -64,7 +64,7 @@ export default function CalendarPage() {
             <div className="card-footer text-secondary small">
               Powered by{' '}
               <a href="https://fullcalendar.io/" target="_blank" rel="noopener">
-                FullCalendar 6
+                FullCalendar 7
               </a>{' '}
               &mdash; MIT licensed, jQuery-free.
             </div>

@@ -2,25 +2,50 @@
 
 import { useEffect, useRef } from 'react'
 
-const FC_SRC = 'https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js'
+// FullCalendar v7 no longer bundles CSS in the JS, and the theme is a separate
+// plugin — the "classic" theme reproduces the pre-v7 look. Core must load
+// before the theme script (the theme registers itself on the global).
+const FC_BASE = 'https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2'
+const FC_SCRIPTS = [`${FC_BASE}/all/global.min.js`, `${FC_BASE}/themes/classic/global.min.js`]
+const FC_STYLES = [
+  `${FC_BASE}/skeleton.min.css`,
+  `${FC_BASE}/themes/classic/theme.min.css`,
+  `${FC_BASE}/themes/classic/palette.min.css`,
+]
 
-function loadFullCalendar(): Promise<any> {
+function loadStylesheet(href: string) {
+  if (document.querySelector(`link[href="${href}"]`)) return
+  const link = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.href = href
+  document.head.appendChild(link)
+}
+
+function loadScript(src: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    const w = window as any
-    if (w.FullCalendar) return resolve(w.FullCalendar)
-    let script = document.querySelector(`script[src="${FC_SRC}"]`) as HTMLScriptElement | null
+    let script = document.querySelector(`script[src="${src}"]`) as HTMLScriptElement | null
     if (script) {
-      script.addEventListener('load', () => resolve((window as any).FullCalendar))
+      if (script.dataset.loaded) return resolve()
+      script.addEventListener('load', () => resolve())
       script.addEventListener('error', reject)
       return
     }
     script = document.createElement('script')
-    script.src = FC_SRC
+    script.src = src
     script.crossOrigin = 'anonymous'
-    script.onload = () => resolve((window as any).FullCalendar)
+    script.onload = () => {
+      script!.dataset.loaded = 'true'
+      resolve()
+    }
     script.onerror = reject
     document.body.appendChild(script)
   })
+}
+
+async function loadFullCalendar(): Promise<any> {
+  FC_STYLES.forEach(loadStylesheet)
+  for (const src of FC_SCRIPTS) await loadScript(src)
+  return (window as any).FullCalendar
 }
 
 const isoDate = (d: Date) => d.toISOString().slice(0, 10)
@@ -39,12 +64,13 @@ export function CalendarView() {
         const removeAfterDrop = document.getElementById('remove-after-drop') as HTMLInputElement | null
 
         if (externalEl) {
-          new FullCalendar.Draggable(externalEl, {
+          // v7 global groups exports by plugin: Draggable lives under Interaction
+          new FullCalendar.Interaction.Draggable(externalEl, {
             itemSelector: '.draggable-event',
             eventData: (el: HTMLElement) => ({
               title: el.textContent?.trim(),
-              backgroundColor: el.dataset.color,
-              borderColor: el.dataset.color,
+              // v7 renamed backgroundColor/borderColor -> color
+              color: el.dataset.color,
             }),
           })
         }
@@ -78,11 +104,11 @@ export function CalendarView() {
             if (confirm(`Delete "${info.event.title}"?`)) info.event.remove()
           },
           events: [
-            { title: 'Quarterly planning', start: offsetDay(-2), backgroundColor: '#0d6efd', borderColor: '#0d6efd' },
-            { title: 'Onboarding session', start: offsetDay(1), backgroundColor: '#198754', borderColor: '#198754' },
-            { title: 'Design review', start: offsetDay(3), end: offsetDay(4), backgroundColor: '#ffc107', borderColor: '#ffc107', textColor: '#000' },
-            { title: 'Release v2.5', start: offsetDay(7), backgroundColor: '#dc3545', borderColor: '#dc3545' },
-            { title: 'All-hands', start: offsetDay(10), backgroundColor: '#6f42c1', borderColor: '#6f42c1' },
+            { title: 'Quarterly planning', start: offsetDay(-2), color: '#0d6efd' },
+            { title: 'Onboarding session', start: offsetDay(1), color: '#198754' },
+            { title: 'Design review', start: offsetDay(3), end: offsetDay(4), color: '#ffc107', contrastColor: '#000' },
+            { title: 'Release v2.5', start: offsetDay(7), color: '#dc3545' },
+            { title: 'All-hands', start: offsetDay(10), color: '#6f42c1' },
           ],
         })
         instanceRef.current = calendar
