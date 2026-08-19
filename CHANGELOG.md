@@ -5,6 +5,21 @@ All notable changes to **@adminlte/react** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2026-08-19
+
+### Changed
+
+- **The library now type-checks against Next.js 16.** `next` is an optional peer dependency (`>=14.0.0`) that was never listed in the root `devDependencies`, so pnpm's `autoInstallPeers` resolved it on its own and the lockfile had pinned it at **14.2.35** since the project started — meaning `pnpm type-check` was validating `layout/sidebar-nav.tsx`'s `usePathname` import against **two-major-old Next types** while the demo and consumers ran Next 16. `next` is now pinned in `devDependencies` at `^16.3.1`, matching every other optional peer (`react`, `apexcharts`, `quill`, …) which were already pinned there for exactly this reason. This also clears the last `unmet peer` warning from `pnpm install` (Next 14 wanted `react@^18.2.0` against the installed React 19). No API, source or output changed — `tsc --noEmit` passes against Next 16 types unchanged.
+- **Dependencies updated to their latest releases.** `apexcharts` 6.8.0 → **6.10.0** and Next.js 16.3.0 → **16.3.1** (demo), `vitest` 4.1.10 → **4.1.11**. All within their current majors; no code changes were required.
+- **Demo CDN pin refreshed to match:** apexcharts 6.8.0 → 6.10.0, in the demo's root layout and in the copy-paste snippet on the docs Plugins page. Every other pin (Bootstrap 5.3.8, Bootstrap Icons 1.13.1, OverlayScrollbars 2.16.0, FullCalendar 7.0.2, Source Sans 3 5.3.0, Tabulator 6.5.2, Tom Select 2.6.2, Quill 2.0.3, Flatpickr 4.6.13, jsVectorMap 1.7.0) was already at the latest release.
+
+### Notes
+
+- **TypeScript stays on 6.0.3 — still blocked by `typescript-eslint`.** TS 7.0.2 is out, but `typescript-eslint` 8.67.0 (its latest, and its `8.67.1-alpha.18` canary) still peers `typescript@>=4.8.4 <6.1.0` and **hard-throws** rather than warning: `pnpm lint` exits 2 with *"typescript-eslint does not support TS 7.0"*, which would fail the lint gate in CI. Upstream tracks TS >=7.1 support in [typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940). Verified again this release: `tsc --noEmit` passes cleanly on 7.0.2 for **both** the library and the demo, so the codebase itself is TS 7-ready and the hold can be lifted the moment typescript-eslint ships support — no source changes should be needed. (Running TS 6 side-by-side purely to feed typescript-eslint was rejected as more fragile than waiting.) Core made the same call in its 4.2.0 release.
+- `admin-lte` is unchanged at 4.8.1, so the bundled stylesheet (`@adminlte/react/css`) is byte-identical to 0.5.0. This is a toolchain/dependency release: `src/` is untouched and the published `dist/` output is unchanged.
+- Peer dependency ranges are unchanged — `next` stays `>=14.0.0`, so nothing consumers depend on narrowed.
+- Verified: library build, type-check, lint (0 errors, 13 pre-existing warnings) and 19 unit tests; the CI RSC-boundary check (35 client modules in `src/` and `dist/`, `dist/form/button.js` still server-only); demo type-check, production build (66 static pages) and the `EXPORT=true` subpath export; all 67 Playwright route-smoke + a11y tests.
+
 ## [0.5.0] - 2026-08-19
 
 ### Changed

@@ -110,7 +110,7 @@ export default function PluginsPage() {
         filename="app/layout.tsx"
         code={`<head>
   {/* ApexCharts (charts) */}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@6.8.0/dist/apexcharts.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@6.10.0/dist/apexcharts.css" />
   {/* Tabulator (datatable) — Bootstrap 5 theme */}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.5.2/dist/css/tabulator_bootstrap5.min.css" />
   {/* jsVectorMap (world map) */}

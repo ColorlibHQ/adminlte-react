@@ -60,7 +60,7 @@ export default function RootLayout({
         {/* ApexCharts CSS */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/apexcharts@6.8.0/dist/apexcharts.css"
+          href="https://cdn.jsdelivr.net/npm/apexcharts@6.10.0/dist/apexcharts.css"
         />
         {/* jsVectorMap CSS */}
         <link

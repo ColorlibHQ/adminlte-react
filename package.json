@@ -1,6 +1,6 @@
 {
   "name": "@adminlte/react",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "AdminLTE 4 React/Next.js component library",
   "license": "MIT",
   "type": "module",
@@ -97,12 +97,13 @@
     "@types/react-dom": "^19.2.4",
     "@types/sortablejs": "^1.15.9",
     "admin-lte": "^4.8.1",
-    "apexcharts": "^6.8.0",
+    "apexcharts": "^6.10.0",
     "eslint": "^10.8.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "flatpickr": "^4.6.13",
     "jsdom": "^30.0.1",
     "jsvectormap": "^1.7.0",
+    "next": "^16.3.1",
     "quill": "^2.0.3",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -112,6 +113,6 @@
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.67.0",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   }
 }
