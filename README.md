@@ -9,7 +9,7 @@
 
 A modern React/Next.js component library for building admin dashboards and web applications with AdminLTE 4 styling and Bootstrap 5.3 — built for the Next.js App Router and React Server Components by [Colorlib](https://colorlib.com).
 
-**Status**: v0.4.0 (Early Release, AdminLTE core 4.3.1) · **Live demo:** [adminlte.io/themes/next-react](https://adminlte.io/themes/next-react/)
+**Status**: v0.5.0 (Early Release, AdminLTE core 4.8.1) · **Live demo:** [adminlte.io/themes/next-react](https://adminlte.io/themes/next-react/)
 
 <p align="center">
   <a href="https://adminlte.io/themes/next-react/">
@@ -317,6 +317,33 @@ All components use Bootstrap 5.3 utility classes. Customize via CSS variables or
   /* ... other variables */
 }
 ```
+
+### Core `<html>` attributes
+
+AdminLTE core 4.6–4.8 added three opt-in attributes you set on `<html>` yourself — there is no
+component prop for them, and they work with this port because they are plain CSS:
+
+| Attribute | What it does | Stylesheet |
+| --- | --- | --- |
+| `data-lte-print="plain"` | Prints the page as a document: no `(https://…)` suffix after external links, no outline around buttons. | bundled — `@adminlte/react/css` |
+| `data-lte-primary="teal"` | Promotes any palette colour to Bootstrap's `primary`, so buttons, links, pagination, form focus rings, progress bars, list groups and dropdowns follow it. | opt-in — `admin-lte/dist/css/adminlte-colors.css` (or `…-v3.css`) |
+| `data-lte-contrast="aa"` | Flips text to black on the eight AdminLTE 3 colours (blue, cyan, fuchsia, green, lightblue, olive, pink, teal) that otherwise miss WCAG AA. | opt-in — `admin-lte/dist/css/adminlte-colors-v3.css` |
+
+```tsx
+// app/layout.tsx — data-lte-print needs no extra CSS
+<html lang="en" data-lte-print="plain">
+```
+
+The extended palettes are **not** bundled with `@adminlte/react/css`; add `admin-lte` as a
+dependency and import the sheet you want next to the library CSS:
+
+```tsx
+import '@adminlte/react/css'
+import 'admin-lte/dist/css/adminlte-colors.css' // 14 extra colours + data-lte-primary
+```
+
+Bootstrap's `d-print-none` also works on `.app-wrapper` and `.app-sidebar` now, so you can hide
+the shell chrome from printed pages.
 
 ## Type Safety
 

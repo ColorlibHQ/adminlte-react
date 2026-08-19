@@ -101,6 +101,44 @@ function ThemeButtons() {
 }`}
       />
 
+      <h2>The extended palette</h2>
+      <p>
+        AdminLTE core ships two <em>opt-in</em> palette stylesheets that this library does not
+        bundle: <code>adminlte-colors.css</code> (14 extra colours, each with the{' '}
+        <code>.bg-*</code> / <code>.text-bg-*</code> / <code>.text-*</code> /{' '}
+        <code>.border-*</code> / <code>.link-*</code> / <code>.card-*</code> /{' '}
+        <code>.callout-*</code> / <code>.direct-chat-*</code> families) and{' '}
+        <code>adminlte-colors-v3.css</code> (the same families for the 18 AdminLTE 3 colours
+        at their original values). Add <code>admin-lte</code> as a dependency
+        and import the one you want alongside the library CSS.
+      </p>
+      <CodeBlock
+        filename="app/layout.tsx"
+        code={`import '@adminlte/react/css'
+import 'admin-lte/dist/css/adminlte-colors.css'`}
+      />
+      <p>
+        With a palette sheet loaded, <code>data-lte-primary</code> on <code>&lt;html&gt;</code>{' '}
+        promotes any of its colours to Bootstrap&apos;s <code>primary</code> — buttons, links,
+        pagination, form focus rings, progress bars, list groups and dropdowns all follow it.
+        On the v3 sheet, <code>data-lte-contrast=&quot;aa&quot;</code> flips text to black on
+        the eight colours (blue, cyan, fuchsia, green, lightblue, olive, pink, teal) that
+        otherwise miss WCAG AA.
+      </p>
+      <CodeBlock language="html" code={`<html lang="en" data-lte-primary="teal" data-lte-contrast="aa">`} />
+
+      <h2>Print</h2>
+      <p>
+        Print styling is part of the bundled <code>@adminlte/react/css</code> — nothing extra to
+        load. By default a printed page is treated as a screen artifact: external links get their
+        URL appended and buttons keep an outline. Set{' '}
+        <code>data-lte-print=&quot;plain&quot;</code> on <code>&lt;html&gt;</code> for pages that
+        should print as documents (invoices, reports) to drop both. Bootstrap&apos;s{' '}
+        <code>d-print-none</code> also works on the app wrapper and the sidebar, so you can hide
+        the shell chrome from print.
+      </p>
+      <CodeBlock language="html" code={`<html lang="en" data-lte-print="plain">`} />
+
       <h2>Sidebar theme</h2>
       <p>
         The sidebar has its own light/dark treatment, independent of the page color mode.

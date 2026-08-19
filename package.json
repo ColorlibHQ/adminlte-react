@@ -1,6 +1,6 @@
 {
   "name": "@adminlte/react",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "AdminLTE 4 React/Next.js component library",
   "license": "MIT",
   "type": "module",
@@ -96,7 +96,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@types/sortablejs": "^1.15.9",
-    "admin-lte": "^4.3.1",
+    "admin-lte": "^4.8.1",
     "apexcharts": "^6.8.0",
     "eslint": "^10.8.1",
     "eslint-plugin-react-hooks": "^7.1.1",

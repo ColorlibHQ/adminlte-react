@@ -31,8 +31,8 @@ importers:
         specifier: ^1.15.9
         version: 1.15.9
       admin-lte:
-        specifier: ^4.3.1
-        version: 4.3.1(bootstrap@5.3.8(@popperjs/core@2.11.8))
+        specifier: ^4.8.1
+        version: 4.8.1(bootstrap@5.3.8(@popperjs/core@2.11.8))
       apexcharts:
         specifier: ^6.8.0
         version: 6.8.0
@@ -1240,8 +1240,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  admin-lte@4.3.1:
-    resolution: {integrity: sha512-1JBf8MtHFonXyXs525scIXJPpDl8WJdIz9jjl2vJfZTfAjyIwxC+LRIVR3ElCLCyQmWZX74YmlL+IgKKrkN81A==}
+  admin-lte@4.8.1:
+    resolution: {integrity: sha512-m9nfh+K52pBXBZeAnS9eN7Q5FweKTSOfm+gCwB7zkDWRFEvSo5nsXf/nL2haLcc8gvHBbHhcCkMDA9WsAmIPVg==}
     engines: {node: '>=20'}
     peerDependencies:
       bootstrap: ^5.3.8
@@ -3170,7 +3170,7 @@ snapshots:
 
   acorn@8.18.0: {}
 
-  admin-lte@4.3.1(bootstrap@5.3.8(@popperjs/core@2.11.8)):
+  admin-lte@4.8.1(bootstrap@5.3.8(@popperjs/core@2.11.8)):
     dependencies:
       bootstrap: 5.3.8(@popperjs/core@2.11.8)
 

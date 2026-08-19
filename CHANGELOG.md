@@ -5,6 +5,32 @@ All notable changes to **@adminlte/react** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-08-19
+
+### Changed
+
+- **AdminLTE core upgraded to 4.8.1** (from 4.3.1), covering core [4.4.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#440---2026-08-18), [4.4.1](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#441---2026-08-18), [4.5.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#450---2026-08-18), [4.6.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#460---2026-08-18), [4.7.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#470---2026-08-18), [4.8.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#480---2026-08-19) and [4.8.1](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#481---2026-08-19). What the bundled stylesheet (`@adminlte/react/css`) actually picks up:
+  - **The sidebar is now a flex column** (core 4.4.0, #6104). `.app-sidebar` gets `display: flex; flex-direction: column`, `.sidebar-brand` / `.sidebar-search` become `flex: 0 0 auto` and `.sidebar-wrapper` `flex: 1 1 auto; min-height: 0` — replacing the hard-coded `height: calc(100vh - (3.5rem + 1px))` that was repeated across every `sidebar-expand-*` breakpoint. The wrapper now fills whatever the sidebar leaves it instead of assuming a 3.5rem header, so a taller brand or an extra block above the menu no longer pushes the last items out of view. Verified in-browser on `/layout/fixed-sidebar`: wrapper 664 px inside a 720 px viewport, still scrolling under OverlayScrollbars.
+  - **`data-lte-print="plain"`** (core 4.7.0) — set it on `<html>` (or any container) for pages that should print as documents: no `(https://…)` suffix after external links, no outline around buttons. It works with nothing but the bundled CSS. Print also stopped drawing a black box around `.skip-link` and every `.nav-link` — the `border: 1px solid #000` rule is scoped to `.btn` again, which matters here because the sidebar prints by design.
+  - **`d-print-none` works on the shell** (core 4.6.0) — the print rules that force `display` on `.app-wrapper` and `.app-sidebar` are now `:not(.d-print-none)`, so Bootstrap's utility can hide the chrome from printed pages.
+  - **Skip-link hover contrast fix** (core 4.6.0) — `--bs-white` / `--bs-primary-emphasis` (a token Bootstrap never defines, so the background computed to transparent) swapped for `--bs-body-bg` / `--bs-primary-text-emphasis`, so the hovered skip link stays legible in both colour modes.
+  - The demo's `public/css/adminlte.rtl.css` was refreshed from core 4.8.1 to match.
+- **Palette attributes are available, opt-in.** Core's extended palettes ship as separate stylesheets that `@adminlte/react/css` deliberately does **not** bundle: `adminlte-colors.css` (4.4.0 — 14 generated colours as `--bs-*` tokens plus the `.bg-*` / `.text-bg-*` / `.text-*` / `.border-*` / `.link-*` / `.bg-gradient-*` / `.card-*` / `.callout-*` / `.direct-chat-*` families, ≈8 kB gzipped) and `adminlte-colors-v3.css` (4.5.0 — the same families for the 18 AdminLTE 3 colours at their original values, ≈9.5 kB gzipped). Install `admin-lte` and import the sheet you want next to the library CSS to get:
+  - **`data-lte-primary="teal"`** (4.6.0, with 4.8.1's pagination focus-ring fix) — promotes any palette colour to Bootstrap's `primary`, so buttons, links, pagination, form focus rings, progress bars, list groups and dropdowns follow it. Verified: `.btn-primary` goes `rgb(13, 110, 253)` → `rgb(18, 130, 125)` once the sheet is loaded, and does nothing without it.
+  - **`data-lte-contrast="aa"`** (4.8.0, v3 sheet only) — flips text to black on the eight v3 colours that miss WCAG AA (blue, cyan, fuchsia, green, lightblue, olive, pink, teal). Verified: `.text-bg-lightblue` goes white → black.
+
+### Added
+
+- Docs for both of the above: a **Core `<html>` attributes** table in the README's Styling section, and **The extended palette** / **Print** sections on the in-app `/docs/theming` page. They document core CSS you opt into yourself — no new component props or APIs.
+
+### Notes
+
+- **Core's restyled search fields don't reach this port.** 4.4.0 restyles `.navbar-search` and `.sidebar-search` into quiet pills (a new `--lte-search-field-*` variable set). `@adminlte/react` renders neither: the topbar search is a command-palette trigger button and the sidebar has no filter, so the new rules are inert here — nothing regressed, nothing gained.
+- **Core 4.4.1's ApexCharts dark-mode fix is a recipe, not shipped CSS** — it was applied to core's own demo pages. The `ApexChart` wrapper still passes `config` through verbatim and sets no Apex `theme`, so callers wanting dark tooltips pass `theme: { mode }` themselves.
+- Core's JavaScript is still irrelevant to this port — `@adminlte/react` never loads `adminlte.js` (see the 0.3.0 notes).
+- No dependency other than `admin-lte` changed; peer dependency ranges are untouched.
+- Verified: library build, type-check, lint (0 errors, 13 pre-existing warnings) and 19 unit tests; demo type-check and production build; all 67 Playwright route-smoke + a11y tests.
+
 ## [0.4.0] - 2026-08-13
 
 ### Changed
@@ -186,6 +212,7 @@ Next.js App Router and React Server Components.
 - Heavy third-party libraries are never bundled eagerly — they load via dynamic
   `import()` inside the components that use them.
 
+[0.5.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.1.0...v0.2.0
