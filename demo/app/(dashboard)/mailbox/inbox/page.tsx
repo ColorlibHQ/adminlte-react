@@ -181,11 +181,12 @@ export default function Page() {
                   <a
                     href="/mailbox/read"
                     className="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                    style={{ minWidth: 0 }}
                   >
                     <span className="text-truncate" style={{ minWidth: '9rem' }}>
                       Olivia Bennett
                     </span>
-                    <span className="flex-grow-1 text-truncate">
+                    <span className="flex-grow-1 text-truncate" style={{ minWidth: 0 }}>
                       <span className="badge text-bg-primary me-2"> &middot; </span>
                       Re: design system v2.4 sign-off
                       <span className="fw-normal text-secondary">
@@ -215,12 +216,13 @@ export default function Page() {
                   <a
                     href="/mailbox/read"
                     className="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                    style={{ minWidth: 0 }}
                   >
                     <span className="text-truncate" style={{ minWidth: '9rem' }}>
                       {' '}
                       GitHub{' '}
                     </span>
-                    <span className="flex-grow-1 text-truncate">
+                    <span className="flex-grow-1 text-truncate" style={{ minWidth: 0 }}>
                       <span className="badge text-bg-secondary me-2"> &middot; </span>
                       [fullcalendar/fullcalendar] PR #6912 merged
                       <span className="fw-normal text-secondary">
@@ -250,12 +252,13 @@ export default function Page() {
                   <a
                     href="/mailbox/read"
                     className="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                    style={{ minWidth: 0 }}
                   >
                     <span className="text-truncate" style={{ minWidth: '9rem' }}>
                       {' '}
                       Stripe{' '}
                     </span>
-                    <span className="flex-grow-1 text-truncate">
+                    <span className="flex-grow-1 text-truncate" style={{ minWidth: 0 }}>
                       <span className="badge text-bg-success me-2"> &middot; </span>
                       Your May invoice is ready
                       <span className="fw-normal text-secondary">
@@ -285,12 +288,13 @@ export default function Page() {
                   <a
                     href="/mailbox/read"
                     className="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                    style={{ minWidth: 0 }}
                   >
                     <span className="text-truncate" style={{ minWidth: '9rem' }}>
                       {' '}
                       Marcus Reyes{' '}
                     </span>
-                    <span className="flex-grow-1 text-truncate">
+                    <span className="flex-grow-1 text-truncate" style={{ minWidth: 0 }}>
                       <span className="badge text-bg-info me-2"> &middot; </span>
                       Lunch on Thursday?
                       <span className="fw-normal text-secondary">
@@ -320,12 +324,13 @@ export default function Page() {
                   <a
                     href="/mailbox/read"
                     className="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                    style={{ minWidth: 0 }}
                   >
                     <span className="text-truncate" style={{ minWidth: '9rem' }}>
                       {' '}
                       Linear{' '}
                     </span>
-                    <span className="flex-grow-1 text-truncate">
+                    <span className="flex-grow-1 text-truncate" style={{ minWidth: 0 }}>
                       <span className="badge text-bg-warning me-2"> &middot; </span>
                       [ADM-441] Calendar drag-and-drop not working on Safari iOS
                       <span className="fw-normal text-secondary">
@@ -355,12 +360,13 @@ export default function Page() {
                   <a
                     href="/mailbox/read"
                     className="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                    style={{ minWidth: 0 }}
                   >
                     <span className="text-truncate" style={{ minWidth: '9rem' }}>
                       {' '}
                       Vercel{' '}
                     </span>
-                    <span className="flex-grow-1 text-truncate">
+                    <span className="flex-grow-1 text-truncate" style={{ minWidth: 0 }}>
                       <span className="badge text-bg-success me-2"> &middot; </span>
                       Deployment succeeded — production
                       <span className="fw-normal text-secondary">
@@ -390,12 +396,13 @@ export default function Page() {
                   <a
                     href="/mailbox/read"
                     className="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                    style={{ minWidth: 0 }}
                   >
                     <span className="text-truncate" style={{ minWidth: '9rem' }}>
                       {' '}
                       Sara Khan{' '}
                     </span>
-                    <span className="flex-grow-1 text-truncate">
+                    <span className="flex-grow-1 text-truncate" style={{ minWidth: 0 }}>
                       <span className="badge text-bg-primary me-2"> &middot; </span>
                       Customer interview notes — Acme Corp
                       <span className="fw-normal text-secondary">
@@ -426,12 +433,13 @@ export default function Page() {
                   <a
                     href="/mailbox/read"
                     className="flex-grow-1 d-flex flex-column flex-md-row gap-md-3 text-decoration-none text-body"
+                    style={{ minWidth: 0 }}
                   >
                     <span className="text-truncate" style={{ minWidth: '9rem' }}>
                       {' '}
                       AWS{' '}
                     </span>
-                    <span className="flex-grow-1 text-truncate">
+                    <span className="flex-grow-1 text-truncate" style={{ minWidth: 0 }}>
                       <span className="badge text-bg-danger me-2"> &middot; </span>
                       Your monthly bill summary
                       <span className="fw-normal text-secondary">

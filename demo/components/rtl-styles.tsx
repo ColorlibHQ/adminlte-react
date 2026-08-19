@@ -1,8 +1,12 @@
 'use client'
 
 import { useEffect } from 'react'
+import { withBase } from '@/lib/base'
 
-const RTL_HREF = '/css/adminlte.rtl.css'
+// Resolved against the deploy base path: files under public/ are served from the
+// base, not the domain root, so a hardcoded "/css/..." 404s in the subpath export
+// (EXPORT=true -> /themes/next-react). withBase is a no-op at the root (dev).
+const RTL_HREF = withBase('/css/adminlte.rtl.css')
 
 /**
  * Loads AdminLTE's dedicated RTL stylesheet for the RTL demo page (the same

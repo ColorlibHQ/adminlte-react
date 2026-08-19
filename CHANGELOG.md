@@ -5,6 +5,19 @@ All notable changes to **@adminlte/react** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1] - 2026-08-19
+
+### Fixed
+
+- **The RTL layout page rendered blank under the subpath deploy.** `RtlStyles` hardcoded `href="/css/adminlte.rtl.css"`, which resolves against the *domain root* — so on [adminlte.io/themes/next-react](https://adminlte.io/themes/next-react/) (the `EXPORT=true` build, base path `/themes/next-react`) the request 404'd and the page ran `dir="rtl"` against LTR-compiled AdminLTE CSS: the shell was pushed off-canvas, leaving an empty viewport behind ~10,000 px of horizontal overflow (`document.scrollWidth` **11440** in a 1440 px window). The href now goes through the demo's existing `withBase()` helper — the same one `SubpathLinks` and the page data already use — so it stays `/css/adminlte.rtl.css` at the domain root (local `next dev`) and becomes `/themes/next-react/css/adminlte.rtl.css` in the export. The stylesheet itself was always deployed correctly; only the link was wrong. Verified in **both** modes against real builds: no 404, 1855 rules parsed, `dir="rtl"` applied, `scrollWidth === clientWidth === 1440`.
+- **Mailbox inbox rows overflowed their card.** The row link (`a.flex-grow-1.d-flex.flex-column.flex-md-row`) is itself a flex item, so its `min-width` computed to `auto` and it refused to shrink below its content — the `span.text-truncate` inside it never truncated and the subject text ran past the card edge instead. Both the row link and its elastic middle span now carry `min-width: 0`, matching the core HTML demo (`src/html/pages/mailbox/inbox.astro`). Measured on `/mailbox/inbox`: `.list-group` **1168 / 857** (311 px of clipped text spilling out of the card) → **857 / 857** across all eight rows, with the truncation ellipsis doing its job.
+
+### Notes
+
+- **Demo-only release.** `src/` is untouched and the published `dist/` is byte-identical to 0.6.0 — nothing an npm consumer imports changed, which is why this is a patch and not 0.7.0. It gets a version at all because the demo is a shipped artifact of this repo and its RTL page was unusable; the fix reaches people when the demo is **redeployed**, not when the package is published, so publishing 0.6.1 to npm is optional.
+- **The demo's CDN pins were re-checked against `package.json`: no mismatch remains.** apexcharts 6.10.0, tabulator-tables 6.5.2, tom-select 2.6.2, quill 2.0.3, flatpickr 4.6.13 and jsvectormap 1.7.0 all match their installed versions; Bootstrap 5.3.8 matches `admin-lte`'s peer range; Bootstrap Icons 1.13.1, OverlayScrollbars 2.16.0, FullCalendar 7.0.2 and Source Sans 3 5.3.0 have no `package.json` counterpart (CDN-only) and are each at their latest release. The `apexcharts@6.8.0` CSS still visible on the live demo is pre-0.6.0 output — that pin was corrected in 0.6.0 and simply has not been redeployed yet.
+- Verified: library build, type-check, lint (0 errors, 13 pre-existing warnings) and 19 unit tests; demo type-check and the `EXPORT=true` subpath export (66 static pages); all 67 Playwright route-smoke + a11y tests; plus a Playwright pass over the built export served at the real `/themes/next-react/` subpath, covering both fixes above.
+
 ## [0.6.0] - 2026-08-19
 
 ### Changed
@@ -227,6 +240,7 @@ Next.js App Router and React Server Components.
 - Heavy third-party libraries are never bundled eagerly — they load via dynamic
   `import()` inside the components that use them.
 
+[0.6.1]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.3.0...v0.4.0
