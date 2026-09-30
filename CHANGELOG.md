@@ -5,6 +5,66 @@ All notable changes to **@adminlte/react** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2026-10-01
+
+### Changed — breaking
+
+- **Charts now use [Chart.js](https://www.chartjs.org/) 4.5 (MIT) instead of ApexCharts.** From 5.2.0 ApexCharts is distributed under the proprietary *ApexCharts License*, which requires an OEM licence for any product that redistributes it — which is what a template library does. Chart.js is MIT, like everything else this package depends on.
+  - **`ApexChart` is removed; use the new `Chart` component.** It takes a Chart.js `type`, `data` and `options` (plus optional `plugins`, `height` — default `300` px —, `ariaLabel`, `fallback`, `className`, `style`). `data`/`options` are plain values, so a Server Component can pass them (callbacks such as tooltip formatters need a client component, as before).
+  - **`SparklineChart` keeps its props** (`id`, `data`) and gains optional `color` (default `#DCE6EC`), `type` (`'line' | 'bar'`), `height` (default `50`) and `ariaLabel`.
+  - **Peer dependency `apexcharts` → `chart.js` (`>=4.5.0`, optional).** Install `chart.js` if you use `Chart`/`SparklineChart`; drop `apexcharts` and its `apexcharts.css` link — Chart.js needs no stylesheet.
+  - Why 0.7.0 and not 1.0.0: the package is pre-1.0, where the minor version is the breaking-change channel (a `^0.6.x` range will not pick up 0.7.0), and nothing else in the public API changed.
+
+### Added
+
+- **AdminLTE theme preset for Chart.js** — `applyChartTheme(Chart)`, with `readChartThemeColors()` and `withAlpha()` helpers, exported from the package and applied automatically by `Chart`. It writes `Chart.defaults` from Bootstrap's CSS variables (`--bs-body-font-family`, `--bs-body-color`, `--bs-secondary-color`, `--bs-border-color-translucent`, `--bs-body-bg`, `--bs-emphasis-color`): horizontal gridlines only, no axis borders, rounded bars, smooth lines, circular point-style legends and Bootstrap-style tooltips. A filled line dataset without its own `backgroundColor` gets a vertical gradient of its line colour. Call it yourself if you create Chart.js charts outside the component.
+- **Live dark mode and RTL.** Mounted charts re-read the theme and re-render when `<html data-bs-theme>` or `<html dir>` changes (one shared `MutationObserver`), so the colour-mode toggle restyles axes, legends and tooltips immediately; with `dir="rtl"` legends and tooltips render right-to-left.
+
+### Fixed
+
+- Docs → Plugins listed the jsVectorMap stylesheet as `jsvectormap/dist/css/jsvectormap.min.css`, a path that does not exist in jsvectormap 1.7; it is `jsvectormap/dist/jsvectormap.min.css`.
+- Dashboard v2/v3 charts were hard to read in dark mode (dark tick labels and light row stripes on a dark card); the preset now takes its colours from the active colour mode.
+
+### Migration
+
+```tsx
+// 0.6.x
+<ApexChart
+  id="sales"
+  series={[{ name: 'Sales', data: [30, 40, 35, 50] }]}
+  config={{ chart: { type: 'area', height: 300 }, colors: ['#0d6efd'], xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr'] } }}
+/>
+
+// 0.7.0
+<Chart
+  id="sales"
+  type="line"
+  height={300}
+  data={{
+    labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+    datasets: [{ label: 'Sales', data: [30, 40, 35, 50], borderColor: '#0d6efd', fill: 'origin' }],
+  }}
+/>
+```
+
+| ApexCharts | Chart.js |
+|---|---|
+| `chart.type: 'area'` | `type="line"` + dataset `fill: 'origin'` |
+| `chart.type: 'bar'` (`plotOptions.bar.horizontal`) | `type="bar"` (`options.indexAxis: 'y'`) |
+| `chart.type: 'donut'` / `'pie'` / `'radar'` / `'polarArea'` | `type="doughnut"` / `"pie"` / `"radar"` / `"polarArea"` |
+| `series[i].name` / `.data` | `data.datasets[i].label` / `.data` |
+| `xaxis.categories` / `labels` | `data.labels` |
+| `colors` | per-dataset `borderColor` / `backgroundColor` |
+| `chart.height` | `height` prop |
+| `legend.show: false` | `options.plugins.legend.display: false` |
+| `tooltip.y.formatter` | `options.plugins.tooltip.callbacks.label` |
+
+### Notes
+
+- The demo's chart code shrank: the lazily-loaded chart chunk is **68.3 kB gzipped (Chart.js) vs 275.0 kB (ApexCharts)**; all demo JS 587.8 kB vs 789.1 kB gzipped.
+- Every chart on the three dashboards was re-created with the same data and series: Dashboard v1 area chart + 3 sparklines, Dashboard v2 area chart, donut and 7 table sparklines, Dashboard v3 line and grouped bar charts.
+- Verified: library type-check, lint (0 errors, 13 pre-existing warnings), 23 unit tests (4 new for the theme preset) and build (35 client modules in `src/` and `dist/`); demo type-check, production build and the `EXPORT=true` subpath export; all 67 Playwright route-smoke + a11y tests; and a Playwright crawl of all 64 exported routes at `/themes/next-react/` in light and dark mode, plus the chart pages in RTL — no console or page errors, every chart canvas painted.
+
 ## [0.6.1] - 2026-08-19
 
 ### Fixed
@@ -240,6 +300,7 @@ Next.js App Router and React Server Components.
 - Heavy third-party libraries are never bundled eagerly — they load via dynamic
   `import()` inside the components that use them.
 
+[0.7.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.4.0...v0.5.0
