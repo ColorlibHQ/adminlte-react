@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <CodeBlock
         language="bash"
         code={`# install only what you use
-pnpm add apexcharts          # <ApexChart>, <SparklineChart>
+pnpm add chart.js            # <Chart>, <SparklineChart>
 pnpm add tabulator-tables    # <Datatable>
 pnpm add quill               # <Editor>
 pnpm add flatpickr           # <InputFlatpickr>

@@ -1,46 +1,37 @@
 import Image from 'next/image'
-import type { ApexOptions } from 'apexcharts'
+import type { ChartData, ChartOptions } from 'chart.js'
 import { withBase } from '@/lib/base'
-import { AppContent, ApexChart, SparklineChart } from '@adminlte/react'
+import { AppContent, Chart, SparklineChart } from '@adminlte/react'
 
-const salesChartConfig: ApexOptions = {
-  chart: {
-    height: 180,
-    type: 'area',
-    toolbar: { show: false },
-  },
-  legend: { show: false },
-  colors: ['#0d6efd', '#20c997'],
-  dataLabels: { enabled: false },
-  stroke: { curve: 'smooth' },
-  xaxis: {
-    type: 'datetime',
-    categories: [
-      '2023-01-01',
-      '2023-02-01',
-      '2023-03-01',
-      '2023-04-01',
-      '2023-05-01',
-      '2023-06-01',
-      '2023-07-01',
-    ],
-  },
-  tooltip: { x: { format: 'MMMM yyyy' } },
+// Chart data/options are plain values, so this page stays a Server Component
+const salesChartData: ChartData<'line'> = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+  datasets: [
+    { label: 'Digital Goods', data: [28, 48, 40, 19, 86, 27, 90], borderColor: '#0d6efd', fill: 'origin' },
+    { label: 'Electronics', data: [65, 59, 80, 81, 56, 55, 40], borderColor: '#20c997', fill: 'origin' },
+  ],
 }
 
-const salesChartSeries = [
-  { name: 'Digital Goods', data: [28, 48, 40, 19, 86, 27, 90] },
-  { name: 'Electronics', data: [65, 59, 80, 81, 56, 55, 40] },
-]
+const salesChartOptions: ChartOptions<'line'> = {
+  plugins: { legend: { display: false } },
+  scales: { y: { beginAtZero: true, suggestedMax: 100 } },
+}
 
-const pieChartConfig: ApexOptions = {
-  chart: { type: 'donut', height: 350 },
+const pieChartData: ChartData<'doughnut'> = {
   labels: ['Chrome', 'Edge', 'FireFox', 'Safari', 'Opera', 'IE'],
-  dataLabels: { enabled: false },
-  colors: ['#0d6efd', '#20c997', '#ffc107', '#d63384', '#6f42c1', '#adb5bd'],
+  datasets: [
+    {
+      label: 'Visits',
+      data: [700, 500, 400, 600, 300, 100],
+      backgroundColor: ['#0d6efd', '#20c997', '#ffc107', '#d63384', '#6f42c1', '#adb5bd'],
+    },
+  ],
 }
 
-const pieChartSeries = [700, 500, 400, 600, 300, 100]
+const pieChartOptions: ChartOptions<'doughnut'> = {
+  cutout: '62%',
+  plugins: { legend: { position: 'right' } },
+}
 
 const tableSparklines = [
   [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54],
@@ -172,7 +163,14 @@ export default function Page() {
                   <p className="text-center">
                     <strong>Sales: 1 Jan, 2023 - 30 Jul, 2023</strong>
                   </p>
-                  <ApexChart id="sales-chart" series={salesChartSeries} config={salesChartConfig} />
+                  <Chart
+                    id="sales-chart"
+                    type="line"
+                    height={180}
+                    data={salesChartData}
+                    options={salesChartOptions}
+                    ariaLabel="Monthly sales, January to July 2023"
+                  />
                 </div>
                 {/* /.col */}
                 <div className="col-md-4">
@@ -678,7 +676,14 @@ export default function Page() {
             <div className="card-body">
               <div className="row">
                 <div className="col-12">
-                  <ApexChart id="pie-chart" series={pieChartSeries} config={pieChartConfig} />
+                  <Chart
+                    id="pie-chart"
+                    type="doughnut"
+                    height={260}
+                    data={pieChartData}
+                    options={pieChartOptions}
+                    ariaLabel="Browser usage share"
+                  />
                 </div>
                 {/* /.col */}
               </div>

@@ -5,7 +5,7 @@ import { defineConfig } from 'tsup'
 // components stay server components for consumers, and bundlers can tree-shake
 // through the barrel (sideEffects in package.json covers the rest).
 //
-// Heavy plugins (apexcharts, flatpickr, jsvectormap, quill, sortablejs,
+// Heavy plugins (chart.js, flatpickr, jsvectormap, quill, sortablejs,
 // tabulator-tables, tom-select) are loaded via dynamic import() inside effects;
 // in unbundled output those specifiers stay as written and resolve from the
 // consumer's node_modules (declared as optional peer dependencies).

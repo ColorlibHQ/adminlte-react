@@ -58,7 +58,7 @@ A modern React/Next.js component library for building admin dashboards and web a
 - ♿ **Accessible** - Semantic markup, ARIA landmarks, keyboard navigation
 - 🎯 **TypeScript First** - Fully typed props, hooks, and the menu data model
 - 📱 **Responsive** - Mobile-first Bootstrap 5.3 design with an off-canvas sidebar
-- 🔌 **Lazy plugins** - ApexCharts, Tabulator, Quill, Flatpickr, Tom Select & jsVectorMap load on demand
+- 🔌 **Lazy plugins** - Chart.js, Tabulator, Quill, Flatpickr, Tom Select & jsVectorMap load on demand
 
 ## Installation
 
@@ -89,7 +89,7 @@ npm install bootstrap bootstrap-icons
 Install only the libraries for the lazy components you use:
 
 ```bash
-npm install apexcharts       # <ApexChart>, <SparklineChart>
+npm install chart.js         # <Chart>, <SparklineChart>
 npm install tabulator-tables # <Datatable>
 npm install quill            # <Editor>
 npm install flatpickr        # <InputFlatpickr>
@@ -250,7 +250,7 @@ export default function Dashboard() {
 - **`Timeline`** - Chronological timeline
 - **`NavMessages`** / **`NavNotifications`** / **`NavTasks`** - Topbar dropdown widgets
 - **`DirectChat`** - Chat widget with contacts pane
-- **`ApexChart`** / **`SparklineChart`** - ApexCharts wrappers (dynamic import)
+- **`Chart`** / **`SparklineChart`** - [Chart.js](https://www.chartjs.org/) charts (MIT, dynamic import) with the AdminLTE theme preset (`applyChartTheme`) applied — follows dark mode and RTL live
 - **`WorldMap`** - jsVectorMap world map (dynamic import)
 - **`CommandPalette`** - ⌘K searchable navigator (+ `flattenMenuToCommands` helper)
 - **`Accordion`** / **`Tabs`** - Collapsible panels & tab/pill switcher (state-driven, no Bootstrap JS)
@@ -470,6 +470,8 @@ Need advanced features, more pages, and dedicated support? Explore Colorlib's co
 ## License
 
 MIT © [Colorlib](https://colorlib.com)
+
+Charts are drawn with [Chart.js](https://www.chartjs.org/) (MIT licence), an optional peer dependency you install yourself — every chart-related dependency of this package is MIT-licensed.
 
 ## Resources
 

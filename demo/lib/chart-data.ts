@@ -1,55 +1,41 @@
-import type { ApexOptions } from 'apexcharts'
+import type { ChartData, ChartOptions } from 'chart.js'
 import type { DirectChatContact, DirectChatMessage } from '@adminlte/react'
 import { withBase } from './base'
 
-// ApexCharts Revenue Chart Config
-export const revenueChartConfig: ApexOptions = {
-  chart: {
-    height: 300,
-    type: 'area' as const,
-    toolbar: {
-      show: false,
+// Chart.js "Sales Value" area chart (Dashboard v1). Monthly points, Jan–Jul 2023.
+const revenueMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+
+export const revenueChartData: ChartData<'line'> = {
+  labels: revenueMonths.map(m => m.slice(0, 3)),
+  datasets: [
+    {
+      label: 'Digital Goods',
+      data: [28, 48, 40, 19, 86, 27, 90],
+      borderColor: '#0d6efd',
+      fill: 'origin',
     },
-  },
-  legend: {
-    show: false,
-  },
-  colors: ['#0d6efd', '#20c997'],
-  dataLabels: {
-    enabled: false,
-  },
-  stroke: {
-    curve: 'smooth' as const,
-  },
-  xaxis: {
-    type: 'datetime' as const,
-    categories: [
-      '2023-01-01',
-      '2023-02-01',
-      '2023-03-01',
-      '2023-04-01',
-      '2023-05-01',
-      '2023-06-01',
-      '2023-07-01',
-    ],
-  },
-  tooltip: {
-    x: {
-      format: 'MMMM yyyy',
+    {
+      label: 'Electronics',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      borderColor: '#20c997',
+      fill: 'origin',
     },
-  },
+  ],
 }
 
-export const revenueChartSeries = [
-  {
-    name: 'Digital Goods',
-    data: [28, 48, 40, 19, 86, 27, 90],
+export const revenueChartOptions: ChartOptions<'line'> = {
+  plugins: {
+    legend: { display: false },
+    tooltip: {
+      callbacks: {
+        title: items => `${revenueMonths[items[0].dataIndex]} 2023`,
+      },
+    },
   },
-  {
-    name: 'Electronics',
-    data: [65, 59, 80, 81, 56, 55, 40],
+  scales: {
+    y: { beginAtZero: true, suggestedMax: 100 },
   },
-]
+}
 
 // Sparkline Data
 export const sparklineData = {

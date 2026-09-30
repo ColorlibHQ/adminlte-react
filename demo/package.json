@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@adminlte/react": "workspace:*",
-    "apexcharts": "^6.10.0",
+    "chart.js": "^4.5.1",
     "flatpickr": "^4.6.13",
     "jsvectormap": "^1.7.0",
     "next": "^16.3.1",

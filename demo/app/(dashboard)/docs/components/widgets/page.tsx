@@ -35,7 +35,7 @@ const onThisPage = [
   ['Timeline', 'timeline'],
   ['NavMessages / NavNotifications / NavTasks', 'navbar-dropdowns'],
   ['DirectChat', 'direct-chat'],
-  ['ApexChart / SparklineChart', 'charts'],
+  ['Chart / SparklineChart', 'charts'],
   ['WorldMap', 'world-map'],
   ['CommandPalette', 'command-palette'],
 ]
@@ -396,26 +396,44 @@ export default function WidgetsPage() {
       />
 
       {/* Charts */}
-      <h2 id="charts">ApexChart / SparklineChart <span className="badge text-bg-secondary fw-normal align-middle">client</span></h2>
+      <h2 id="charts">Chart / SparklineChart <span className="badge text-bg-secondary fw-normal align-middle">client</span></h2>
       <p>
-        ApexCharts wrappers. <code>ApexChart</code> takes a full ApexCharts config;{' '}
-        <code>SparklineChart</code> is a minimal inline chart from a number array. Both
-        lazy-load <code>apexcharts</code> — see{' '}
-        <a href="/docs/plugins">Plugins</a> for the required CSS.
+        <a href="https://www.chartjs.org/" target="_blank" rel="noopener noreferrer">Chart.js</a>{' '}
+        (MIT) wrappers. <code>Chart</code> takes a Chart.js <code>type</code>, <code>data</code>{' '}
+        and <code>options</code> — line/area, bar, doughnut, pie, radar, polar area, scatter and
+        bubble; <code>SparklineChart</code> is a minimal inline chart from a number array. Both
+        lazy-load <code>chart.js</code> on mount (no CSS needed) — see{' '}
+        <a href="/docs/plugins">Plugins</a>.
       </p>
-      <CodeBlock code={`<ApexChart
+      <p>
+        The AdminLTE theme preset (<code>applyChartTheme</code>) is applied automatically: body
+        font, colours from Bootstrap&apos;s CSS variables, horizontal gridlines only, rounded bars
+        and smooth lines. Charts re-theme live when the colour mode or <code>dir</code> changes,
+        resize with their container, and are destroyed on unmount. A filled line dataset without
+        a <code>backgroundColor</code> gets a gradient of its line colour.
+      </p>
+      <CodeBlock code={`<Chart
   id="sales"
-  series={[{ name: 'Sales', data: [30, 40, 35, 50, 49, 60] }]}
-  config={{ chart: { type: 'line', height: 300 }, xaxis: { categories: ['Jan','Feb','Mar','Apr','May','Jun'] } }}
+  type="line"
+  height={300}
+  data={{
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [{ label: 'Sales', data: [30, 40, 35, 50, 49, 60], borderColor: '#0d6efd', fill: 'origin' }],
+  }}
+  options={{ plugins: { legend: { display: false } } }}
 />
 
 <SparklineChart id="spark" data={[5, 9, 7, 12, 10, 15]} />`} />
       <PropsTable
         rows={[
-          { name: 'id', type: 'string', required: true, description: 'Unique DOM id for the chart container.' },
-          { name: 'series', type: 'any[]', required: true, description: 'ApexCharts series (ApexChart only).' },
-          { name: 'config', type: 'Record<string, any>', required: true, description: 'ApexCharts options (ApexChart only).' },
-          { name: 'data', type: 'number[]', required: true, description: 'Data points (SparklineChart only).' },
+          { name: 'id', type: 'string', required: false, description: 'DOM id for the chart container (required for SparklineChart).' },
+          { name: 'type', type: "ChartType ('line' | 'bar' | 'doughnut' | …)", required: true, description: 'Chart.js chart type (Chart only). SparklineChart accepts line (default) or bar.' },
+          { name: 'data', type: 'ChartData | number[]', required: true, description: 'Chart: Chart.js labels + datasets (plain values, so Server Components can pass it). SparklineChart: the data points.' },
+          { name: 'options', type: 'ChartOptions', required: false, description: 'Chart.js options, merged over the theme preset (Chart only).' },
+          { name: 'plugins', type: 'Plugin[]', required: false, description: 'Inline Chart.js plugins for this chart (Chart only).' },
+          { name: 'height', type: 'number | string', required: false, description: 'Chart height; numbers are px. Default 300 (Chart) / 50 (SparklineChart).' },
+          { name: 'ariaLabel', type: 'string', required: false, description: 'Accessible name for the canvas.' },
+          { name: 'color', type: 'string', required: false, description: 'Line/area colour (SparklineChart only). Default #DCE6EC.' },
         ]}
       />
 

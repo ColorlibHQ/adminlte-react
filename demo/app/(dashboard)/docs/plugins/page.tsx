@@ -15,8 +15,8 @@ interface PluginRow {
 }
 
 const plugins: PluginRow[] = [
-  { component: 'ApexChart, SparklineChart', pkg: 'apexcharts', css: 'apexcharts/dist/apexcharts.css', install: 'Bundled' },
-  { component: 'WorldMap', pkg: 'jsvectormap', css: 'jsvectormap/dist/css/jsvectormap.min.css', install: 'Bundled' },
+  { component: 'Chart, SparklineChart', pkg: 'chart.js', css: '—', install: 'Required' },
+  { component: 'WorldMap', pkg: 'jsvectormap', css: 'jsvectormap/dist/jsvectormap.min.css', install: 'Bundled' },
   { component: 'useSortable', pkg: 'sortablejs', css: '—', install: 'Bundled' },
   { component: 'Datatable', pkg: 'tabulator-tables', css: 'tabulator-tables/dist/css/tabulator_bootstrap5.min.css', install: 'Required' },
   { component: 'Editor', pkg: 'quill', css: 'quill/dist/quill.snow.css', install: 'Required' },
@@ -36,28 +36,27 @@ export default function PluginsPage() {
         <code>useEffect</code>, initialize it against a ref, and tear it down on unmount.
         Because the import is dynamic, the library is code-split into its own chunk and only
         downloaded when the component actually mounts. Here is the shape, from{' '}
-        <code>ApexChart</code>:
+        <code>Chart</code>:
       </p>
       <CodeBlock
         code={`useEffect(() => {
   let cancelled = false
-  const el = containerRef.current
-  if (!el) return
+  const canvas = canvasRef.current
+  if (!canvas) return
 
   const init = async () => {
-    const ApexCharts = (await import('apexcharts')).default
-    if (cancelled || !containerRef.current) return
-    const chart = new ApexCharts(el, { ...config, series })
-    chartRef.current = chart
-    chart.render()
+    const Chart = (await import('chart.js/auto')).default
+    if (cancelled || !canvasRef.current) return
+    chartRef.current = new Chart(canvas, { type, data, options })
   }
   init().catch(err => console.error(err))
 
   return () => {
     cancelled = true
     chartRef.current?.destroy()
+    chartRef.current = null
   }
-}, [id, series, config])`}
+}, [type])`}
       />
       <p>
         If you write your own plugin-backed component, follow the same rules: guard against
@@ -109,8 +108,6 @@ export default function PluginsPage() {
       <CodeBlock
         filename="app/layout.tsx"
         code={`<head>
-  {/* ApexCharts (charts) */}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@6.10.0/dist/apexcharts.css" />
   {/* Tabulator (datatable) — Bootstrap 5 theme */}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.5.2/dist/css/tabulator_bootstrap5.min.css" />
   {/* jsVectorMap (world map) */}
@@ -119,7 +116,7 @@ export default function PluginsPage() {
       />
       <p>Or import them through your bundler:</p>
       <CodeBlock
-        code={`import 'apexcharts/dist/apexcharts.css'
+        code={`import 'jsvectormap/dist/jsvectormap.css'
 import 'quill/dist/quill.snow.css'
 import 'flatpickr/dist/flatpickr.min.css'`}
       />

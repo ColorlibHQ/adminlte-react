@@ -1,9 +1,9 @@
 'use client'
 
-import { SmallBox, Card, ApexChart, SparklineChart, WorldMap, DirectChat, useSortable, AppContent } from '@adminlte/react'
+import { SmallBox, Card, Chart, SparklineChart, WorldMap, DirectChat, useSortable, AppContent } from '@adminlte/react'
 import {
-  revenueChartConfig,
-  revenueChartSeries,
+  revenueChartData,
+  revenueChartOptions,
   sparklineData,
   chatContacts,
   chatMessages,
@@ -79,10 +79,13 @@ export default function DashboardPage() {
       <div className="row mt-4">
         <div className="col-lg-7 connectedSortable">
           <Card title="Sales Value" collapsible maximizable>
-            <ApexChart
+            <Chart
               id="revenue-chart"
-              series={revenueChartSeries}
-              config={revenueChartConfig}
+              type="line"
+              height={300}
+              data={revenueChartData}
+              options={revenueChartOptions}
+              ariaLabel="Sales value by month: Digital Goods and Electronics"
             />
           </Card>
 

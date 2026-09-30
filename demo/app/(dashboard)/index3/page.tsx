@@ -1,72 +1,55 @@
 'use client'
 
 import Image from 'next/image'
-import type { ApexOptions } from 'apexcharts'
+import type { ChartData, ChartOptions } from 'chart.js'
 import { withBase } from '@/lib/base'
-import { AppContent, ApexChart } from '@adminlte/react'
+import { AppContent, Chart } from '@adminlte/react'
 
-const visitorsChartSeries = [
-  { name: 'High - 2023', data: [100, 120, 170, 167, 180, 177, 160] },
-  { name: 'Low - 2023', data: [60, 80, 70, 67, 80, 77, 100] },
-]
-
-const visitorsChartConfig: ApexOptions = {
-  chart: {
-    height: 200,
-    type: 'line',
-    toolbar: { show: false },
-  },
-  colors: ['#0d6efd', '#adb5bd'],
-  stroke: { curve: 'smooth' },
-  grid: {
-    borderColor: '#e7e7e7',
-    row: {
-      colors: ['#f3f3f3', 'transparent'],
-      opacity: 0.5,
+const visitorsChartData: ChartData<'line'> = {
+  labels: ['22th', '23th', '24th', '25th', '26th', '27th', '28th'],
+  datasets: [
+    {
+      label: 'High - 2023',
+      data: [100, 120, 170, 167, 180, 177, 160],
+      borderColor: '#0d6efd',
+      pointBackgroundColor: '#0d6efd',
+      pointRadius: 3,
     },
-  },
-  legend: { show: false },
-  markers: { size: 1 },
-  xaxis: {
-    categories: ['22th', '23th', '24th', '25th', '26th', '27th', '28th'],
-  },
+    {
+      label: 'Low - 2023',
+      data: [60, 80, 70, 67, 80, 77, 100],
+      borderColor: '#adb5bd',
+      pointBackgroundColor: '#adb5bd',
+      pointRadius: 3,
+    },
+  ],
 }
 
-const salesChartSeries = [
-  { name: 'Net Profit', data: [44, 55, 57, 56, 61, 58, 63, 60, 66] },
-  { name: 'Revenue', data: [76, 85, 101, 98, 87, 105, 91, 114, 94] },
-  { name: 'Free Cash Flow', data: [35, 41, 36, 26, 45, 48, 52, 53, 41] },
-]
+const visitorsChartOptions: ChartOptions<'line'> = {
+  plugins: { legend: { display: false } },
+  scales: { y: { suggestedMin: 50, suggestedMax: 200 } },
+}
 
-const salesChartConfig: ApexOptions = {
-  chart: {
-    type: 'bar',
-    height: 200,
-  },
-  plotOptions: {
-    bar: {
-      horizontal: false,
-      columnWidth: '55%',
-      borderRadius: 4,
+const salesChartData: ChartData<'bar'> = {
+  labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+  datasets: [
+    { label: 'Net Profit', data: [44, 55, 57, 56, 61, 58, 63, 60, 66], backgroundColor: '#0d6efd' },
+    { label: 'Revenue', data: [76, 85, 101, 98, 87, 105, 91, 114, 94], backgroundColor: '#20c997' },
+    { label: 'Free Cash Flow', data: [35, 41, 36, 26, 45, 48, 52, 53, 41], backgroundColor: '#ffc107' },
+  ],
+}
+
+const salesChartOptions: ChartOptions<'bar'> = {
+  datasets: { bar: { categoryPercentage: 0.6, barPercentage: 0.85 } },
+  plugins: {
+    legend: { display: false },
+    tooltip: {
+      callbacks: {
+        label: ctx => `${ctx.dataset.label}: $${ctx.parsed.y} thousands`,
+      },
     },
   },
-  legend: { show: false },
-  colors: ['#0d6efd', '#20c997', '#ffc107'],
-  dataLabels: { enabled: false },
-  stroke: {
-    show: true,
-    width: 2,
-    colors: ['transparent'],
-  },
-  xaxis: {
-    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-  },
-  fill: { opacity: 1 },
-  tooltip: {
-    y: {
-      formatter: (val: number) => '$ ' + val + ' thousands',
-    },
-  },
+  scales: { y: { beginAtZero: true } },
 }
 
 export default function Page() {
@@ -107,10 +90,13 @@ export default function Page() {
               {/* /.d-flex */}
 
               <div className="position-relative mb-4">
-                <ApexChart
+                <Chart
                   id="visitors-chart"
-                  series={visitorsChartSeries}
-                  config={visitorsChartConfig}
+                  type="line"
+                  height={200}
+                  data={visitorsChartData}
+                  options={visitorsChartOptions}
+                  ariaLabel="Online store visitors this week and last week"
                 />
               </div>
 
@@ -281,10 +267,13 @@ export default function Page() {
               {/* /.d-flex */}
 
               <div className="position-relative mb-4">
-                <ApexChart
+                <Chart
                   id="sales-chart"
-                  series={salesChartSeries}
-                  config={salesChartConfig}
+                  type="bar"
+                  height={200}
+                  data={salesChartData}
+                  options={salesChartOptions}
+                  ariaLabel="Net profit, revenue and free cash flow by month"
                 />
               </div>
 

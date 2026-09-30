@@ -57,11 +57,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css"
         />
-        {/* ApexCharts CSS */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/apexcharts@6.10.0/dist/apexcharts.css"
-        />
         {/* jsVectorMap CSS */}
         <link
           rel="stylesheet"

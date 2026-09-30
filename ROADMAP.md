@@ -14,7 +14,7 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
 - [x] RSC async data example (Projects page fetches from a data module)
 - [x] Settings persistence (localStorage)
 - [x] Live on `adminlte.io/themes/next-react/` (Hetzner + Cloudflare); themed 404
-- [x] All deps on latest (React 19, Next 16, TS 6, ApexCharts 5, Quill 2)
+- [x] All deps on latest (React 19, Next 16, TS 6, Quill 2; charts on Chart.js 4 since 0.7.0)
 
 ## A. Perfect functionality (wire the static controls)
 - [x] A1. Client-side **search + column sort + pagination** for hand-built tables
@@ -54,7 +54,7 @@ items are done; unchecked are planned. See `CLAUDE.md` for architecture.
 
 ## E. Post-upgrade runtime smoke-test
 - [x] E1. Quill 2 editor renders/works on `mailbox/compose` ✓
-- [x] E2. ApexCharts 5 + jsVectorMap render correctly on the dashboard ✓
+- [x] E2. Charts (Chart.js 4 since 0.7.0) + jsVectorMap render correctly on the dashboard ✓
 - [x] E3. Tabulator + Flatpickr + Tom Select verified rendering under the new stack ✓
 
 ## F. Quality / infra

@@ -37,7 +37,7 @@ export default function IntroductionPage() {
           raw HTML you drop in.
         </li>
         <li>
-          <strong>Lazy plugins.</strong> Heavy third-party libraries (ApexCharts, Tabulator,
+          <strong>Lazy plugins.</strong> Heavy third-party libraries (Chart.js, Tabulator,
           Quill, Flatpickr, Tom Select, jsVectorMap) are loaded with dynamic{' '}
           <code>import()</code> inside the components that use them, so they never enter your
           initial bundle.

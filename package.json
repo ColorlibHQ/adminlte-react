@@ -37,7 +37,8 @@
     "react",
     "next",
     "bootstrap",
-    "components"
+    "components",
+    "chartjs"
   ],
   "scripts": {
     "build": "tsup && npm run copy-css && npm run fix-dist",
@@ -52,7 +53,7 @@
     "test:watch": "vitest"
   },
   "peerDependencies": {
-    "apexcharts": ">=4.0.0",
+    "chart.js": ">=4.5.0",
     "flatpickr": ">=4.6.0",
     "jsvectormap": ">=1.6.0",
     "next": ">=14.0.0",
@@ -64,7 +65,7 @@
     "tom-select": ">=2.3.0"
   },
   "peerDependenciesMeta": {
-    "apexcharts": {
+    "chart.js": {
       "optional": true
     },
     "flatpickr": {
@@ -97,7 +98,7 @@
     "@types/react-dom": "^19.2.4",
     "@types/sortablejs": "^1.15.9",
     "admin-lte": "^4.8.1",
-    "apexcharts": "^6.10.0",
+    "chart.js": "^4.5.1",
     "eslint": "^10.8.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "flatpickr": "^4.6.13",
