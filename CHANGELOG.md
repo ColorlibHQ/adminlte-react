@@ -5,6 +5,36 @@ All notable changes to **@adminlte/react** are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.1] - 2026-11-17
+
+### Changed
+
+- **AdminLTE core upgraded to 4.10.2** (from 4.8.1), covering core [4.9.0](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#490---2026-08-26) through [4.10.2](https://github.com/ColorlibHQ/AdminLTE/blob/master/CHANGELOG.md#4102---2026-11-16). The bundled stylesheet (`@adminlte/react/css`) now ships on **Bootstrap 5.3.9** and picks up:
+  - **Print defaults** (core 4.9.0 / 4.9.1) — a printed page is a document again: the header, sidebar and footer no longer print, the layout drops its viewport-sized `min-height` / `max-width` in print, and a page that ends near a sheet boundary no longer prints a blank trailing sheet. `data-lte-print="plain"` still works (and is now matched per token, so `"plain app"` sets both). Verified by printing demo pages to PDF.
+  - Every other core fix in the range that lives in CSS (contrast and dark-mode token fixes, mini-sidebar brand centring, Bootstrap 5.3.9's `.modal-xxl`, reduced-motion placeholders).
+  - The demo's `public/css/adminlte.rtl.css` was refreshed from core 4.10.2.
+  - The optional palette sheets (`adminlte-colors.css`, `adminlte-colors-v3.css`, `data-lte-primary`, `data-lte-contrast="aa"`) are unchanged in how you use them — see the README. Core's opt-in Select2 compat sheet (`adminlte-select2.css`) is irrelevant here (the port uses Tom Select).
+- **Bootstrap JS 5.3.9** in the README, the install docs and the demo (CDN).
+- **Pinned demo CDN libraries refreshed:** Bootstrap Icons 1.13.2, Source Sans 3 5.3.1, OverlayScrollbars 2.17.0, Tabulator 6.7.1, Tom Select 2.7.0, FullCalendar 7.1.5.
+- **Dependencies refreshed to latest:** React / React DOM 19.3.1, Next.js 16.4.6, Chart.js 4.6.1, Tabulator 6.7.1, Tom Select 2.7.0, vitest 5.1 (major), jsdom 31 (major), tsup 9 (major), ESLint 10.15, typescript-eslint 8.73, Playwright 1.65.1, `@axe-core/playwright` 4.14, `@types/*`. `pnpm audit` now reports a single *low* advisory — Quill 2.0.3's HTML-export XSS, for which no patched release exists (Quill is an optional peer; the library never calls its HTML export).
+- Peer dependency ranges are unchanged, so nothing consumers depend on narrowed.
+
+### Added
+
+- **`colorModeInitScript`** — an inline-script string that applies the persisted colour mode (`lte-theme`: `light` / `dark` / `auto`) to `<html data-bs-theme>` before first paint. Render it in `<head>` of your root layout (with `suppressHydrationWarning` on `<html>`) so dark-mode visitors no longer get a light flash on load. The demo does this.
+
+### Fixed
+
+- **`ColorModeProvider` applied and persisted the default mode before reading the saved one**, so a stored `dark` was briefly replaced by `auto` (and written back to `localStorage`) on every mount. It now waits until the saved mode has been loaded.
+
+### Maintenance
+
+- Verified: library build, type-check, lint (0 errors, 13 pre-existing warnings) and 26 unit tests; the CI RSC-boundary check (35 client modules in `src/` and `dist/`); demo type-check, production build and the `EXPORT=true` subpath export; **192 Playwright tests** against the production server (every route smoke-tested, 5 axe audits, every route again as a dark-mode visitor and at 390 px, chart canvas); a full light/dark × 1440/390 crawl of all 62 routes with zero console errors, failed same-origin requests or horizontal overflow; demo pages printed to PDF (no header/sidebar/footer, the invoice fits one sheet).
+- Visual diff against the previous release at 1440 px: identical on the dashboards, forms and tables; the only change at 390 px is the topbar, which core 4.10.1 rebalanced to stop it overflowing.
+- **TypeScript stays on 6.0.3** — `typescript-eslint` 8.73 still peers `typescript@<6.1.0`.
+- **pnpm stays on 10.33.2** (`packageManager`) — the toolchain and CI are pinned to it; pnpm 12 was not adopted in this release.
+- Demo Playwright config reads `PORT` / `PW_COMMAND` from the environment and no longer reuses an already-running server (it could silently test another project's build). New `layout.spec.ts`: every route is loaded as a dark-mode visitor (hydration must be clean, `data-bs-theme="dark"` set) and at 390 px (no horizontal overflow), plus a chart-canvas check.
+
 ## [0.7.0] - 2026-10-01
 
 ### Changed — breaking
@@ -300,6 +330,7 @@ Next.js App Router and React Server Components.
 - Heavy third-party libraries are never bundled eagerly — they load via dynamic
   `import()` inside the components that use them.
 
+[0.7.1]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/ColorlibHQ/adminlte-react/compare/v0.5.0...v0.6.0
