@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- *   AdminLTE v4.8.1
+ *   AdminLTE v4.10.2
  *   Author: Colorlib
  *   Website: AdminLTE.io <https://adminlte.io>
  *   License: Open source - MIT <https://opensource.org/licenses/MIT>
@@ -532,7 +532,7 @@ legend + * {
 
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
-::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-minute-field,
 ::-webkit-datetime-edit-hour-field,
 ::-webkit-datetime-edit-day-field,
 ::-webkit-datetime-edit-month-field,
@@ -5591,13 +5591,20 @@ textarea.form-control-lg {
 }
 @media (min-width: 992px) {
   .modal-lg,
-  .modal-xl {
+  .modal-xl,
+  .modal-xxl {
     --bs-modal-width: 800px;
   }
 }
 @media (min-width: 1200px) {
-  .modal-xl {
+  .modal-xl,
+  .modal-xxl {
     --bs-modal-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .modal-xxl {
+    --bs-modal-width: 1320px;
   }
 }
 .modal-fullscreen {
@@ -6765,6 +6772,11 @@ textarea.form-control-lg {
 .placeholder-glow .placeholder {
   animation: placeholder-glow 2s ease-in-out infinite;
 }
+@media (prefers-reduced-motion: reduce) {
+  .placeholder-glow .placeholder {
+    animation: none;
+  }
+}
 
 @keyframes placeholder-glow {
   50% {
@@ -6777,6 +6789,11 @@ textarea.form-control-lg {
   -webkit-mask-size: 200% 100%;
   mask-size: 200% 100%;
   animation: placeholder-wave 2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .placeholder-wave {
+    animation: none;
+  }
 }
 
 @keyframes placeholder-wave {
@@ -12823,6 +12840,11 @@ textarea.form-control-lg {
   position: relative;
   height: 2.5rem;
 }
+@media (max-width: 575.98px) {
+  .app-header {
+    --bs-navbar-nav-link-padding-x: 0.5rem;
+  }
+}
 
 .navbar-search {
   --lte-search-field-width: 14rem;
@@ -13368,6 +13390,7 @@ textarea.form-control-lg {
 .sidebar-mini.sidebar-collapse .brand-text {
   display: inline-block;
   max-width: 0;
+  margin-right: 0;
   overflow: hidden;
 }
 .sidebar-mini.sidebar-collapse .sidebar-menu .nav-link p,
@@ -15928,6 +15951,27 @@ fieldset legend {
   }
 }
 /* Dark Mode Accessibility */
+[data-bs-theme=dark] .btn-outline-primary {
+  --bs-btn-color: var(--bs-primary-text-emphasis);
+  --bs-btn-border-color: var(--bs-primary-text-emphasis);
+}
+[data-bs-theme=dark] .btn-outline-secondary {
+  --bs-btn-color: var(--bs-secondary-text-emphasis);
+  --bs-btn-border-color: var(--bs-secondary-text-emphasis);
+}
+[data-bs-theme=dark] .btn-outline-success {
+  --bs-btn-color: var(--bs-success-text-emphasis);
+  --bs-btn-border-color: var(--bs-success-text-emphasis);
+}
+[data-bs-theme=dark] .btn-outline-danger {
+  --bs-btn-color: var(--bs-danger-text-emphasis);
+  --bs-btn-border-color: var(--bs-danger-text-emphasis);
+}
+[data-bs-theme=dark] .btn-outline-dark {
+  --bs-btn-color: var(--bs-dark-text-emphasis);
+  --bs-btn-border-color: var(--bs-dark-text-emphasis);
+}
+
 [data-bs-theme=dark] .text-accessible-primary {
   color: #6ea8fe;
 }
@@ -15956,50 +16000,64 @@ fieldset legend {
     font-size: 0.8em;
     content: " (" attr(href) ")";
   }
-  [data-lte-print=plain] a[href^=http]::after {
+  [data-lte-print~=plain] a[href^=http]::after {
     content: none;
   }
-  [data-lte-print=plain] .btn {
+  [data-lte-print~=plain] .btn {
     border-color: transparent !important;
   }
-  /* Print Layout Fix - Ensure sidebar and main content are both visible.
-     `:not(.d-print-none)` on the two rules that force `display`, so Bootstrap's
-     print display utilities keep working: these are defaults for the standard
-     layout, not something a page should have to fight to hide. */
+  /* Print Layout — paged media cannot scroll, so every sticky position and
+     every scroll container has to be unwound here or the browser clips what
+     is inside it: that is what printed the main content blank in 4.0.0
+     (#5982). `:not(.d-print-none)` on the rule that forces `display`, so
+     Bootstrap's print display utilities keep working (#6106). */
+  .app-header,
+  .app-sidebar,
+  .app-footer {
+    position: static !important;
+  }
   .app-wrapper:not(.d-print-none) {
     display: grid !important;
     grid-template-rows: auto 1fr auto !important;
     grid-template-columns: auto 1fr !important;
   }
-  .sidebar-overlay {
-    display: none !important;
+  .app-main {
+    width: auto !important;
+    padding-bottom: 0 !important;
   }
-  .app-sidebar:not(.d-print-none) {
-    position: static !important;
-    display: block !important;
-    min-width: 200px !important;
-    max-width: 200px !important;
-    max-height: none !important;
-    margin-right: 0 !important;
+  .app-content-bottom-area {
+    margin-bottom: 0 !important;
+  }
+  .app-main,
+  .app-content,
+  .sidebar-wrapper {
     overflow: visible !important;
   }
   .sidebar-wrapper {
     height: auto !important;
-    overflow: visible !important;
   }
-  .app-header {
-    position: static !important;
+  .app-sidebar {
+    min-width: 200px !important;
+    max-width: 200px !important;
+    max-height: none !important;
+    margin-right: 0 !important;
   }
-  .app-main {
-    width: auto !important;
-    max-width: 100% !important;
-    overflow: visible !important;
+  .app-wrapper {
+    min-height: 0 !important;
   }
-  .app-content {
-    overflow: visible !important;
-  }
+  .app-wrapper,
+  .app-header,
+  .app-main,
   .app-footer {
-    position: static !important;
+    max-width: none !important;
+  }
+  html:not([data-lte-print~=app]) body:not([data-lte-print~=app]) .app-header:not(.d-print-block):not(.d-print-flex),
+  html:not([data-lte-print~=app]) body:not([data-lte-print~=app]) .app-sidebar:not(.d-print-block):not(.d-print-flex),
+  html:not([data-lte-print~=app]) body:not([data-lte-print~=app]) .app-footer:not(.d-print-block):not(.d-print-flex) {
+    display: none !important;
+  }
+  .sidebar-overlay {
+    display: none !important;
   }
 }
 /*# sourceMappingURL=adminlte.rtl.css.map */
