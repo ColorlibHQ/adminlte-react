@@ -16,23 +16,23 @@
   },
   "dependencies": {
     "@adminlte/react": "workspace:*",
-    "chart.js": "^4.5.1",
+    "chart.js": "^4.6.1",
     "flatpickr": "^4.6.13",
     "jsvectormap": "^1.7.0",
-    "next": "^16.3.1",
+    "next": "^16.4.6",
     "quill": "^2.0.3",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "sortablejs": "^1.15.7",
-    "tabulator-tables": "^6.5.2",
-    "tom-select": "^2.6.2"
+    "tabulator-tables": "^6.7.1",
+    "tom-select": "^2.7.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.13.0",
-    "@playwright/test": "^1.62.1",
-    "@types/node": "^26.2.0",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@types/sortablejs": "^1.15.9",
     "typescript": "^6.0.3"
   }
