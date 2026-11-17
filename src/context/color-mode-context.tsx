@@ -22,6 +22,9 @@ export function ColorModeProvider({
 }: ColorModeProviderProps) {
   const [colorMode, setColorMode] = useState<ColorMode>(initialMode)
   const [resolvedMode, setResolvedMode] = useState<'light' | 'dark'>('light')
+  // Don't apply/persist the default mode until the saved one has been read,
+  // otherwise a stored 'dark' is briefly replaced by the default and overwritten.
+  const [loaded, setLoaded] = useState(false)
 
   // Load persisted mode on mount
   useEffect(() => {
@@ -31,11 +34,12 @@ export function ColorModeProvider({
     if (saved && ['light', 'dark', 'auto'].includes(saved)) {
       setColorMode(saved)
     }
+    setLoaded(true)
   }, [])
 
   // Apply color mode to <html> and resolve auto mode
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined' || !loaded) return
 
     let resolved: 'light' | 'dark'
 
@@ -50,7 +54,7 @@ export function ColorModeProvider({
 
     // Persist to localStorage
     localStorage.setItem('lte-theme', colorMode)
-  }, [colorMode])
+  }, [colorMode, loaded])
 
   // Listen for system theme changes when in auto mode
   useEffect(() => {

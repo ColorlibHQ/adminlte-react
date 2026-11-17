@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
 // FullCalendar v7 no longer bundles CSS in the JS, and the theme is a separate
 // plugin — the "classic" theme reproduces the pre-v7 look. Core must load
 // before the theme script (the theme registers itself on the global).
-const FC_BASE = 'https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2'
+const FC_BASE = 'https://cdn.jsdelivr.net/npm/fullcalendar@7.1.5'
 const FC_SCRIPTS = [`${FC_BASE}/all/global.min.js`, `${FC_BASE}/themes/classic/global.min.js`]
 const FC_STYLES = [
   `${FC_BASE}/skeleton.min.css`,

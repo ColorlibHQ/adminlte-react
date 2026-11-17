@@ -107,6 +107,7 @@ for the full matrix.
 
 ```tsx
 // app/layout.tsx
+import { colorModeInitScript } from '@adminlte/react'
 import '@adminlte/react/css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './globals.css'
@@ -117,17 +118,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Optional: apply the saved dark/light mode before first paint (no flash) */}
+        <script dangerouslySetInnerHTML={{ __html: colorModeInitScript }} />
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.css"
         />
       </head>
       <body>
         {children}
         {/* Bootstrap JS required for dropdowns, modals, etc */}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
       </body>
     </html>
   )

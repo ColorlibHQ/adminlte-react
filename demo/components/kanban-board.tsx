@@ -263,7 +263,7 @@ export function KanbanBoard() {
                         <div className="kanban-cards" data-lane-id="done">
                           <article className="kanban-card">
                             <span className="badge text-bg-primary mb-2"> feature </span>
-                            <p className="fw-semibold mb-1 small">Upgrade to Bootstrap 5.3.8</p>
+                            <p className="fw-semibold mb-1 small">Upgrade to Bootstrap 5.3.9</p>
 
                             <div className="d-flex justify-content-between align-items-center">
                               <div className="kanban-assignees">

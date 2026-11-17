@@ -1,6 +1,7 @@
 import { defineConfig } from '@playwright/test'
 
-const PORT = 3210
+// Override with PORT=… when other servers are running (never reuse a foreign server)
+const PORT = Number(process.env.PORT) || 3210
 const baseURL = `http://localhost:${PORT}`
 
 /**
@@ -21,9 +22,9 @@ export default defineConfig({
     headless: true,
   },
   webServer: {
-    command: `pnpm exec next dev -p ${PORT}`,
+    command: process.env.PW_COMMAND || `pnpm exec next dev -p ${PORT}`,
     url: baseURL,
-    reuseExistingServer: true,
+    reuseExistingServer: false,
     timeout: 120_000,
   },
 })

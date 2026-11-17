@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { colorModeInitScript } from '@adminlte/react'
 import '@adminlte/react/css'
 import './globals.css'
 import { SubpathLinks } from '@/components/subpath-links'
 import { InertLinks } from '@/components/inert-links'
+import { withBase } from '@/lib/base'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://adminlte.io/themes/next-react'),
@@ -14,6 +16,7 @@ export const metadata: Metadata = {
   description:
     'AdminLTE 4 + Bootstrap 5.3 admin dashboard components for React & Next.js (App Router / RSC) — 60+ demo pages, dark mode, and a ⌘K command palette.',
   applicationName: 'AdminLTE React',
+  icons: { icon: withBase('/assets/img/AdminLTELogo.png') },
   authors: [{ name: 'Colorlib', url: 'https://colorlib.com' }],
   openGraph: {
     title: 'AdminLTE React — Bootstrap 5 admin dashboard',
@@ -36,8 +39,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Apply the saved colour mode before first paint (no light flash / no hydration flicker in dark mode) */}
+        <script dangerouslySetInnerHTML={{ __html: colorModeInitScript }} />
         {/* Open the CDN connection early — every stylesheet below comes from it.
             The crossOrigin variant covers the CORS-mode font file requests. */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
@@ -45,17 +50,17 @@ export default function RootLayout({
         {/* Source Sans 3 (AdminLTE's default typeface) */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.3.0/index.css"
+          href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.3.1/index.css"
         />
         {/* Bootstrap Icons */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css"
         />
         {/* OverlayScrollbars CSS */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css"
+          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.17.0/styles/overlayscrollbars.min.css"
         />
         {/* jsVectorMap CSS */}
         <link
@@ -65,7 +70,7 @@ export default function RootLayout({
         {/* Tabulator CSS (Bootstrap 5 theme) */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.5.2/dist/css/tabulator_bootstrap5.min.css"
+          href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.7.1/dist/css/tabulator_bootstrap5.min.css"
         />
         {/* Quill (rich-text editor) — Snow theme */}
         <link
@@ -80,7 +85,7 @@ export default function RootLayout({
         {/* Tom Select (advanced select) — Bootstrap 5 theme */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/css/tom-select.bootstrap5.min.css"
+          href="https://cdn.jsdelivr.net/npm/tom-select@2.7.0/dist/css/tom-select.bootstrap5.min.css"
         />
       </head>
       <body>
@@ -89,12 +94,12 @@ export default function RootLayout({
         <InertLinks />
         {/* Bootstrap JS (the bundle build already includes Popper) */}
         <Script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"
           strategy="afterInteractive"
         />
         {/* OverlayScrollbars JS */}
         <Script
-          src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js"
+          src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.17.0/browser/overlayscrollbars.browser.es6.min.js"
           strategy="afterInteractive"
         />
       </body>

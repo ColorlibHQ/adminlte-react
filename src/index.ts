@@ -7,6 +7,7 @@ export type * from './types/direct-chat'
 // Context exports
 export { SidebarProvider, useSidebarContext } from './context/sidebar-context'
 export { ColorModeProvider, useColorModeContext } from './context/color-mode-context'
+export { colorModeInitScript } from './lib/color-mode-script'
 export { CommandPaletteProvider, useCommandPalette } from './context/command-palette-context'
 export { LinkProvider, useLinkComponent } from './context/link-context'
 export type { LinkComponent, LinkProps } from './context/link-context'
